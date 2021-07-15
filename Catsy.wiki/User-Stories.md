@@ -82,10 +82,17 @@
 
 ### Discussion Board
 
-* As a logged in user, I want to be able to edit my FauxTweets by clicking an Edit button associated with the FauxTweet anywhere that FauxTweet appears.
-  * When I'm on the `/fauxtweets`, `/fauxtweets/:id`, or `/users/:id/fauxtweets` pages:
-    * I can click "Edit" to make permanent changes to FauxTweets I have posted.
-      * So that I can fix any errors I make in my FauxTweets.
+* As a logged in user, I want to be able to create my 'Scratches' (comments) about the cat by clicking an 'Scratch Post' button on the cat's page.
+  * When I'm on the `/scratch`, `/scratch/:id`, or `/users/:id/scratch` pages:
+    * I can click "Scratch Post" to write a Scratch.
+      * So that I can make a comment about a particular cat.
+
+* As a logged in user, I want to be able to edit my 'Scratches' (comments) about the cat by clicking an 'Edit' button associated with the Scratch anywhere that Scratch appears.
+   * When I'm on the `/scratch`, `/scratch/:id`, or `/users/:id/scratch` pages:
+    * I can click "Edit" to make changes to Scratches I have previously posted.
+      * So that I can fix any errors I make in my Scratch.
+
+  
 
 ### Search
 
