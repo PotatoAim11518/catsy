@@ -78,6 +78,8 @@
       * So that I can change my mind about adopting a particular cat.
     * I can press a button to empty the entire cart/box
       * So that I can start over.
+    * I can press a button to adopt the cats I have in my cart/box
+      * So that I can adopt those cats.
 
 
 ### Discussion Board
@@ -104,7 +106,13 @@
 
 ### Search
 
-* As a logged in user, I want to be able to delete my FauxTweets by clicking a Delete button associated with the FauxTweet anywhere that FauxTweet appears.
-  * When I'm on the `/fauxtweets`, `/fauxtweets/:id`, or `/users/:id/fauxtweets` pages:
-    * I can click "Delete" to permanently delete a FauxTweet I have posted.
-      * So that when I realize I shouldn't have publicly said something, I can easily remove it.
+* As a logged in or logged out user, I want to be able to search for an individual cat or by category(breed, age, size, gender).
+  * When I'm on any page: 
+    * When I click on the search bar and start typing a string to search I am presented with a list of possible matches.
+      * So that I can narrow down my what I'm searching for.
+    * When I decide what I want to search for, I can click on an option from the list, hit enter, or click the search button.
+      * So that I can see a new page populated with the results based on the search.
+    * When I enter nothing in the search bar, I am presented with a list of random cats, recent adoptions, or redirect to main page.
+      * So that I can begin exploring cats up for adoption.
+    * When I enter a string with no matches, I am presented with a new page that has a message informing of a failed search and to try a new search.
+      * So that I know what to do next.
