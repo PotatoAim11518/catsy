@@ -1,0 +1,95 @@
+# User Stories
+
+## Users
+
+### Sign Up
+
+* As an unregistered and unauthorized user, I want to be able to sign up for the website via a sign-up form.
+  * When I'm on the `/signup` page:
+    * I would like to be able to enter my email, username, and preferred password on a clearly laid out form.
+    * I would like the website to log me in upon successful completion of the sign-up form.
+      * So that I can seamlessly access the site's functionality
+  * When I enter invalid data on the sign-up form:
+    * I would like the website to inform me of the validations I failed to pass, and repopulate the form with my valid entries (except my password).
+    * So that I can try again without needing to refill forms I entered valid data into.
+
+### Log in
+
+* As a registered and unauthorized user, I want to be able to log in to the website via a log-in form.
+  * When I'm on the `/login` page:
+    * I would like to be able to enter my email and password on a clearly laid out form.
+    * I would like the website to log me in upon successful completion of the lob-up form.
+      * So that I can seamlessly access the site's functionality
+  * When I enter invalid data on the log-up form:
+    * I would like the website to inform me of the validations I failed to pass, and repopulate the form with my valid entries (except my password).
+      * So that I can try again without needing to refill forms I entered valid data into.
+
+### Demo User
+
+* As an unregistered and unauthorized user, I would like an easy to find and clear button on both the `/signup` and `/login` pages to allow me to visit the site as a guest without signing up or logging in.
+  * When I'm on either the `/signup` or `/login` pages:
+    * I can click on a Demo User button to log me in and allow me access as a normal user.
+      * So that I can test the site's features and functionality without needing to stop and enter credentials.
+
+### Log Out
+
+* As a logged in user, I want to log out via an easy to find log out button on the navigation bar.
+  * While on any page of the site:
+    * I can log out of my account and be redirected to a page displaying recent FauxTweets.
+      * So that I can easily log out to keep my information secure.
+
+## Catsy
+
+### Cat Adoption
+
+* As a logged out user, I want to be able to browse the different cats up for adoption.
+  * When I'm on the Homepage:
+    * I can see a list of clickable thumbnails of different categories
+      * So that I can explore different categories of cats up for adoption.
+
+* As a logged in or logged out user, I want to be able to view details about cats that are up for adoption.
+  * When I'm on the Homepage:
+    * I can see thumbnails of cats up for adoption that I can select
+      * So I can see a cat and details about that cat.
+  * When I'm on an individual cat's adoption page:
+    * I can see an indicator for if the cat is not up for adoption and an adopt button
+      * So that I can add it to cart/box if it is available for adoption
+      * So that I can see it's not available for adoption because the button is disabled.
+
+
+### Shopping Cart
+
+* As a logged out user, I want to be prompted to sign in or sign up if I try to adopt a cat.
+  * While on any cat's adoption page:
+    * When I click the "Adopt" button, I am taken to the sign in/ sign up page
+      * So that I can create or access my account
+      * So that I can add cats for adoption
+
+* As a logged in user, I want to be able to see the cats in my cardboard box (shopping cart) that I wish to adopt, and be able to adopt them.
+  * While on any cat's adoption page:
+    * I can click an "Adopt" button if the cat is available for adoption
+      * So that I can add it to my cart/box to prepare to adopt it.
+  * When I'm viewing my cart/box:
+    * I can see the cat's name and breed listed and its portrait
+      * So that I know basic details about the cat I'm adopting
+    * I can click on an individual cat in my cart/box to be taken to that cat's adoption page
+      * So that I can view the details about that cat
+    * I can click a button to remove specific cats that I no longer wish to adopt from my cart/box
+      * So that I can change my mind about adopting a particular cat.
+    * I can press a button to empty the entire cart/box
+      * So that I can start over.
+
+
+### Discussion Board
+
+* As a logged in user, I want to be able to edit my FauxTweets by clicking an Edit button associated with the FauxTweet anywhere that FauxTweet appears.
+  * When I'm on the `/fauxtweets`, `/fauxtweets/:id`, or `/users/:id/fauxtweets` pages:
+    * I can click "Edit" to make permanent changes to FauxTweets I have posted.
+      * So that I can fix any errors I make in my FauxTweets.
+
+### Search
+
+* As a logged in user, I want to be able to delete my FauxTweets by clicking a Delete button associated with the FauxTweet anywhere that FauxTweet appears.
+  * When I'm on the `/fauxtweets`, `/fauxtweets/:id`, or `/users/:id/fauxtweets` pages:
+    * I can click "Delete" to permanently delete a FauxTweet I have posted.
+      * So that when I realize I shouldn't have publicly said something, I can easily remove it.
