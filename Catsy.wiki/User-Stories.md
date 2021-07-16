@@ -116,3 +116,9 @@
       * So that I can begin exploring cats up for adoption.
     * When I enter a string with no matches, I am presented with a new page that has a message informing of a failed search and to try a new search.
       * So that I know what to do next.
+
+### Profile Page **BONUS**
+
+* As a logged in, I want to be able to click on my profile icon and be sent to my profile page.
+  * When I'm on my profile page:
+    * I can view all cats that I've adopted.
