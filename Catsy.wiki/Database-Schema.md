@@ -2,53 +2,125 @@
 
 ## `users`
 
-| column name | data type | details                   |
-|-------------|-----------|---------------------------|
-| id          | integer   | not null, primary key     |
-| username    | string    | not null,                 |
-| email       | string    | not null, indexed, unique |
-| created_at  | datetime  | not null                  |
-| updated-at  | datetime  | not null                  |
-
-* index on `email, unique: true`
-
-## `fauxtweets`
-
 | column name | data type | details               |
 |-------------|-----------|-----------------------|
 | id          | integer   | not null, primary key |
-| content     | string    | not null              |
-| userId      | integer   | not null, foreign key |
+| username    | string    | not null, unique      |
+| first_name  | string    | not null              |
+| last_name   | string    | not null              |
+| email       | string    | not null, unique      |
 | created_at  | datetime  | not null              |
-| updated-at  | datetime  | not null              |
+| updated_at  | datetime  | not null              |
 
-* `userId` references `users` table
-
-## `fauxcomments`
+## `ages`
 
 | column name   | data type | details               |
 |---------------|-----------|-----------------------|
 | id            | integer   | not null, primary key |
-| content       | string    | not null              |
-| userId        | integer   | not null, foreign key |
-| fauxCommentId | integer   | not null, foreign key |
+| name          | string    | not null,             |
 | created_at    | datetime  | not null              |
-| updated-at    | datetime  | not null              |
+| updated_at    | datetime  | not null              |
 
-* `userId` references `users` table
-* `fauxCommentId` references `fauxcomments` table
+## `breeds`
 
-## `fauxlikes`
+| column name   | data type | details               |
+|---------------|-----------|-----------------------|
+| id            | integer   | not null, primary key |
+| name          | string    | not null,             |
+| created_at    | datetime  | not null              |
+| updated_at    | datetime  | not null              |
 
-| column name   | data type | details                        |
-|---------------|-----------|--------------------------------|
-| id            | integer   | not null, primary key          |
-| userId        | integer   | not null, indexed, foreign key |
-| fauxTweetId   | integer   | indexed, foreign key           |
-| fauxCommentId | integer   | indexed, foreign key           |
+## `genders`
 
-* `userId` references `users` table
-* `fauxTweetId` references `fauxtweets` table
-* `fauxCommentId` references `fauxcomments` table
-* Unique index on `[userId, fauxTweetId]`
-* Unique index on `[userId, fauxCommentId]`
+| column name   | data type | details               |
+|---------------|-----------|-----------------------|
+| id            | integer   | not null, primary key |
+| name          | string    | not null,             |
+| created_at    | datetime  | not null              |
+| updated_at    | datetime  | not null              |
+
+## `sizes`
+
+| column name   | data type | details               |
+|---------------|-----------|-----------------------|
+| id            | integer   | not null, primary key |
+| name          | string    | not null,             |
+| created_at    | datetime  | not null              |
+| updated_at    | datetime  | not null              |
+
+## `coats`
+
+| column name   | data type | details               |
+|---------------|-----------|-----------------------|
+| id            | integer   | not null, primary key |
+| name          | string    | not null,             |
+| created_at    | datetime  | not null              |
+| updated_at    | datetime  | not null              |
+
+## `cats`
+
+| column name     | data type | details               |
+|-----------------|-----------|-----------------------|
+| id              | integer   | not null, primary key |
+| owner_id        | integer   | not null, foreign key |
+| name            | string    | not null              |
+| description     | string    |                       |
+| image_url       | string    | not null              |
+| age_id          | integer   | not null, foreign key |
+| breed_id        | integer   | not null, foreign key |
+| gender_id       | integer   | not null, foreign key |
+| size_id         | integer   | not null, foreign key |
+| coat_id         | integer   | not null, foreign key |
+| contact_city    | string    |                       |
+| contact_state   | string    |                       |
+| spayed_neutered | boolean   | default:false         |
+| adopted         | boolean   | default:false         |
+| created_at      | datetime  | not null              |
+| updated_at      | datetime  | not null              |
+
+* `owner_id` references `users` table
+* `age_id` references `ages` table
+* `breed_id` references `breeds` table
+* `gender_id` references `genders` table
+* `size_id` references `sizes` table
+* `coat_id` references `coats` table
+
+## `user_comment`
+
+| column name | data type | details               |
+|-------------|-----------|-----------------------|
+| id          | integer   | not null, primary key |
+| user_id     | integer   | not null, foreign key |
+| cat_id      | integer   | not null, foreign key |
+| comment     | string    | not null              |
+| created_at  | datetime  | not null              |
+| updated_at  | datetime  | not null              |
+
+* `user_id` references `users` table
+* `cat_id` references `cats` table
+
+## `adoption_sessions`
+
+| column name | data type | details               |
+|-------------|-----------|-----------------------|
+| id          | integer   | not null, primary key |
+| user_id     | integer   | not null, foreign key |
+| created_at  | datetime  | not null              |
+| updated_at  | datetime  | not null              |
+
+* `user_id` references `users` table
+
+## `cart_item`
+
+| column name | data type | details               |
+|-------------|-----------|-----------------------|
+| id          | integer   | not null, primary key |
+| user_id     | integer   | not null, foreign key |
+| cat_id      | integer   | not null, foreign key |
+| session_id  | integer   | not null, foreign key |
+| created_at  | datetime  | not null              |
+| updated_at  | datetime  | not null              |
+
+* `user_id` references `users` table
+* `cat_id` references `cats` table
+* `session_id` references `adoption_sessions` table
