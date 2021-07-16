@@ -56,6 +56,19 @@
       * So that I can add it to cart/box if it is available for adoption
       * So that I can see it's not available for adoption because the button is disabled.
 
+**BONUS**
+* As a logged in user, I want to be able to place a cat up for adoption.
+  * When I'm on any page:
+    * I am able to see and click a "Put cat up for adoption" button. 
+      * So that I can put a cat up for adoption.
+**BONUS**
+* As a logged in user, I want to be able to modify a posting for a cat I have up for adoption.
+  * When I'm on the individual cat page:
+    * I have the ability to click on the "edit" button for a posting that I own and be presented a form.
+      *So that I can modify the posting's details (e.g. name, description, location, etc.) 
+    *I have the ability to click on the "delete" button and be asked to confirm deletion.
+      *So that I can remove the posting for adoption.
+
 
 ### Shopping Cart
 
