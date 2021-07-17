@@ -1,43 +1,29 @@
 # User-facing routes
+## Log in modal ```/```
 
-## `/login`
+On any page displays a log in modal form
 
-### Log in page
-
-This page displays a log in form
-
-* `GET /login`
 * `POST /login`
 
-## `/signup`
 
-This page displays a signup form.
+## Sign up modal ```/```
 
-### Sign up page
+On any page displays a sign up modal form
 
-* `GET /signup`
 * `POST /signup`
 
-## `/`
+## Root ```/```
+![alt text](https://github.com/commanderh/catsy/blob/main/diagrams/homepage.png)
 
-This page displays the ten most recent FauxTweets and their FauxLikes, as well as a navigation bar with login/signup or logout buttons.  Each FauxTweet has an update and delete button _if it belongs to the currently logged in user_.  Logged in users can FauxLike the FauxTweets on this page.
+## Listings of Category ```/:category```
+![alt text](https://github.com/commanderh/catsy/blob/main/diagrams/catdisplay-page.png)
 
-* `GET /`
-* `POST /fauxtweets/:id/fauxlikes`
-* `DELETE /fauxtweets/:id/fauxlikes`
+## Shopping Cart ```/:shopping-cart```
+![alt text](https://github.com/commanderh/catsy/blob/main/diagrams/homepage.png)
 
-## `/fauxtweets`
+## Cat Page ```/:catId```
+![alt text](https://github.com/commanderh/catsy/blob/main/diagrams/shopping-cart.png)
 
-This page displays a form with which a logged in user can craft a new FauxTweet, as well as a navigation bar with login/signup or logout buttons.
 
-* `POST /fauxtweets`
-
-## `/fauxtweets/:id`
-
-This page displays individual FauxTweets with associated FauxComments and FauxLikes, as well as a navigation bar with login/signup or logout buttons.  If the logged in user owns the FauxTweet, this page also displays an update and delete button.  Logged in users can FauxLike the FauxTweet and FauxComments on this page, and can post FauxComments.  The logged in owners of those FauxComments can update or delete them.
-
-* `GET /fauxtweets/:id`
-* `POST /fauxtweets/:id/fauxlikes`
-* `DELETE /fauxtweets/:id/fauxlikes`
-* `POST /fauxtweets/:id/fauxcomments`
-* `DELETE /fauxtweets/:id/fauxcomments`
+## Search ```/:search```
+![alt text](https://github.com/commanderh/catsy/blob/main/diagrams/search-withresults.png)
