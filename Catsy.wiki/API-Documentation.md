@@ -2,17 +2,32 @@
 
 This web app uses the following API routes to dynamically update the page to create a single-page-app-like feel for the user for specific features.
 
-## FauxComments
+## Homepage
 
-* A logged in user may delete one of their own FauxComments, removing it from the list of visible FauxComments without causing a refresh/redirect.
+## Login
 
-  * `DELETE /api/fauxcomments/:id`
+## Signup
 
-## FauxLikes
+## Demo User
 
-* A logged in user can FauxLike or FauxUnlike a FauxTweet or FauxComment with visible confirmation without causing a refresh/redirect.
-  
-  * `POST /api/fauxtweets/:id/likes`
-  * `POST /api/fauxcomments/:id/likes`
-  * `DELETE /api/fauxtweets/:id/likes`
-  * `DELETE /api/fauxcomments/:id/likes`
+## Logout
+
+## Cats
+
+## Cardboard Box (Shopping Cart)
+
+* A logged in user can view, add, and remove cats they wish to adopt into the Cardboard Box.
+  * `GET /api/cart_item/:id`
+  * `POST /api/cart_item/add`
+  * `DELETE /api/cart_item/remove`
+
+* When a logged in user adds a cat for adoption, a session cart is created; when the cart is cleared, this session cart and its associated cart_items are destroyed in a cascade. Note: session carts exist because we may wish to add things like cart totals in the future.
+  * `GET /api/adoption_sessions/:id`
+  * `POST /api/adoption_sessions`
+  * `DELETE /api/adoption_sessions/:id`
+
+## Comments (Scratches)
+
+## Search
+
+## Bonus: Profile Page
