@@ -1,3 +1,4 @@
+from sqlalchemy.orm import relationship
 from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
@@ -10,6 +11,10 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
+
+    cats = relationship("Cat", back_populates="owner")
+    comment = relationship("User_Comment", back_populates="user")
+    cart_items = relationship("Cart_Item", back_populates="user")
 
     @property
     def password(self):
