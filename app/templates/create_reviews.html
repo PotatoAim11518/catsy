@@ -1,4 +1,15 @@
 {% extends "layout.html" %}
+<!-- not sure if the above is correct -->
 {% block content %}
-
+<form method="POST" action="/reviews/new">
+    <div>
+      {{ form.csrf_token }}
+      {{ form.title.label }} {{ form.title }}
+    <div>
+      {{ form.comment.label }} {{ form.comment }}
+    </div>
+    <div>
+      {{ form.submit }}
+    </div>
+  </form>
 {% endblock content %}
