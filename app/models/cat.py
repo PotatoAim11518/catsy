@@ -20,8 +20,8 @@ class Cat(db.Model, UserMixin):
     contact_state = db.Column(db.String(2))
     spayed_neutered = db.Column(db.Boolean(create_constraint=False))
     adopted = db.Column(db.Boolean(create_constraint=False))
-    created_at = db.Column(db.DateTime, default=db.func.now())
-    updated_at = db.Column(db.DateTime, default=db.func.now(), onupdate=db.func.now())
+    created_at = db.Column(db.DateTime, nullable=False, default=db.func.now())
+    updated_at = db.Column(db.DateTime, nullable=False, default=db.func.now(), onupdate=db.func.now())
 
     age = relationship("Age")
     breed = relationship("Breed")
