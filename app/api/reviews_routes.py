@@ -1,18 +1,19 @@
-from flask import Blueprint, jsonify, session, render_template, redirect
+from flask import Blueprint, jsonify, session, request, render_template, redirect
 from flask_login import login_required
 from app.models import User_Comment, db
 from app.forms import PostReview
 
+
 reviews_routes = Blueprint('reviews', __name__)
 
 
-@reviews_routes.route('/reviews/<int:id>')
+@reviews_routes.route('/cats/reviews/<int:id>')
 def reviews(id):
     review = User_Comment.query.get_or_404(id)
-    return render_template('cats-page.html', review=review)
+    return
 
 
-@reviews_routes.route('/reviews/new', methods=['GET', 'POST'])
+@reviews_routes.route('/cats/reviews/new', methods=['GET', 'POST'])
 @login_required
 def new_review():
     form = PostReview()
@@ -22,10 +23,10 @@ def new_review():
         db.session.add(review)
         db.session.commit()
         return redirect ('/cats/<int:id>')
-    return render_template('reviews_form.html', form=form)
+    return
 
 
-@reviews_routes.route('/reviews/<int:id>/update', methods=['GET', 'POST'])
+@reviews_routes.route('/cats/reviews/<int:id>/update', methods=['GET', 'POST'])
 @login_required
 def update_review(id):
     review = User_Comment.query.get_or_404(id)
@@ -38,7 +39,7 @@ def update_review(id):
         return redirect('/cats/<int:id>')
     elif request.method == 'GET':
         form.content.data = review.content
-    return render_template('reviews_form.html', form=form)
+    return 
 
 
 @reviews_routes.route('/reviews/<int:id>/delete', methods=['POST'])
