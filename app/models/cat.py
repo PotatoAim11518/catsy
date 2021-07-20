@@ -21,7 +21,8 @@ class Cat(db.Model, UserMixin):
     spayed_neutered = db.Column(db.Boolean(create_constraint=False))
     adopted = db.Column(db.Boolean(create_constraint=False))
     created_at = db.Column(db.DateTime, nullable=False, default=db.func.now())
-    updated_at = db.Column(db.DateTime, nullable=False, default=db.func.now(), onupdate=db.func.now())
+    updated_at = db.Column(db.DateTime, nullable=False,
+                           default=db.func.now(), onupdate=db.func.now())
 
     age = relationship("Age")
     breed = relationship("Breed")
@@ -33,23 +34,22 @@ class Cat(db.Model, UserMixin):
     comment = relationship("User_Comment", back_populates="cat")
     cart_entry = relationship("Cart_Item", back_populates="cat")
 
-
-def to_dict(self):
-	return {
-		'id': self.id,
-		'owner_id': self.owner_id,
-		'name': self.name,
-		'description': self.description,
-		'image_url': self.image_url,
-		'age_id': self.age_id,
-		'breed_id': self.breed_id,
-		'gender_id': self.gender_id,
-		'size_id': self.size_id,
-		'coat_id': self.coat_id,
-		'contact_city': self.contact_city,
-		'contact_state': self.contact_state,
-		'spayed_neutered': self.spayed_neutered,
-		'adopted': self.adopted,
-		'created_at': self.created_at,
-		'updated_at': self.updated_at
-	}
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'owner_id': self.owner_id,
+            'name': self.name,
+            'description': self.description,
+            'image_url': self.image_url,
+            'age_id': self.age_id,
+            'breed_id': self.breed_id,
+            'gender_id': self.gender_id,
+            'size_id': self.size_id,
+            'coat_id': self.coat_id,
+            'contact_city': self.contact_city,
+            'contact_state': self.contact_state,
+            'spayed_neutered': self.spayed_neutered,
+            'adopted': self.adopted,
+            'created_at': self.created_at,
+            'updated_at': self.updated_at
+        }
