@@ -1,1 +1,24 @@
 /* TODO Add site wide styles */
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+html, body, div, 
+h1, h2, h3, h4, 
+h5, h6, p, blockquote, 
+img, ol, ul, li, 
+input, label, select, 
+table, tbody, tfoot, thead, tr, th, td, 
+footer, header, menu, nav {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 1rem;
+  list-style: none;
+  font-family: Nanum Myeongjo, serif;
+}
