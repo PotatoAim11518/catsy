@@ -1,7 +1,7 @@
 """empty message
 
 Revision ID: 96343d4eb3b4
-Revises: 
+Revises:
 Create Date: 2021-07-19 13:39:56.822972
 
 """
@@ -77,7 +77,7 @@ def upgrade():
     sa.Column('owner_id', sa.Integer(), nullable=True),
     sa.Column('name', sa.String(length=50), nullable=False),
     sa.Column('description', sa.String(length=2000), nullable=True),
-    sa.Column('image_url', sa.String(length=2000), nullable=False),
+    sa.Column('image_url', sa.String(length=2000), nullable=True),
     sa.Column('age_id', sa.Integer(), nullable=True),
     sa.Column('breed_id', sa.Integer(), nullable=True),
     sa.Column('gender_id', sa.Integer(), nullable=True),
