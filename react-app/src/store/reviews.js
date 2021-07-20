@@ -80,3 +80,39 @@ const initialState = {
 };
 
 
+const reviews_reducer = (state = initialState, action) => {
+    switch (action.type) {
+        case NEW_REVIEW: {
+            const new_state = {
+                ...state,
+                review: action.payload
+            };
+            return new_state;
+        }
+        case GET_REVIEWS: {
+            const new_state = {
+                ...state,
+                list: action.payload
+            };
+            return new_state;
+        }
+        case DELETE_REVIEW: {
+            const new_state = {
+                ...state,
+                list: state.list.filter(review => review.id !== action.payload.id)
+            };
+            return new_state;
+        }
+        case UPDATE_REVIEW: {
+            const new_state = {
+                ...state,
+                current_review: action.payload
+            };
+            return new_state;
+        }
+        default:
+            return state;
+    }
+}
+
+export default reviews_reducer;
