@@ -6,14 +6,12 @@ cat_routes = Blueprint('cats', __name__)
 
 
 @cat_routes.route('/')
-# @login_required
-def users():
-    users = User.query.all()
-    return {'users': [user.to_dict() for user in users]}
+def cats():
+    cats = Cat.query.all()
+    return {'cats': [cat.to_dict() for cat in cats]}
 
 
-@user_routes.route('/<int:id>')
-@login_required
-def user(id):
-    user = User.query.get(id)
-    return user.to_dict()
+@cat_routes.route('/<int:id>')
+def cat(id):
+    cat = Cat.query.get(id)
+    return cat.to_dict()
