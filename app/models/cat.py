@@ -10,7 +10,7 @@ class Cat(db.Model, UserMixin):
     owner_id = db.Column(db.Integer, db.ForeignKey("users.id"))
     name = db.Column(db.String(50), nullable=False)
     description = db.Column(db.String(2000))
-    image_url = db.Column(db.String(2000), nullable=False)
+    image_url = db.Column(db.String(2000))
     age_id = db.Column(db.Integer, db.ForeignKey("ages.id"))
     breed_id = db.Column(db.Integer, db.ForeignKey("breeds.id"))
     gender_id = db.Column(db.Integer, db.ForeignKey("genders.id"))
