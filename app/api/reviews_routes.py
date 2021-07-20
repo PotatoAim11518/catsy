@@ -8,13 +8,13 @@ from app.api.auth_routes import validation_errors_to_error_messages
 reviews_routes = Blueprint('reviews', __name__)
 
 
-@reviews_routes.route('/cats/reviews/<int:id>')
+@reviews_routes.route('/cats//<int:id>/reviews/')
 def reviews(id):
     review = User_Comment.query.get_or_404(id)
     return review.to_dict()
 
 
-@reviews_routes.route('/cats/reviews/new', methods=['GET', 'POST'])
+@reviews_routes.route('/cats//<int:id>/reviews/new', methods=['GET', 'POST'])
 @login_required
 def new_review():
     form = PostReview()
@@ -27,7 +27,7 @@ def new_review():
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
-@reviews_routes.route('/cats/reviews/<int:id>/update', methods=['GET', 'POST'])
+@reviews_routes.route('/cats//<int:id>/reviews/<int:id>/update', methods=['GET', 'POST'])
 @login_required
 def update_review(id):
     review = User_Comment.query.get_or_404(id)

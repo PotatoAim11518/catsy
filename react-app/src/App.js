@@ -5,12 +5,14 @@ import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import Navbar from './components/Navbar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
+import { Reviews } from './components/Reviews/Reviews_Form';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
+  const [reviews, setReviews] = useState([]);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -24,10 +26,20 @@ function App() {
     return null;
   }
 
+  useEffect(() => {
+    fetch('/cats/reviews/id', {
+
+
+
+
+
   return (
     <BrowserRouter>
       <Navbar />
       {/* <Switch>
+        <Route path='/cats/reviews' exact={true}>
+          <Reviews reviews={reviews} />
+        </Route>
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
