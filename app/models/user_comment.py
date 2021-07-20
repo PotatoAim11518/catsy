@@ -17,3 +17,15 @@ class User_Comment(db.Model, UserMixin):
     cat = relationship("Cat", back_populates="comment")
 
 
+<<<<<<< HEAD
+=======
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'user_id': self.user_id,
+            'cat_id': self.cat_id,
+            'comment': self.comment,
+            'created_at': self.created_at,
+            'updated_at': self.updated_at
+        }
+>>>>>>> main
