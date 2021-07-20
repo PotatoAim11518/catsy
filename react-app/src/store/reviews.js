@@ -3,6 +3,7 @@ import { csrfFetch } from './csrf';
 const NEW_REVIEW = 'cats/reviews/new'
 const GET_REVIEWS = 'cats/reviews/get'
 const DELETE_REVIEW = 'cats/reviews/delete'
+const UPDATE_REVIEW = 'cats/reviews/update'
 
 const new_review = (payload) => {(
     type: NEW_REVIEW,
@@ -19,8 +20,13 @@ const delete_review = (payload) => { (
     payload
 )};
 
+const update_review = (payload) => {(
+    type: UPDATE_REVIEW,
+    payload
+)};
 
-export const new_review_form = (payload) => async (dispatch) => {
+
+export const add_review = (payload) => async (dispatch) => {
     const response = await csrfFetch(`/api/reviews_routes`, {
         method: 'POST',
         headers: {
@@ -40,18 +46,37 @@ export const get_all_reviews = () => async (dispatch) => {
     const response = await csrfFetch(`/api/reviews_routes`);
 
     if (response.ok) {
-        const data = await response.json();
-        dispatch(get_reviews(data));
+        const review = await response.json();
+        dispatch(get_reviews(review));
         return 'SUCCESS'
     }
 }
 
-
-export const remove_comment = (id) => async (dispatch) => {
+export const remove_review = (id) => async (dispatch) => {
     const response = await csrfFetch(`/api/reviews_routes/${id}`, {
         method: 'DELETE',
     });
-    const data = await response.json();
-    dispatch(delete_review(data));
+    const review = await response.json();
+    dispatch(delete_review(review));
     return 'DELETED'
 };
+
+export const edit_review = (payload) => async (dispatch) => {
+    const response = await csrfFetch(`/api/reviews_routes`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+    });
+    const review = await response.json();
+    dispatch(update_review(review));
+    return 'SUCCESS'
+}
+
+const initialState = {
+    list: [],
+    current_review: null
+};
+
+
