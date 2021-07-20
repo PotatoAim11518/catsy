@@ -8,13 +8,13 @@ from app.api.auth_routes import validation_errors_to_error_messages
 reviews_routes = Blueprint('reviews', __name__)
 
 
-@reviews_routes.route('/cats//<int:id>/reviews/')
-def reviews(id):
-    review = User_Comment.query.get_or_404(id)
+@reviews_routes.route('/')
+def reviews():
+    review = User_Comment.query.all()
     return review.to_dict()
 
 
-@reviews_routes.route('/cats//<int:id>/reviews/new', methods=['GET', 'POST'])
+@reviews_routes.route('/new', methods=['GET', 'POST'])
 @login_required
 def new_review():
     form = PostReview()
@@ -23,11 +23,11 @@ def new_review():
         form.populate_obj(review)
         db.session.add(review)
         db.session.commit()
-        return review.to_dict()
+        return redirect('/')
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
-@reviews_routes.route('/cats//<int:id>/reviews/<int:id>/update', methods=['GET', 'POST'])
+@reviews_routes.route('/update', methods=['PUT'])
 @login_required
 def update_review(id):
     review = User_Comment.query.get_or_404(id)
@@ -37,13 +37,13 @@ def update_review(id):
     if form.validate_on_submit():
         review.content = form.content.data
         db.session.commit()
-        return redirect('/cats/<int:id>')
+        return redirect('/cats')
     elif request.method == 'GET':
         form.content.data = review.content
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
-@reviews_routes.route('/reviews/<int:id>/delete', methods=['POST'])
+@reviews_routes.route('/delete', methods=['POST'])
 @login_required
 def delete_review(id):
     review = User_Comment.query.get_or_404(id)
@@ -51,4 +51,4 @@ def delete_review(id):
         return redirect('/login')
     db.session.delete(review)
     db.session.commit()
-    return redirect('/cats/<int:id>')
+    return redirect('/')

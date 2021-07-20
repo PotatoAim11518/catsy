@@ -16,7 +16,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    (async() => {
+    (async () => {
       await dispatch(authenticate());
       setLoaded(true);
     })();
@@ -25,12 +25,6 @@ function App() {
   if (!loaded) {
     return null;
   }
-
-  useEffect(() => {
-    fetch('/cats/reviews/id', {
-
-
-
 
 
   return (

@@ -1,33 +1,31 @@
-import { csrfFetch } from './csrf';
-
-const NEW_REVIEW = 'cats/reviews/new'
+const NEW_REVIEW = '/cats/reviews/new'
 const GET_REVIEWS = 'cats/reviews/get'
 const DELETE_REVIEW = 'cats/reviews/delete'
 const UPDATE_REVIEW = 'cats/reviews/update'
 
-const new_review = (payload) => {(
+const new_review = (payload) => ({
     type: NEW_REVIEW,
     payload
-)};
+});
 
-const get_reviews = (payload) => {(
+const get_reviews = (payload) => ({
     type: GET_REVIEWS,
     payload
-)};
+});
 
-const delete_review = (payload) => { (
+const delete_review = (payload) => ({
     type: DELETE_REVIEW,
     payload
-)};
+});
 
-const update_review = (payload) => {(
+const update_review = (payload) => ({
     type: UPDATE_REVIEW,
     payload
-)};
+});
 
 
 export const add_review = (payload) => async (dispatch) => {
-    const response = await csrfFetch(`/api/reviews_routes`, {
+    const response = await fetch(`/api/reviews/new`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -43,7 +41,7 @@ export const add_review = (payload) => async (dispatch) => {
 }
 
 export const get_all_reviews = () => async (dispatch) => {
-    const response = await csrfFetch(`/api/reviews_routes`);
+    const response = await fetch(`/api/reviews`);
 
     if (response.ok) {
         const review = await response.json();
@@ -53,7 +51,7 @@ export const get_all_reviews = () => async (dispatch) => {
 }
 
 export const remove_review = (id) => async (dispatch) => {
-    const response = await csrfFetch(`/api/reviews_routes/${id}`, {
+    const response = await fetch(`/api/reviews/delete`, {
         method: 'DELETE',
     });
     const review = await response.json();
@@ -62,7 +60,7 @@ export const remove_review = (id) => async (dispatch) => {
 };
 
 export const edit_review = (payload) => async (dispatch) => {
-    const response = await csrfFetch(`/api/reviews_routes`, {
+    const response = await fetch(`/api/reviews/update`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',

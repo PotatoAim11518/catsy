@@ -15,3 +15,5 @@ class User_Comment(db.Model, UserMixin):
 
     user = relationship("User", back_populates="comment")
     cat = relationship("Cat", back_populates="comment")
+
+
