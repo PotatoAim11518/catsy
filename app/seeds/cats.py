@@ -1,7 +1,7 @@
 from app.models import db, Cat
 
 
-def seed_breeds():
+def seed_cats():
     cats = [
         {'owner_id': 8, 'name': 'Avery', 'description': 'Avery is so affectionate. He loves to flop over and have his belly rubbed. He purrs all the time, though...', 'breed': 'Domestic Short Hair', 'image_url': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/20285321/2/?bust=1457499659', 'age_id': 3, 'breed_id': 26, 'gender_id': 1, 'size_id': 3, 'coat_id': 2, 'contact_city': 'Long Beach', 'contact_state': 'CA', 'spayed_neutered': True, 'adopted': False},
         {'owner_id': 11, 'name': 'Barn Cats', 'description': 'Sometimes a cat doesn&#039;t want to live indoors.  Indoors only is the best thing for our pet cats, but if...', 'breed': 'Domestic Short Hair', 'image_url': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/20226375/2/?bust=1611967686', 'age_id': 3, 'breed_id': 26, 'gender_id': 2, 'size_id': 2, 'coat_id': 2, 'contact_city': 'Raritan', 'contact_state': 'NJ', 'spayed_neutered': True, 'adopted': False},
@@ -105,7 +105,22 @@ def seed_breeds():
         {'owner_id': 4, 'name': 'Summer &amp; Winter', 'description': 'https://m.facebook.com/story.php?story_fbid=10159595930042281&amp;amp;id=548382280\n\nThe adoption fee includes spay/neuter surgery, age-appropriate vaccinations, deworming, flea-treatment, FIV/FeLV testing.\n\nPlease visit our www.catsmeownj.org to print an...', 'breed': 'Domestic Short Hair', 'image_url': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/47043617/1/?bust=1626715837', 'age_id': 2, 'breed_id': 26, 'gender_id': 2, 'size_id': 2, 'coat_id': None, 'contact_city': 'Delran', 'contact_state': 'NJ', 'spayed_neutered': True, 'adopted': False},
     ]
     for cat in cats:
-        cat_seed = Cat(cat)
+        cat_seed = Cat(
+            owner_id = cat['owner_id'],
+            name = cat['name'],
+            description = cat['description'],
+            image_url = cat['image_url'],
+            age_id = cat['age_id'],
+            breed_id = cat['breed_id'],
+            gender_id = cat['gender_id'],
+            size_id = cat['size_id'],
+            coat_id = cat['coat_id'],
+            contact_city = cat['contact_city'],
+            contact_state = cat['contact_state'],
+            spayed_neutered = cat['spayed_neutered'],
+            adopted = cat['adopted']
+        )
+
         db.session.add(cat_seed)
 
     db.session.commit()
