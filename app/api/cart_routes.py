@@ -11,18 +11,19 @@ cart_routes.register_blueprint(items)
 
 
 @cart_routes.route('/', methods=["GET", "POST"])
-# @login_required
+@login_required
 def getMyCart():
     print("CURRENT USER: ", current_user.__dict__)
     current_user_id = current_user.get_id()
+    print("CURRENT USER ID: ", current_user_id)
     cart = Adoption_Session.query.filter(Adoption_Session.user_id == current_user_id).first()
     if cart:
-        return dict(cart)
-    else:
-        user_cart = Adoption_Session(user_id=current_user_id)
-        db.session.add(user_cart)
-        db.session.commit()
-        return dict(user_cart)
+        return cart.to_dict()
+    # else:
+    #     user_cart = Adoption_Session(user_id=current_user_id)
+    #     db.session.add(user_cart)
+    #     db.session.commit()
+    #     return dict(user_cart)
 
 
 @cart_routes.route('/empty', methods=["DELETE"])
