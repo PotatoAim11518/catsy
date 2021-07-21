@@ -56,13 +56,13 @@ const initialState = {}
 const cartReducer = (state=initialState, action) => {
   switch(action.type) {
     case SET_CART:
-      const newCart = {}
-      newCart[action.cart.id] = action.cart
+      let newCart = {}
+      newCart[action.cart['id']] = action.cart
       return {...state, ...newCart}
     case ADD_CART:
-      return {...state, [action.cart.id]: action.cart};
+      return {...state, [action.cart['id']]: action.cart};
     case REMOVE_CART:
-      const newState = {...state}
+      let newState = {...state}
       delete newState[action.cart]
       return newState
     default:

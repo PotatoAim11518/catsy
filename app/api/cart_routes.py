@@ -10,11 +10,9 @@ items = Blueprint('items', __name__, url_prefix='/items')
 cart_routes.register_blueprint(items)
 
 
-@cart_routes.route('/', methods=["GET", "POST"])
+@cart_routes.route('', methods=["GET", "POST"])
 @login_required
 def getMyCart():
-    # print("+++++INSIDE ROUTE+++++")
-    # print(current_user.id)
     cart = Adoption_Session.query.filter(Adoption_Session.user_id == current_user.id).first()
 
     if cart:
@@ -40,10 +38,10 @@ def emptyCart():
 @login_required
 def getMyCartItem(id):
     item = Cart_Item.query.filter(Cart_Item.id == {id}, Cart_Item.user_id == current_user.id).first()
-    return item.to_dict()
+    return {"items": item.to_dict()}
 
 
-@items.route('/')
+@items.route('')
 @login_required
 def getMyCartItems():
     items = Cart_Item.query.filter(Cart_Item.user_id == current_user.id).all()
@@ -65,7 +63,7 @@ def addCartItem(cat_id):
         )
         db.session.add(new_cart_item)
         db.session.commit()
-        return new_cart_item.to_dict()
+        return {"items": new_cart_item.to_dict()}
     else:
         return {'message': 'Cat already in box'}
 

@@ -6,13 +6,13 @@ import CartItemList from './CartItemList';
 
 
 export default function Cart() {
-  const dispatch = useDispatch
+  const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart)
   // const cartItems = useSelector((state) => state.cart)
 
-  // useEffect(() => {
-  //   dispatch(getCart())
-  // },[dispatch])
+  useEffect(() => {
+    dispatch(getCart())
+  },[dispatch])
 
 
   return (
