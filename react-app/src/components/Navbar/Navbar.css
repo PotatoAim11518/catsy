@@ -1,0 +1,87 @@
+.nav-container {
+  display: flex;
+  justify-content :center;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  background-color: #f7c39e;
+}
+
+.nav-container > *{
+  padding: 0 20px 0 20px;
+}
+
+.nav-logo > h1#catsy {
+  font-family: Nanum Pen Script;
+  font-size: 50px;
+}
+
+.searchbar-container {
+  display: flex;
+  border: 3px solid #fce7d8;
+  border-radius: 50px;
+  width:50rem;
+  height: 40px;
+  margin-top: 10px;
+}
+
+.searchbar-container > button {
+  color: #000;
+  background-color: transparent;
+  border: none;
+  padding: .8rem 2 rem;
+  cursor: pointer;
+}
+
+.search-input {
+  width:95%;
+  background-color: transparent;
+  padding-left: 0px;
+  color: #000
+}
+
+.search-input::placeholder {
+  color: #000;
+  font-family: Nanum Pen Script;
+  letter-spacing: 2px;
+  font-size: 1.15rem;
+}
+
+
+.nav-rightside {
+  display: flex;
+  height: 35px;
+  margin-top: 13px;
+}
+
+.nav-rightside > button {
+  color: #000;
+  background-color: transparent;
+  border-radius: 50px;
+  border: 3px solid #fce7d8;
+  font-family: Nanum Pen Script;
+  letter-spacing: 2px;
+  cursor: pointer;
+  padding: 0 10px 0 10px;
+  margin: 0 5px 0 5px
+}
+
+.nav-rightside > button:hover {
+  background-color: #f3aa77;
+  color: #fff;
+}
+
+.nav-rightside .closed-box-icon {
+  border: none;
+}
+
+.nav-categories {
+  display: flex;
+  justify-content: center;
+  background-color: #f7c39e;
+}
+
+.nav-categories > li{
+  font-family: Nanum Pen Script;
+  margin: 0 40px 0 40px;
+  font-size: 1.25rem;
+}

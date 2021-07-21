@@ -22,3 +22,16 @@ footer, header, menu, nav {
   list-style: none;
   font-family: Nanum Myeongjo, serif;
 }
+
+input:focus, textarea:focus {
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+  color: #000;
+}
