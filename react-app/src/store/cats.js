@@ -20,8 +20,8 @@ export const setCats = () => async (dispatch) => {
 
 	if (response.ok) {
 		const data = await response.json();
-		console.log('****GET ALL CATS****', data)
-		dispatch(getCats(data));
+		// console.log('****GET ALL CATS****', data)
+		dispatch(getCats(data.cats));
 	}
 };
 
@@ -31,32 +31,30 @@ export const setCat = (id) => async (dispatch) => {
 
 	if (response.ok) {
 		const data = await response.json();
-		console.log('****GET A CAT****', data)
+		// console.log('****GET A CAT****', data)
 		dispatch(getCat(data));
 	}
 };
 
 //TODO Define an initial state
-const initialState = {};
+const initialState = [];
 
 //TODO Define a reducer
 function catsReducer(state = initialState, action) {
-	const newState = {}
+	const newState = []
 
 	switch (action.type) {
 		case GET_CATS:
 			action.payload.forEach((cat) => {
-			newState[action.payload.id] = action.payload;
+				newState.push(cat);
 				// newState[cat.id] = cat;
 			});
 
-			return {
-				...state,
-				...newState
-			}
+			return newState;
 
 		case GET_CAT:
-			newState[action.payload.id] = action.payload;
+			newState.push(action.payload);
+			// newState[action.payload.id] = action.payload;
 
 			return newState
 
