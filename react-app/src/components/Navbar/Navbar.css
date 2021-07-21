@@ -25,7 +25,7 @@
 }
 
 .searchbar-container > button {
-  color: #fff;
+  color: #000;
   background-color: transparent;
   border: none;
   padding: .8rem 2 rem;
@@ -36,24 +36,25 @@
   width:95%;
   background-color: transparent;
   padding-left: 0px;
-  color: #fff
+  color: #000
 }
 
 .search-input::placeholder {
-  color: #fff;
+  color: #000;
   font-family: Nanum Pen Script;
   letter-spacing: 2px;
+  font-size: 1.15rem;
 }
 
 
 .nav-rightside {
   display: flex;
   height: 35px;
-  margin-top: 10px;
+  margin-top: 13px;
 }
 
 .nav-rightside > button {
-  color: #fff;
+  color: #000;
   background-color: transparent;
   border-radius: 50px;
   border: 3px solid #fce7d8;
@@ -64,14 +65,23 @@
   margin: 0 5px 0 5px
 }
 
+.nav-rightside > button:hover {
+  background-color: #f3aa77;
+  color: #fff;
+}
+
+.nav-rightside .closed-box-icon {
+  border: none;
+}
+
 .nav-categories {
   display: flex;
   justify-content: center;
-  width: 100vw;
   background-color: #f7c39e;
 }
 
 .nav-categories > li{
   font-family: Nanum Pen Script;
-  padding: 0 25px 0 25px;
+  margin: 0 40px 0 40px;
+  font-size: 1.25rem;
 }

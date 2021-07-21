@@ -17,13 +17,17 @@ const Navbar = () => {
         <div className="nav-rightside">
           <LoginFormModal className="nav-button" />
           <SignupFormModal className="nav-button" />
+          <button className="closed-box-icon">
+            <i class="fas fa-box"></i>
+          </button>
         </div>
       </nav>
       <nav className="nav-categories">
-        <li>Category</li>
-        <li>Category</li>
-        <li>Category</li>
-        <li>Category</li>
+        <li class="has-submenu">Coats</li>
+        <li class="has-submenu">Breeds</li>
+        <li class="has-submenu">Sizes</li>
+        <li class="has-submenu">Ages</li>
+        <li class="has-submenu">Genders</li>
       </nav>
     </>
   )
