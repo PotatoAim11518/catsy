@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import LoginForm from './components/auth/LoginForm';
-import SignUpForm from './components/auth/SignUpForm';
-import Navbar from './components/Navbar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import { Reviews } from './components/Reviews/Reviews_Form';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
+import Navbar from './components/Navbar';
+import Homepage from './components/Homepage'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -30,6 +29,7 @@ function App() {
   return (
     <BrowserRouter>
       <Navbar />
+      <Homepage />
       {/* <Switch>
         <Route path='/cats/reviews' exact={true}>
           <Reviews reviews={reviews} />
