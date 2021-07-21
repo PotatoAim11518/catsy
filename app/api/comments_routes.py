@@ -7,15 +7,14 @@ from app.api.auth_routes import validation_errors_to_error_messages
 
 comments_routes = Blueprint('comments', __name__)
 
-# ------------ Get all comments ------------
+#? ------------ Get all comments ------------
 
 @comments_routes.route('/<int:cat_id>', methods=['GET'])
 def comments(cat_id):
-    # all_comments = User_Comment.query.filter(User_Comment.cat_id == cat_id).all()
-    all_comments = User_Comment.query.filter.all(User_Comment.cat_id == cat_id)
+    all_comments = User_Comment.query.filter(User_Comment.cat_id == cat_id).all()
     return {'all_comments': [comment.to_dict() for comment in all_comments]}
 
-# ------------ Post a comment ------------
+#? ------------ Post a comment ------------
 # ***** it works *****
 
 @comments_routes.route('/new', methods=['GET', 'POST'])
@@ -32,7 +31,7 @@ def new_comment():
         return comment.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
-# ------------ Update a comment ------------
+#? ------------ Update a comment ------------
 # ***** it works *****
 
 @comments_routes.route('/<int:id>/update', methods=['PUT'])
@@ -49,7 +48,7 @@ def update_comment(id):
 
 
 
-# ------------ Delete a comment ------------
+#? ------------ Delete a comment ------------
 # ***** it works *****
 
 @comments_routes.route('/<int:id>/delete', methods=['DELETE'])

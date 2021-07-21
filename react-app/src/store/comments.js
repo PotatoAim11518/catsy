@@ -23,8 +23,10 @@ const update_comment = (payload) => ({
     payload
 });
 
+//* **********************************************************/
 //----------------- Thunks -----------------//
-/***********************************************************/
+//* **********************************************************/
+
 //----------------- Get All comments ---------------//
 
 export const get_all_comments = (cat_id) => async (dispatch) => {
@@ -38,7 +40,7 @@ export const get_all_comments = (cat_id) => async (dispatch) => {
 }
 
 //----------------- Post a comment ---------------//
-// - ***** it works *****
+//* - ***** it works *****
 
 export const add_comment = (payload) => async (dispatch) => {
     const response = await fetch(`/api/comments/new`, {
@@ -58,7 +60,7 @@ export const add_comment = (payload) => async (dispatch) => {
 
 
 // --------------- Update comment --------------- //
-// - ***** it works *****
+//* - ***** it works *****
 
 export const edit_comment = (id, payload) => async (dispatch) => {
     const response = await fetch(`/api/comments/${id}/update`, {
@@ -74,7 +76,7 @@ export const edit_comment = (id, payload) => async (dispatch) => {
 }
 
 // --------------- Delete a comment --------------- //
-// - ***** it works *****
+//* - ***** it works *****
 
 export const remove_comment = (id) => async (dispatch) => {
     const response = await fetch(`/api/comments/${id}/delete`, {
