@@ -7,23 +7,23 @@ from flask_login import current_user, login_required
 
 cart_routes = Blueprint('cart', __name__)
 items = Blueprint('items', __name__, url_prefix='/items')
-cart_routes.register_blueprint(items)
+# cart_routes.register_blueprint(items)
 
 
 @cart_routes.route('/', methods=["GET", "POST"])
 @login_required
 def getMyCart():
-    print("CURRENT USER: ", current_user.__dict__)
-    current_user_id = current_user.get_id()
-    print("CURRENT USER ID: ", current_user_id)
-    cart = Adoption_Session.query.filter(Adoption_Session.user_id == current_user_id).first()
+    print("+++++INSIDE ROUTE+++++")
+    print(current_user.id)
+    cart = Adoption_Session.query.filter(Adoption_Session.user_id == current_user.id).first()
+
     if cart:
         return cart.to_dict()
-    # else:
-    #     user_cart = Adoption_Session(user_id=current_user_id)
-    #     db.session.add(user_cart)
-    #     db.session.commit()
-    #     return dict(user_cart)
+    else:
+        user_cart = Adoption_Session(user_id=current_user.id)
+        db.session.add(user_cart)
+        db.session.commit()
+        return user_cart.to_dict()
 
 
 @cart_routes.route('/empty', methods=["DELETE"])

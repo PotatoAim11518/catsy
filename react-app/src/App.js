@@ -27,15 +27,15 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Switch>
-        <Route path='/login' exact={true}>
+        {/* <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
-        </Route>
+        </Route> */}
         <ProtectedRoute path='/cart' exact={true} >
           <h1>Test</h1>
-          {/* <Cart /> */}
+          <Cart />
         </ProtectedRoute>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
