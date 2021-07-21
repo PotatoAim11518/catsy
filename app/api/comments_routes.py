@@ -8,7 +8,7 @@ from app.api.auth_routes import validation_errors_to_error_messages
 comments_routes = Blueprint('comments', __name__)
 
 #? ------------ Get all comments ------------
-
+# ***** it works *****
 @comments_routes.route('/<int:cat_id>', methods=['GET'])
 def comments(cat_id):
     all_comments = User_Comment.query.filter(User_Comment.cat_id == cat_id).all()
