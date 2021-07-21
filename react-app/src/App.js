@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import { Reviews } from './components/Reviews/Reviews_Form';
+import { Comments } from './components/Comments/Comments_Form';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
@@ -11,7 +11,7 @@ import Homepage from './components/Homepage'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
-  const [reviews, setReviews] = useState([]);
+  const [comments, setComments] = useState([]);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -32,7 +32,7 @@ function App() {
       <Homepage />
       {/* <Switch>
         <Route path='/cats/reviews' exact={true}>
-          <Reviews reviews={reviews} />
+          <Comments comments={comments} />
         </Route>
         <Route path='/login' exact={true}>
           <LoginForm />

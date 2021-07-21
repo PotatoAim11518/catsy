@@ -4,8 +4,8 @@ import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 
 
-const Reviews = ({ reviews }) => {
-    
+const Comments = ({ reviews }) => {
+
    }
 
-export default Reviews;
+export default Comments;
