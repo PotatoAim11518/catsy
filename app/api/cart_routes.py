@@ -44,7 +44,7 @@ def getMyCartItem(id):
 @items.route('')
 @login_required
 def getMyCartItems():
-    items = Cart_Item.query.filter(Cart_Item.user_id == current_user.id).all()
+    items = Cart_Item.query.options(db.joinedload('cat')).filter(Cart_Item.user_id == current_user.id).all()
     return {"items": [item.to_dict() for item in items]}
 
 

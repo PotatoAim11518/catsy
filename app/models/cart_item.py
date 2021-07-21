@@ -26,5 +26,7 @@ class Cart_Item(db.Model, UserMixin):
             'cat_id': self.cat_id,
             'session_id': self.session_id,
             'created_at': self.created_at,
-            'updated_at': self.updated_at
+            'updated_at': self.updated_at,
+            'cat': self.cat.to_dict(),
+            'user': self.user.to_dict()
         }
