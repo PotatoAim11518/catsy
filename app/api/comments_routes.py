@@ -50,13 +50,13 @@ def update_comment(id):
 
 
 # ------------ Delete a comment ------------
+# ***** it works *****
 
-@comments_routes.route('/delete/<int:id>', methods=['POST'])
+@comments_routes.route('/<int:id>/delete', methods=['DELETE'])
 @login_required
 def delete_comment(id):
     comment = User_Comment.query.get_or_404(id)
-    if comment.author != session['username'] and 'username' not in session:
-        return redirect('/login')
     db.session.delete(comment)
     db.session.commit()
-    return redirect('/')
+    print("success!")
+    return redirect ('/')

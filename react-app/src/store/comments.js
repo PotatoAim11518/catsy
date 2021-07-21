@@ -74,6 +74,7 @@ export const edit_comment = (id, payload) => async (dispatch) => {
 }
 
 // --------------- Delete a comment --------------- //
+// - ***** it works *****
 
 export const remove_comment = (id) => async (dispatch) => {
     const response = await fetch(`/api/comments/${id}/delete`, {
