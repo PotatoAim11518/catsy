@@ -1,26 +1,29 @@
-// import React, { useState, useEffect } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { useParams } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from 'react-router-dom';
 
-// import { setCat } from "../store/cats";
+import { setCat } from "../store/cats";
 
-// function CatDetail() {
-// 	const dispatch = useDispatch();
-// 	const { id } = useParams();
+function CatDetail() {
+	const dispatch = useDispatch();
+	const { id } = useParams();
 
-// 	const cat = useSelector((state) => Object.values(state.cat))
+	const cat = useSelector((state) => state.catsReducer)
+	// const cat = useSelector((state) => Object.values(state.cat))
 
-// 	useEffect(() => {
-// 		dispatch(setCat(id));
-// 	}, [dispatch, id]);
+	useEffect(() => {
+		dispatch(setCat(id));
+	}, [dispatch, id]);
 
-// 	return (
-// 		<div>
-// 			<div>
-// 				<img src={cat.image_url}></img>
-// 			</div>
-// 		</div>
-// 	);
-// }
+	return (
+		<div>
+			<div>
+				{/* CAT IMG PLACERHOLDER */}
+				{cat.image_url}
+				{/* <img src={cat.image_url} alt={cat.name} /> */}
+			</div>
+		</div>
+	);
+}
 
-// export default CatDetail;
+export default CatDetail;

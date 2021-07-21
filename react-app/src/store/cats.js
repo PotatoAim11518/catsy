@@ -32,7 +32,7 @@ export const setCat = (id) => async (dispatch) => {
 	if (response.ok) {
 		const data = await response.json();
 		// console.log('****GET A CAT****', data)
-		dispatch(getCat(data));
+		dispatch(getCat(data.cat));
 	}
 };
 
@@ -41,7 +41,7 @@ const initialState = [];
 
 //TODO Define a reducer
 function catsReducer(state = initialState, action) {
-	const newState = []
+	const newState = [];
 
 	switch (action.type) {
 		case GET_CATS:

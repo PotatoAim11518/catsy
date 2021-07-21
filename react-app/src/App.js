@@ -5,6 +5,7 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import CatsList from './components/CatsList'
+import CatDetail from './components/Cat'
 import { authenticate } from './store/session';
 import Navbar from './components/Navbar';
 import Homepage from './components/Homepage'
@@ -43,6 +44,9 @@ function App() {
         </ProtectedRoute> */}
 				<Route path='/cats' exact={true}>
 					<CatsList />
+				</Route>
+				<Route path='/cats/:id' exact={true}>
+					<CatDetail />
 				</Route>
         {/* <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>

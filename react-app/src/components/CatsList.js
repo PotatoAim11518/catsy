@@ -6,7 +6,7 @@ import { setCats } from "../store/cats";
 function CatsList() {
 	const dispatch = useDispatch();
 	const cats = useSelector((state) => state.catsReducer)
-	console.log("%%%%%%%%%%%%%", cats)
+	// console.log("%%%%%%%%%%%%%", cats)
 	useEffect(() => {
 		dispatch(setCats());
 	}, [dispatch]);
