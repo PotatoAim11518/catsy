@@ -7,7 +7,7 @@ from flask_login import current_user, login_required
 
 cart_routes = Blueprint('cart', __name__)
 items = Blueprint('items', __name__, url_prefix='/items')
-# cart_routes.register_blueprint(items)
+cart_routes.register_blueprint(items)
 
 
 @cart_routes.route('/', methods=["GET", "POST"])
@@ -38,33 +38,42 @@ def emptyCart():
 
 @items.route('/<int:id>')
 @login_required
-def getMyCartItem():
-    current_user_id = current_user.user_id
-    item = Cart_Item.query.filter(Cart_Item.id == {id} and Cart_Item.user_id == current_user_id).first()
-    return dict(item)
+def getMyCartItem(id):
+    item = Cart_Item.query.filter(Cart_Item.id == {id}, Cart_Item.user_id == current_user.id).first()
+    return item.to_dict()
+
+
+@items.route('/')
+@login_required
+def getMyCartItems():
+    items = Cart_Item.query.filter(Cart_Item.user_id == current_user.id).all()
+    return {"items": [item.to_dict() for item in items]}
+
 
 @items.route('/add', methods=["POST"])
 @login_required
-def addCartItem():
-    current_user_id = current_user.user_id
-    cart_item_id = request.cart_item.id
-    session_id = Adoption_Session.query.filter(Adoption_Session.user_id == current_user_id).first().session_id
-    item = Cart_Item(
-        user_id=current_user_id,
-        cart_item_id=cart_item_id,
-        session_id=session_id
-    )
-    db.session.add(item)
-    db.session.commit()
-    return dict(item)
+def addCartItem(cat_id):
+    cart = Adoption_Session.query.filter(Adoption_Session.user_id == current_user.id).first()
+    session_id = cart.to_dict()['session_id']
+    cart_item = Cart_Item.query.filter(Cart_Item.user_id == current_user.id, Cart_Item.cat_id == cat_id).first()
+
+    if not cart_item:
+        new_cart_item = Cart_Item(
+            user_id=current_user.id,
+            cat_id=cat_id,
+            session_id=session_id
+        )
+        db.session.add(new_cart_item)
+        db.session.commit()
+        return new_cart_item.to_dict()
+    else:
+        return {'message': 'Cat already in box'}
 
 
 @items.route('/remove', methods=["DELETE"])
 @login_required
-def removeCartItem():
-    current_user_id = current_user.user_id
-    cart_item_id = request.cart_item.id
-    item = Cart_Item.query.filter(Cart_Item.id == cart_item_id).first()
-    if current_user_id == item.user_id:
-        db.session.remove(item)
-        db.session.commit()
+def removeCartItem(item_id):
+    del_item = Cart_Item.query.filter(Cart_Item.id == item_id, Cart_Item.user_id == current_user.id).first()
+    db.session.delete(del_item)
+    db.session.commit()
+    return del_item.to_dict()
