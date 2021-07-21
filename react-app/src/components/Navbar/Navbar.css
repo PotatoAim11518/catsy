@@ -1,0 +1,74 @@
+.nav-container {
+  display: flex;
+  justify-content :center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #f7c39e;
+}
+
+.nav-container > *{
+  padding: 0 20px 0 20px;
+}
+
+.nav-logo > h1 {
+  font-family: Nanum Pen Script;
+  font-size: 30px;
+}
+
+.searchbar-container {
+  display: flex;
+  border: 3px solid #fce7d8;
+  border-radius: 50px;
+  width:40rem;
+}
+
+.searchbar-container > button {
+  color: #fff;
+  background-color: transparent;
+  border: none;
+  padding: .8rem 2 rem;
+  cursor: pointer;
+}
+
+.search-input {
+  width:95%;
+  background-color: transparent;
+  padding-left: 0px;
+  color: #fff
+}
+
+.search-input::placeholder {
+  color: #fff;
+  font-family: Nanum Pen Script;
+  letter-spacing: 2px;
+}
+
+
+.nav-rightside {
+  display: flex;
+}
+
+.nav-rightside > button {
+  color: #fff;
+  background-color: transparent;
+  border-radius: 50px;
+  border: 3px solid #fce7d8;
+  padding: .8rem 2 rem;
+  font-family: Nanum Pen Script;
+  letter-spacing: 2px;
+  cursor: pointer;
+  padding: 0 10px 0 10px;
+  margin: 0 5px 0 5px
+}
+
+.nav-categories {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  background-color: #f7c39e;
+}
+
+.nav-categories > li{
+  font-family: Nanum Pen Script;
+  padding: 0 25px 0 25px;
+}
