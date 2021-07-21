@@ -1,0 +1,7 @@
+.submenu {
+  display: none;
+}
+
+.submenu-toggle .submenu {
+  display: block;
+}

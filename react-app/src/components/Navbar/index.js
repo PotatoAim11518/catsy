@@ -1,9 +1,10 @@
-import { NavLink } from "react-router-dom"
+import { Link } from "react-router-dom"
 import LogoutButton from '../auth/LogoutButton';
 import SearchBar from "./SearchBar";
 import LoginFormModal from "./LoginFormModal";
 import SignupFormModal from "./SignupFormModal";
 import './Navbar.css'
+import './Categories.css'
 
 
 const Navbar = () => {
@@ -23,11 +24,37 @@ const Navbar = () => {
         </div>
       </nav>
       <nav className="nav-categories">
-        <li class="has-submenu">Coats</li>
-        <li class="has-submenu">Breeds</li>
-        <li class="has-submenu">Sizes</li>
-        <li class="has-submenu">Ages</li>
-        <li class="has-submenu">Genders</li>
+        <li class="has-submenu">
+          {/* TODO: For Link path: change path to display all cats within that category */}
+          <Link to="#">Age</Link>
+          <ul className="submenu">
+            <li><Link className="subitem">Placeholder</Link></li>
+          </ul>
+        </li>
+        <li class="has-submenu">
+          <Link to="#">Gender</Link>
+          <ul className="submenu">
+            <li><Link className="subitem">Placeholder</Link></li>
+          </ul>
+        </li>
+        <li class="has-submenu">
+          <Link to="#">Size</Link>
+          <ul className="submenu">
+            <li><Link className="subitem">Placeholder</Link></li>
+          </ul>
+        </li>
+        <li class="has-submenu">
+          <Link to="#">Coat</Link>
+          <ul className="submenu">
+            <li><Link className="subitem">Placeholder</Link></li>
+          </ul>
+        </li>
+        <li class="has-submenu">
+          <Link to="#">Breeds</Link>
+          <ul className="submenu">
+            <li><Link className="subitem">Placeholder</Link></li>
+          </ul>
+        </li>
       </nav>
     </>
   )
