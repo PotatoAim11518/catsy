@@ -21,7 +21,8 @@ class Cat(db.Model, UserMixin):
     spayed_neutered = db.Column(db.Boolean(create_constraint=False))
     adopted = db.Column(db.Boolean(create_constraint=False))
     created_at = db.Column(db.DateTime, nullable=False, default=db.func.now())
-    updated_at = db.Column(db.DateTime, nullable=False, default=db.func.now(), onupdate=db.func.now())
+    updated_at = db.Column(db.DateTime, nullable=False,
+                           default=db.func.now(), onupdate=db.func.now())
 
     age = relationship("Age")
     breed = relationship("Breed")
