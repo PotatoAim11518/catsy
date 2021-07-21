@@ -2,19 +2,19 @@ from werkzeug.wrappers import request
 from app.models.cat import Cat
 from flask import Blueprint
 from sqlalchemy.orm import session
-from app.models import db, Adoption_Session, Cart_Item
+from app.models import db, User, Adoption_Session, Cart_Item
 from flask_login import current_user, login_required
 
-cart = Blueprint('cart', __name__, url_prefix='/cart')
+cart_routes = Blueprint('cart', __name__)
 items = Blueprint('items', __name__, url_prefix='/items')
-cart.register_blueprint(items)
+cart_routes.register_blueprint(items)
 
 
-@cart.route('/', methods=["GET", "POST"])
-@login_required
+@cart_routes.route('/', methods=["GET", "POST"])
+# @login_required
 def getMyCart():
-    print("CURRENT USER: ", current_user)
-    current_user_id = current_user.user_id
+    print("CURRENT USER: ", current_user.__dict__)
+    current_user_id = current_user.get_id()
     cart = Adoption_Session.query.filter(Adoption_Session.user_id == current_user_id).first()
     if cart:
         return dict(cart)
@@ -25,7 +25,7 @@ def getMyCart():
         return dict(user_cart)
 
 
-@cart.route('/empty', methods=["DELETE"])
+@cart_routes.route('/empty', methods=["DELETE"])
 @login_required
 def emptyCart():
     current_user_id = current_user.user_id
