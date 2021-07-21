@@ -50,5 +50,10 @@ class Cat(db.Model, UserMixin):
             'spayed_neutered': self.spayed_neutered,
             'adopted': self.adopted,
             'created_at': self.created_at,
-            'updated_at': self.updated_at
+            'updated_at': self.updated_at,
+            'age': self.age.to_dict(),
+            'breed': self.breed.to_dict(),
+            'gender': self.gender.to_dict(),
+            'size': self.size.to_dict(),
+            'coat': (self.coat and self.coat.to_dict()) # coat can be null
         }

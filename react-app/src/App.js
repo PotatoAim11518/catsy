@@ -34,7 +34,6 @@ function App() {
           <SignUpForm />
         </Route> */}
         <ProtectedRoute path='/cart' exact={true} >
-          <h1>Test</h1>
           <Cart />
         </ProtectedRoute>
         <ProtectedRoute path='/users' exact={true} >
