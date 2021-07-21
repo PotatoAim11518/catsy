@@ -63,7 +63,7 @@ def addCartItem(cat_id):
         )
         db.session.add(new_cart_item)
         db.session.commit()
-        return {"items": new_cart_item.to_dict()}
+        return new_cart_item.to_dict()
     else:
         return {'message': 'Cat already in box'}
 

@@ -53,7 +53,7 @@ export const removeItem = (item_id) => async (dispatch) => {
 
 const initialState = {}
 
-const itemReducer = (state=initialState, action) => {
+const cartItemReducer = (state=initialState, action) => {
   switch(action.type) {
     case SET_CART_ITEMS:
       const cart_items = {}
@@ -61,17 +61,15 @@ const itemReducer = (state=initialState, action) => {
         cart_items[item['id']] = item
       });
       return {...state, ...cart_items}
-   // CONTINUE HERE ======================================
     case ADD_CART_ITEM:
-      console.log("========Inside Reducer========")
-      return {...state, [action.cart['id']]: action.cart};
+      return {...state, [action.item['id']]: action.item};
     case REMOVE_CART_ITEM:
       const newState = {...state}
-      delete newState[action.cart]
+      delete newState[action.item['id']]
       return newState
     default:
       return state;
   }
 }
 
-export default cartReducer;
+export default cartItemReducer;

@@ -1,15 +1,14 @@
 // src/components/Cart/CartItemList
-import React from 'react';
-import CartItem from './CartItem'
+import React from "react";
+import CartItem from "./CartItem";
 
-export default function CartItemList() {
-
+export default function CartItemList({ cart_items }) {
   return (
     <>
       <h2>List of Cart Items</h2>
-      <CartItem/>
-      <CartItem/>
-      <CartItem/>
+      {cart_items && cart_items.map((item) => {
+        return <CartItem item={item} />
+      })}
     </>
-  )
+  );
 }

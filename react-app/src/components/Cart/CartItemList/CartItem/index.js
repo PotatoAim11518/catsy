@@ -1,9 +1,9 @@
 // src/components/Cart/CartItem
 import React from 'react';
 
-export default function CartItem() {
+export default function CartItem({item}) {
 
   return (
-    <p>One Cart Item</p>
+    <p>{item.cat_id}</p>
   )
 }
