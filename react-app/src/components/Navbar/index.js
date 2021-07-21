@@ -15,13 +15,16 @@ const Navbar = () => {
         </div>
         <SearchBar />
         <div className="nav-rightside">
-          <LoginFormModal className="nav-button"/>
-          <SignupFormModal className="nav-button"/>
+          <LoginFormModal className="nav-button" />
+          <SignupFormModal className="nav-button" />
         </div>
       </nav>
-      <div>
-        
-      </div>
+      <nav className="nav-categories">
+        <li>Category</li>
+        <li>Category</li>
+        <li>Category</li>
+        <li>Category</li>
+      </nav>
     </>
   )
 };
