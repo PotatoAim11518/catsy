@@ -11,7 +11,7 @@ const Navbar = () => {
     <>
       <nav className="nav-container">
         <div className="nav-logo">
-          <h1>Catsy</h1>
+          <h1 id="catsy">Catsy</h1>
         </div>
         <SearchBar />
         <div className="nav-rightside">
