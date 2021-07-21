@@ -13,8 +13,8 @@ items = Blueprint('items', __name__, url_prefix='/items')
 @cart_routes.route('/', methods=["GET", "POST"])
 @login_required
 def getMyCart():
-    print("+++++INSIDE ROUTE+++++")
-    print(current_user.id)
+    # print("+++++INSIDE ROUTE+++++")
+    # print(current_user.id)
     cart = Adoption_Session.query.filter(Adoption_Session.user_id == current_user.id).first()
 
     if cart:
@@ -29,12 +29,11 @@ def getMyCart():
 @cart_routes.route('/empty', methods=["DELETE"])
 @login_required
 def emptyCart():
-    current_user_id = current_user.user_id
-    cart = Adoption_Session.query.filter(Adoption_Session.user_id == current_user_id).first()
+    cart = Adoption_Session.query.filter(Adoption_Session.user_id == current_user.id).first()
     if cart:
         db.session.delete(cart)
         db.session.commit()
-        return dict(cart)
+        return cart.to_dict()
 
 
 @items.route('/<int:id>')

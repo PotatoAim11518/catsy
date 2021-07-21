@@ -16,7 +16,7 @@ class Cart_Item(db.Model, UserMixin):
     user = relationship("User", back_populates="cart_items")
     cat = relationship("Cat", back_populates="cart_entry")
 
-    cart = relationship("Adoption_Session")
+    cart = relationship("Adoption_Session", back_populates="cart_items")
 
 
     def to_dict(self):
