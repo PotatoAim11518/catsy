@@ -74,14 +74,3 @@
   border: none;
 }
 
-.nav-categories {
-  display: flex;
-  justify-content: center;
-  background-color: #f7c39e;
-}
-
-.nav-categories > li{
-  font-family: Nanum Pen Script;
-  margin: 0 40px 0 40px;
-  font-size: 1.25rem;
-}
