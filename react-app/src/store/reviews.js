@@ -23,6 +23,22 @@ const update_review = (payload) => ({
     payload
 });
 
+//----------------- Thunks -----------------//
+/***********************************************************/
+//----------------- Get All Reviews ---------------//
+
+export const get_all_reviews = (cat_id) => async (dispatch) => {
+    const response = await fetch(`/api/reviews/${cat_id}`);
+
+    if (response.ok) {
+        const comment = await response.json();
+        dispatch(get_reviews(comment));
+        return 'SUCCESS'
+    }
+}
+
+//----------------- Post a Review ---------------//
+// - ***** it works *****
 
 export const add_review = (payload) => async (dispatch) => {
     const response = await fetch(`/api/reviews/new`, {
@@ -40,18 +56,26 @@ export const add_review = (payload) => async (dispatch) => {
     }
 }
 
-export const get_all_reviews = () => async (dispatch) => {
-    const response = await fetch(`/api/reviews`);
 
-    if (response.ok) {
-        const review = await response.json();
-        dispatch(get_reviews(review));
-        return 'SUCCESS'
-    }
+// --------------- Update Review --------------- //
+
+export const edit_review = (id) => async (dispatch) => {
+    const response = await fetch(`/api/reviews/update/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(id),
+    });
+    const review = await response.json();
+    dispatch(update_review(review));
+    return 'SUCCESS'
 }
 
+// --------------- Delete a Review --------------- //
+
 export const remove_review = (id) => async (dispatch) => {
-    const response = await fetch(`/api/reviews/delete`, {
+    const response = await fetch(`/api/reviews/${id}/delete`, {
         method: 'DELETE',
     });
     const review = await response.json();
@@ -59,24 +83,13 @@ export const remove_review = (id) => async (dispatch) => {
     return 'DELETED'
 };
 
-export const edit_review = (payload) => async (dispatch) => {
-    const response = await fetch(`/api/reviews/update`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload),
-    });
-    const review = await response.json();
-    dispatch(update_review(review));
-    return 'SUCCESS'
-}
 
 const initialState = {
     list: [],
     current_review: null
 };
 
+//----------------- Reducers -----------------//
 
 const reviews_reducer = (state = initialState, action) => {
     switch (action.type) {
