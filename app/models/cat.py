@@ -24,13 +24,14 @@ class Cat(db.Model, UserMixin):
     updated_at = db.Column(db.DateTime, nullable=False,
                            default=db.func.now(), onupdate=db.func.now())
 
-    age = relationship("Age")
-    breed = relationship("Breed")
-    gender = relationship("Gender")
-    size = relationship("Size")
-    coat = relationship("Coat")
+    owner = relationship("User", back_populates="cats", lazy="joined", innerjoin=True)
 
-    owner = relationship("User", back_populates="cats")
+    age = relationship("Age", lazy="joined", innerjoin=True)
+    breed = relationship("Breed", lazy="joined", innerjoin=True)
+    gender = relationship("Gender", lazy="joined", innerjoin=True)
+    size = relationship("Size", lazy="joined", innerjoin=True)
+    coat = relationship("Coat", lazy="select", innerjoin=True)
+
     comment = relationship("User_Comment", back_populates="cat")
     cart_entry = relationship("Cart_Item", back_populates="cat")
 
@@ -51,5 +52,11 @@ class Cat(db.Model, UserMixin):
             'spayed_neutered': self.spayed_neutered,
             'adopted': self.adopted,
             'created_at': self.created_at,
-            'updated_at': self.updated_at
+            'updated_at': self.updated_at,
+            'age': self.age.to_dict(),
+            'breed': self.breed.to_dict(),
+            'gender': self.gender.to_dict(),
+            'size': self.size.to_dict(),
+            'coat': (self.coat and self.coat.to_dict()), # coat can be null
+            'owner': self.owner.to_dict()
         }

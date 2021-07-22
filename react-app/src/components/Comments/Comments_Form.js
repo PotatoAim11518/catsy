@@ -5,6 +5,7 @@ import { add_comment } from "../../store/comments";
 import * as sessionActions from "../../store/session";
 
 
+
 export const Comments = ({ catScratch }) => {
    const dispatch = useDispatch();
    const user = useSelector(state => state.session.user);

@@ -19,11 +19,3 @@
   position: relative;
   bottom: 2.5px;
 }
-
-.submenu {
-  display: none;
-}
-
-.submenu-toggle .submenu {
-  display: block;
-}

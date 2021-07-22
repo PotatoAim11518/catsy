@@ -13,10 +13,10 @@ class Cart_Item(db.Model, UserMixin):
     created_at = db.Column(db.DateTime, nullable=False, default=db.func.now())
     updated_at = db.Column(db.DateTime, nullable=False, default=db.func.now(), onupdate=db.func.now())
 
-    user = relationship("User", back_populates="cart_items")
-    cat = relationship("Cat", back_populates="cart_entry")
+    user = relationship("User", back_populates="cart_items", lazy="joined", innerjoin=True)
+    cat = relationship("Cat", back_populates="cart_entry", lazy="joined", innerjoin=True)
 
-    cart = relationship("Adoption_Session")
+    cart = relationship("Adoption_Session", back_populates="cart_items")
 
 
     def to_dict(self):
@@ -26,5 +26,7 @@ class Cart_Item(db.Model, UserMixin):
             'cat_id': self.cat_id,
             'session_id': self.session_id,
             'created_at': self.created_at,
-            'updated_at': self.updated_at
+            'updated_at': self.updated_at,
+            'cat': self.cat.to_dict(),
+            'user': self.user.to_dict()
         }

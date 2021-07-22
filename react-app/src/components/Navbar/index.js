@@ -1,24 +1,43 @@
-import { Link } from "react-router-dom"
+import { Link, Redirect, useHistory } from "react-router-dom"
 import SearchBar from "./SearchBar";
 import LoginFormModal from "./LoginFormModal";
 import SignupFormModal from "./SignupFormModal";
 import ProfileButton from "./ProfileButton";
 import './Navbar.css'
 import './Categories.css'
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { getAges, getSizes, getCoats, getBreeds, getGenders } from '../../store/categories';
+// import * as categories 
 
 
 const Navbar = () => {
+  const dispatch = useDispatch();
+  const [showMenu, setShowMenu] = useState(false);
   //Allows access to the store to grab the state
   const user = useSelector(state => state.session.user)
+  const categories = useSelector(state => state.categories)
+  const history = useHistory();
+
+  const goToCart = () => {
+    history.push('/cart')
+  }
+
+  useEffect(() => {
+    dispatch(getAges());
+    dispatch(getSizes());
+    dispatch(getCoats());
+    dispatch(getBreeds());
+    dispatch(getGenders());
+  }, [dispatch])
 
   let userRender;
   if (user) {
     userRender = (
       <>
-        <ProfileButton user={user}/>
+        <ProfileButton user={user} />
         <button className="closed-box-icon">
-          <i class="fas fa-box-open"></i>
+          <i onClick={goToCart} class="fas fa-box-open"></i>
         </button>
       </>
     )
@@ -33,6 +52,21 @@ const Navbar = () => {
       </>
     )
   }
+  
+  console.log("AGES CATEGORY",categories.ages)
+
+  const showAgesDropDown = () => {
+    console.log("DOES THIS WORK?")
+    if (showMenu) return;
+    setShowMenu(true);
+    return (
+      categories.ages.map(age => (
+        <div>{age}</div>
+      ))
+    )
+  }
+
+
   return (
     <>
       <nav className="nav-container">
@@ -45,53 +79,33 @@ const Navbar = () => {
         </div>
       </nav>
       <nav className="nav-categories">
-        <li class="has-submenu">
-          {/* TODO: For Link path: change path to display all cats within that category */}
-          <div className="category">
-            <Link to="#">Age</Link>
-            <i class="fas fa-sort-down"></i>
-          </div>
-          <ul className="submenu">
-            <li><Link className="subitem">Placeholder</Link></li>
-          </ul>
-        </li>
-        <li class="has-submenu">
-          <div className="category">
-            <Link to="#">Gender</Link>
-            <i class="fas fa-sort-down"></i>
-          </div>
-          <ul className="submenu">
-            <li><Link className="subitem">Placeholder</Link></li>
-          </ul>
-        </li>
-        <li class="has-submenu">
-          <div className="category">
-            <Link to="#">Size</Link>
-            <i class="fas fa-sort-down"></i>
-          </div>
-          <ul className="submenu">
-            <li><Link className="subitem">Placeholder</Link></li>
-          </ul>
-        </li>
-        <li class="has-submenu">
-          <div className="category">
-            <Link to="#">Coats</Link>
-            <i class="fas fa-sort-down"></i>
-          </div>
-          <ul className="submenu">
-            <li><Link className="subitem">Placeholder</Link></li>
-          </ul>
-        </li>
-        <li class="has-submenu">
-          <div className="category">
-            <Link to="#">Breeds</Link>
-            <i class="fas fa-sort-down"></i>
-          </div>
-          <ul className="submenu">
-            <li><Link className="subitem">Placeholder</Link></li>
-          </ul>
-        </li>
+        {/* TODO: For Link path: change path to display all cats within that category */}
+        <div className="category" onMouseEnter={showAgesDropDown}>
+          <Link to="#">Age</Link>
+          <i class="fas fa-sort-down"></i>
+        </div>
+        <div className="category" onMouseEnter={() => null}>
+          <Link to="#">Gender</Link>
+          <i class="fas fa-sort-down"></i>
+        </div>
+        <div className="category" onMouseEnter={() => null}>
+          <Link to="#">Size</Link>
+          <i class="fas fa-sort-down"></i>
+        </div>
+        <div className="category" onMouseEnter={() => null}>
+          <Link to="#">Coats</Link>
+          <i class="fas fa-sort-down"></i>
+        </div>
+        <div className="category" onMouseEnter={() => null}>
+          <Link to="#">Breeds</Link>
+          <i class="fas fa-sort-down"></i>
+        </div>
       </nav>
+      {showMenu && (
+      categories.ages.map(age => (
+        <div onMouseLeave={null}>{age}</div>
+      ))
+      )}
     </>
   )
 };
