@@ -5,6 +5,7 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import { Comments } from './components/Comments/Comments_Form';
 import UsersList from './components/UsersList';
 import User from './components/User';
+import Cart from './components/Cart'
 import { authenticate } from './store/session';
 import Navbar from './components/Navbar';
 import Homepage from './components/Homepage'
@@ -29,10 +30,13 @@ function App() {
   return (
     <BrowserRouter>
       <Navbar />
-      <Switch>          
+      <Switch>
         <Route path='/' exact={true}>
           <Homepage />
         </Route>
+        <ProtectedRoute path='/cart' exact={true} >
+          <Cart />
+        </ProtectedRoute>
         <Route path='/cats/comments' exact={true}>
           <Comments comments={comments} />
         </Route>
