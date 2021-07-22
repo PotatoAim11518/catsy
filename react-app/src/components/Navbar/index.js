@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, Redirect, useHistory } from "react-router-dom"
 import SearchBar from "./SearchBar";
 import LoginFormModal from "./LoginFormModal";
 import SignupFormModal from "./SignupFormModal";
@@ -11,6 +11,11 @@ import { useSelector } from "react-redux";
 const Navbar = () => {
   //Allows access to the store to grab the state
   const user = useSelector(state => state.session.user)
+  const history = useHistory();
+
+  const goToCart = () => {
+    history.push('/cart')
+  }
 
   let userRender;
   if (user) {
@@ -18,7 +23,7 @@ const Navbar = () => {
       <>
         <ProfileButton user={user}/>
         <button className="closed-box-icon">
-          <i class="fas fa-box-open"></i>
+          <i onClick={goToCart} class="fas fa-box-open"></i>
         </button>
       </>
     )
