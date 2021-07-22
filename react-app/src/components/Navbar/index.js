@@ -55,16 +55,16 @@ const Navbar = () => {
   
   console.log("AGES CATEGORY",categories.ages)
 
-  // const showAgesDropDown = () => {
-  //   console.log("DOES THIS WORK?")
-  //   if (showMenu) return;
-  //   setShowMenu(true);
-  //   return (
-  //     categories.ages.map(age => (
-  //       <div>{age}</div>
-  //     ))
-  //   )
-  // }
+  const showAgesDropDown = () => {
+    console.log("DOES THIS WORK?")
+    if (showMenu) return;
+    setShowMenu(true);
+    return (
+      categories.ages.map(age => (
+        <div>{age}</div>
+      ))
+    )
+  }
 
 
   return (
@@ -80,7 +80,7 @@ const Navbar = () => {
       </nav>
       <nav className="nav-categories">
         {/* TODO: For Link path: change path to display all cats within that category */}
-        <div className="category" onMouseEnter={null}>
+        <div className="category" onMouseEnter={showAgesDropDown}>
           <Link to="#">Age</Link>
           <i class="fas fa-sort-down"></i>
         </div>
