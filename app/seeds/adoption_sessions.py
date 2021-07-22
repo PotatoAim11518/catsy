@@ -2,9 +2,13 @@ from app.models import db, Adoption_Session
 
 
 def seed_adoption_sessions():
-    demo_session = Adoption_Session(user_id=1)
+    demo_session_1 = Adoption_Session(user_id=1)
+    demo_session_2 = Adoption_Session(user_id=2)
+    demo_session_3 = Adoption_Session(user_id=3)
 
-    db.session.add(demo_session)
+    db.session.add(demo_session_1)
+    db.session.add(demo_session_2)
+    db.session.add(demo_session_3)
     db.session.commit()
 
 
