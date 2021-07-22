@@ -7,7 +7,7 @@ import * as sessionActions from "../../store/session";
 
 export const Comments = ({ catScratch }) => {
    const dispatch = useDispatch();
-   const user_id = useSelector(state => state.session.user.id);
+   const user = useSelector(state => state.session.user.id);
    // const cat_id = useSelector(state => state.comments.cat_id);
    const [errors, setErrors] = useState(null);
    const [comment, setComment] = useState('');
@@ -27,7 +27,6 @@ export const Comments = ({ catScratch }) => {
          comment,
          user_id: 2,
          cat_id: 4
-         // submittedOn: new Date()
       }
       dispatch(add_comment(catScratch));
    };
