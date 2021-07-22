@@ -9,6 +9,7 @@ cart_routes = Blueprint('cart', __name__)
 items = Blueprint('items', __name__, url_prefix='/items')
 cart_routes.register_blueprint(items)
 
+###### CART ROUTES
 
 @cart_routes.route('', methods=["GET", "POST"])
 @login_required
@@ -34,18 +35,21 @@ def emptyCart():
         return cart.to_dict()
 
 
-@items.route('')
-@login_required
-def getMyCartItems():
-    items = Cart_Item.query.filter(Cart_Item.user_id == current_user.id).all()
-    return {"items": [item.to_dict() for item in items]}
-
+###### CART ITEMS ROUTES
 
 @items.route('/<int:id>')
 @login_required
 def getMyCartItem(id):
     item = Cart_Item.query.filter(Cart_Item.id == {id}, Cart_Item.user_id == current_user.id).first()
     return {"items": item.to_dict()}
+
+
+@items.route('')
+@login_required
+def getMyCartItems():
+    items = Cart_Item.query.filter(Cart_Item.user_id == current_user.id).all()
+    print([item.to_dict()['cat']['name'] for item in items])
+    return {"items": [item.to_dict() for item in items]}
 
 
 @items.route('/add', methods=["POST"])

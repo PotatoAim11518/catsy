@@ -8,11 +8,12 @@ import styles from './cart.module.css'
 
 export default function Cart() {
   const dispatch = useDispatch();
-  const cart = useSelector((state) => state.cart);
+  const cart = useSelector((state) => Object.values(state.cart));
   const user = useSelector((state) => state.session.user);
   const cart_items = useSelector((state) => Object.values(state.cart_items));
 
-  const handleEmptyCart = () => {
+  const handleEmptyCart = (e) => {
+    e.preventDefault()
     dispatch(removeCart(user.id))
   }
 

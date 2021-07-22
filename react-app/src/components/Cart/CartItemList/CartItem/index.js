@@ -18,11 +18,6 @@ export default function CartItem({item}) {
     history.push(`/cats/${item.cat.id}`)
   }
 
-  useEffect(() => {
-    dispatch(getItems)
-  },[dispatch])
-
-
   return (
       <div onClick={handleGoToCatPage} className={styles.itemCard}>
         <div className={styles.imageContainer} style={{"backgroundImage":`url(${item.cat.image_url})`}}></div>
