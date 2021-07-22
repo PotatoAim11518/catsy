@@ -10,7 +10,7 @@ def seed_cart_items():
     demo_cart_item_6 = Cart_Item(user_id=1, cat_id=69, session_id=1)
     demo_cart_item_7 = Cart_Item(user_id=2, cat_id=1, session_id=2)
     demo_cart_item_8 = Cart_Item(user_id=2, cat_id=3, session_id=2)
-    demo_cart_item_9 = Cart_Item(user_id=2, cat_id=3, session_id=3)
+    demo_cart_item_9 = Cart_Item(user_id=2, cat_id=75, session_id=2)
     demo_cart_item_10 = Cart_Item(user_id=3, cat_id=43, session_id=3)
 
     db.session.add(demo_cart_item_1)
