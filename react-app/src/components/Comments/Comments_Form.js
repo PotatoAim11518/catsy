@@ -5,7 +5,7 @@ import * as sessionActions from "../../store/session";
 
 
 const Comments = ({ reviews }) => {
-
-   }
+   <h1>Comments Component</h1>
+}
 
 export default Comments;
