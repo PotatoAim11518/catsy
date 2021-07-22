@@ -11,11 +11,13 @@ export default function CartItem({item}) {
 
   const handleRemoveCartItem = (e) => {
     e.stopPropagation();
-    dispatch(removeItem(item.id))
+    dispatch(removeItem(item.id));
+    return
   }
 
   const handleGoToCatPage = (e) => {
     history.push(`/cats/${item.cat.id}`)
+    return
   }
 
   return (

@@ -1,5 +1,5 @@
 // src/components/Cart
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCart, addCart, removeCart } from "../../store/cart";
 import { getItems, addItem, removeItem } from "../../store/cartItem";
@@ -13,14 +13,13 @@ export default function Cart() {
   const cart_items = useSelector((state) => Object.values(state.cart_items));
 
   const handleEmptyCart = (e) => {
-    e.preventDefault()
-    dispatch(removeCart(user.id))
+    return dispatch(removeCart(user.id))
   }
 
   useEffect(() => {
-    dispatch(getCart());
-    dispatch(getItems());
-  }, [dispatch]);
+    dispatch(getCart())
+    dispatch(getItems())
+  },[dispatch]);
 
   return (
     <>

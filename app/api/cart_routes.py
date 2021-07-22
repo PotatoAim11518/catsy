@@ -48,8 +48,8 @@ def getMyCartItem(id):
 @login_required
 def getMyCartItems():
     items = Cart_Item.query.filter(Cart_Item.user_id == current_user.id).all()
-    print([item.to_dict()['cat']['name'] for item in items])
-    return {"items": [item.to_dict() for item in items]}
+    # print([item.to_dict()['cat']['name'] for item in items])
+    return {"items": [item.to_dict() for item in items]} or {}
 
 
 @items.route('/add', methods=["POST"])

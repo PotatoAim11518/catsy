@@ -62,8 +62,8 @@ const cartReducer = (state=initialState, action) => {
     case ADD_CART:
       return {...state, [action.cart['id']]: action.cart};
     case REMOVE_CART:
-      let newState = {...state}
-      delete newState[action.cart]
+      const newState = {...state}
+      delete newState[action.cart['id']]
       return newState
     default:
       return state;
