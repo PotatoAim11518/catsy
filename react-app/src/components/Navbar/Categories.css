@@ -1,0 +1,29 @@
+.nav-categories {
+  display: flex;
+  justify-content: center;
+  background-color: #f7c39e;
+}
+
+.nav-categories .category{
+  font-family: Nanum Pen Script;
+  margin: 0 40px 0 40px;
+  font-size: 1.25rem;
+}
+
+.category {
+  display: flex;
+}
+
+.category > i{
+  margin: 0 5px 0 5px;
+  position: relative;
+  bottom: 2.5px;
+}
+
+.submenu {
+  display: none;
+}
+
+.submenu-toggle .submenu {
+  display: block;
+}
