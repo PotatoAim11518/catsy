@@ -1,3 +1,5 @@
+//*----------------- Action Creators ---------------//
+
 const NEW_COMMENT = '/cats/comments/new'
 const GET_COMMENTS = 'cats/comments/get'
 const DELETE_COMMENT = 'cats/comments/delete'
@@ -24,7 +26,7 @@ const update_comment = (payload) => ({
 });
 
 //**********************************************************
-//* -*-*-*-*-*-*-*-*-*-*- Thunks -*-*-*-*-*-*-*-*-*-*-//
+//? -*-*-*-*-*-*-*-*-*-*- Thunks -*-*-*-*-*-*-*-*-*-*-//
 //* **********************************************************/
 
 //----------------- Get All comments ---------------//
@@ -95,7 +97,7 @@ const initialState = {
     current_comment: null
 };
 
-//----------------- Reducers -----------------//
+//?----------------- Reducer -----------------//
 
 const comments_reducer = (state = initialState, action) => {
     switch (action.type) {
