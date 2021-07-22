@@ -7,6 +7,8 @@ from .sizes import seed_sizes, undo_sizes
 from .coats import seed_coats, undo_coats
 from .cats import seed_cats, undo_cats
 from .user_comments import seed_user_comments, undo_user_comments
+from .adoption_sessions import seed_adoption_sessions, undo_adoption_sessions
+from .cart_items import seed_cart_items, undo_cart_items
 
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`
@@ -24,6 +26,8 @@ def seed():
     seed_coats()
     seed_cats()
     seed_user_comments()
+    seed_adoption_sessions()
+    seed_cart_items()
     # Add other seed functions here
 
 
@@ -39,4 +43,6 @@ def undo():
     undo_coats()
     undo_cats()
     undo_user_comments()
+    undo_adoption_sessions()
+    undo_cart_items()
     # Add other undo functions here
