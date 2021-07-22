@@ -3,10 +3,12 @@ import thunk from 'redux-thunk';
 import session from './session'
 import cart from './cart'
 import cart_items from './cartItem'
+import categories from './categories';
 
 
 const rootReducer = combineReducers({
   session,
+  categories,
   cart,
   cart_items
 });
