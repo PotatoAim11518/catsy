@@ -7,7 +7,7 @@ import * as sessionActions from "../../store/session";
 
 export const Comments = ({ catScratch }) => {
    const dispatch = useDispatch();
-   const user_id = useSelector(state => state.session.user.id);
+   const user = useSelector(state => state.session.user);
    // const cat_id = useSelector(state => state.comments.cat_id);
    const [errors, setErrors] = useState(null);
    const [comment, setComment] = useState('');
@@ -15,6 +15,7 @@ export const Comments = ({ catScratch }) => {
    const onSubmit = async (e) => {
       e.preventDefault();
       console.log(e);
+      console.log(user.id);
       if (comment.length < 1) {
          setErrors({
             comment: "Please enter a comment"
@@ -25,8 +26,8 @@ export const Comments = ({ catScratch }) => {
 
       const catScratch = {
          comment,
-
-
+         user_id: user.id,
+         cat_id: 4
       }
       dispatch(add_comment(catScratch));
    };
