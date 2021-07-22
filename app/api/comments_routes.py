@@ -21,6 +21,7 @@ def comments(cat_id):
 @login_required
 def new_comment():
     form = CommentForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
     print(form.data)
     if form.validate_on_submit():
         comment = User_Comment()
@@ -29,6 +30,7 @@ def new_comment():
         db.session.add(comment)
         db.session.commit()
         return comment.to_dict()
+    print(form.errors)
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 #? ------------ Update a comment ------------
