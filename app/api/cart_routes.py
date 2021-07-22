@@ -45,7 +45,6 @@ def getMyCartItem(id):
 @login_required
 def getMyCartItems():
     items = Cart_Item.query.filter(Cart_Item.user_id == current_user.id).all()
-    print({"items": [item.to_dict() for item in items]})
     return {"items": [item.to_dict() for item in items]}
 
 

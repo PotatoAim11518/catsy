@@ -24,7 +24,7 @@ export default function CartItem({item}) {
       </div> */}
       <div className={styles.cardText}>
         <h2 className={styles.catName}>{item.cat.name}</h2>
-        <h3 className={styles.catName}>{item.cat.breed.name}</h3>
+        <h3 className={styles.catBreed}>{item.cat.breed.name}</h3>
         <p className={styles.catDescription}>{item.cat.description}</p>
       </div>
       <div>

@@ -23,13 +23,13 @@ class Cat(db.Model, UserMixin):
     created_at = db.Column(db.DateTime, nullable=False, default=db.func.now())
     updated_at = db.Column(db.DateTime, nullable=False, default=db.func.now(), onupdate=db.func.now())
 
+    owner = relationship("User", back_populates="cats", lazy="joined", innerjoin=True)
+
     age = relationship("Age", lazy="joined", innerjoin=True)
     breed = relationship("Breed", lazy="joined", innerjoin=True)
     gender = relationship("Gender", lazy="joined", innerjoin=True)
     size = relationship("Size", lazy="joined", innerjoin=True)
-    coat = relationship("Coat", lazy="joined", innerjoin=True)
-
-    owner = relationship("User", back_populates="cats", lazy="joined", innerjoin=True)
+    coat = relationship("Coat", lazy="select", innerjoin=True)
 
     comment = relationship("User_Comment", back_populates="cat")
     cart_entry = relationship("Cart_Item", back_populates="cat")
