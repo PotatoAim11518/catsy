@@ -44,7 +44,8 @@ def getMyCartItem(id):
 @items.route('')
 @login_required
 def getMyCartItems():
-    items = Cart_Item.query.options(db.joinedload('cat')).filter(Cart_Item.user_id == current_user.id).all()
+    items = Cart_Item.query.filter(Cart_Item.user_id == current_user.id).all()
+    print({"items": [item.to_dict() for item in items]})
     return {"items": [item.to_dict() for item in items]}
 
 
@@ -68,7 +69,7 @@ def addCartItem(cat_id):
         return {'message': 'Cat already in box'}
 
 
-@items.route('/remove', methods=["DELETE"])
+@items.route('/<int:item_id>/remove', methods=["DELETE"])
 @login_required
 def removeCartItem(item_id):
     del_item = Cart_Item.query.filter(Cart_Item.id == item_id, Cart_Item.user_id == current_user.id).first()

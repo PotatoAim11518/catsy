@@ -1,15 +1,38 @@
-/* .itemCard {
-  width: 50%;
+.itemCard {
+  display: flex;
+  flex-direction: row;
+  margin: 10px 0;
+  width: 600px;
   height: auto;
 }
 
 .imageContainer {
 
+  position: relative;
+  width: 45%;
+  height: 150px;
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 51%;
+  margin: 10px;
 }
 
-.image {
-
+.itemCard:hover {
+  background-color: rgb(230, 230, 230);
+  transition: background-color 0.4s;
 }
+/* .image {
+  border: 1px solid black;
+  position: relative;
+  border-radius: 51%;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+} */
 
 .cardText {
 
@@ -21,4 +44,4 @@
 
 .catDescription {
 
-} */
+}

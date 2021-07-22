@@ -20,6 +20,7 @@ const remove = (item) => ({
 export const getItems = () => async (dispatch) => {
   const response = await fetch('/api/cart/items');
   const items = await response.json();
+  console.log("======ITEMS====: ", items)
   dispatch(setItems(items))
 }
 
@@ -38,7 +39,7 @@ export const addItem = (cat_id) => async (dispatch) => {
 }
 
 export const removeItem = (item_id) => async (dispatch) => {
-  const response = await fetch('api/cart/items/remove', {
+  const response = await fetch(`api/cart/items/${item_id}/remove`, {
     method: "DELETE",
     body: JSON.stringify({
       item_id
