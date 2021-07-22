@@ -9,7 +9,12 @@ import styles from './cart.module.css'
 export default function Cart() {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
+  const user = useSelector((state) => state.session.user);
   const cart_items = useSelector((state) => Object.values(state.cart_items));
+
+  const handleEmptyCart = () => {
+    dispatch(removeCart(user.id))
+  }
 
   useEffect(() => {
     dispatch(getCart());
@@ -22,7 +27,7 @@ export default function Cart() {
       <CartItemList cart_items={cart_items} />
       {cart_items.length > 0 &&
       <div>
-        <button>Clear Cart</button>
+        <button onClick={handleEmptyCart}>Clear Cart</button>
         <button>Adopt!</button>
       </div>}
     </>
