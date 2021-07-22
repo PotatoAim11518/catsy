@@ -3,7 +3,7 @@ const LOAD_AGES = 'categories/LOAD_AGES'
 const LOAD_SIZES = 'categories/LOAD_SIZES'
 const LOAD_COATS = 'categories/LOAD_COATS'
 const LOAD_BREEDS = 'categories/LOAD_BREEDS'
-const LOAD_GENDER = 'categories/LOAD_GENDER'
+const LOAD_GENDERS = 'categories/LOAD_GENDER'
 
 
 //ACTION CREATORS
@@ -27,8 +27,8 @@ const loadBreeds = list => ({
   list
 })
 
-const loadGender = list => ({
-  type: LOAD_GENDER,
+const loadGenders = list => ({
+  type: LOAD_GENDERS,
   list
 })
 
@@ -73,12 +73,12 @@ export const getBreeds = () => async dispatch => {
   }
 }
 
-export const getGender = () => async dispatch => {
+export const getGenders = () => async dispatch => {
   const response = await fetch(`/api/categories/genders`)
 
   if(response.ok) {
     const list = await response.json();
-    dispatch(loadGender(list.genders));
+    dispatch(loadGenders(list.genders));
     // console.log(list)
   }
 }
@@ -112,7 +112,7 @@ const categoriesReducer = (state = intialState, action) => {
       newState.breeds = breedsArray;
       return newState;
     }
-    case LOAD_GENDER: {
+    case LOAD_GENDERS: {
       let gendersArray = [];
       action.list.forEach(gender => gendersArray.push(gender.name))
       newState.genders = gendersArray;

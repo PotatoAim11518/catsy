@@ -7,7 +7,7 @@ import './Navbar.css'
 import './Categories.css'
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { getAges, getSizes, getCoats, getBreeds, getGender } from '../../store/categories';
+import { getAges, getSizes, getCoats, getBreeds, getGenders } from '../../store/categories';
 // import * as categories 
 
 
@@ -15,25 +15,21 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   //Allows access to the store to grab the state
-<<<<<<< HEAD
-  const user = useSelector(state => state.session.user);
-  const categories = useSelector(state => state.categories);
+  const user = useSelector(state => state.session.user)
+  const categories = useSelector(state => state.categories)
+  const history = useHistory();
+
+  const goToCart = () => {
+    history.push('/cart')
+  }
 
   useEffect(() => {
     dispatch(getAges());
     dispatch(getSizes());
     dispatch(getCoats());
     dispatch(getBreeds());
-    dispatch(getGender());
+    dispatch(getGenders());
   }, [dispatch])
-=======
-  const user = useSelector(state => state.session.user)
-  const history = useHistory();
-
-  const goToCart = () => {
-    history.push('/cart')
-  }
->>>>>>> main
 
   let userRender;
   if (user) {
@@ -59,16 +55,16 @@ const Navbar = () => {
   
   console.log("AGES CATEGORY",categories.ages)
 
-  const showAgesDropDown = () => {
-    console.log("DOES THIS WORK?")
-    if (showMenu) return;
-    setShowMenu(true);
-    return (
-      categories.ages.map(age => (
-        <div>{age}</div>
-      ))
-    )
-  }
+  // const showAgesDropDown = () => {
+  //   console.log("DOES THIS WORK?")
+  //   if (showMenu) return;
+  //   setShowMenu(true);
+  //   return (
+  //     categories.ages.map(age => (
+  //       <div>{age}</div>
+  //     ))
+  //   )
+  // }
 
 
   return (
@@ -84,7 +80,7 @@ const Navbar = () => {
       </nav>
       <nav className="nav-categories">
         {/* TODO: For Link path: change path to display all cats within that category */}
-        <div className="category" onMouseEnter={e => showAgesDropDown(e)}>
+        <div className="category" onMouseEnter={null}>
           <Link to="#">Age</Link>
           <i class="fas fa-sort-down"></i>
         </div>
