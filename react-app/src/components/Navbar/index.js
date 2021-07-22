@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, Redirect, useHistory } from "react-router-dom"
 import SearchBar from "./SearchBar";
 import LoginFormModal from "./LoginFormModal";
 import SignupFormModal from "./SignupFormModal";
@@ -15,6 +15,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   //Allows access to the store to grab the state
+<<<<<<< HEAD
   const user = useSelector(state => state.session.user);
   const categories = useSelector(state => state.categories);
 
@@ -25,6 +26,14 @@ const Navbar = () => {
     dispatch(getBreeds());
     dispatch(getGender());
   }, [dispatch])
+=======
+  const user = useSelector(state => state.session.user)
+  const history = useHistory();
+
+  const goToCart = () => {
+    history.push('/cart')
+  }
+>>>>>>> main
 
   let userRender;
   if (user) {
@@ -32,7 +41,7 @@ const Navbar = () => {
       <>
         <ProfileButton user={user} />
         <button className="closed-box-icon">
-          <i class="fas fa-box-open"></i>
+          <i onClick={goToCart} class="fas fa-box-open"></i>
         </button>
       </>
     )
