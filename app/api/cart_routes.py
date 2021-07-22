@@ -34,18 +34,18 @@ def emptyCart():
         return cart.to_dict()
 
 
-@items.route('/<int:id>')
-@login_required
-def getMyCartItem(id):
-    item = Cart_Item.query.filter(Cart_Item.id == {id}, Cart_Item.user_id == current_user.id).first()
-    return {"items": item.to_dict()}
-
-
 @items.route('')
 @login_required
 def getMyCartItems():
     items = Cart_Item.query.filter(Cart_Item.user_id == current_user.id).all()
     return {"items": [item.to_dict() for item in items]}
+
+
+@items.route('/<int:id>')
+@login_required
+def getMyCartItem(id):
+    item = Cart_Item.query.filter(Cart_Item.id == {id}, Cart_Item.user_id == current_user.id).first()
+    return {"items": item.to_dict()}
 
 
 @items.route('/add', methods=["POST"])

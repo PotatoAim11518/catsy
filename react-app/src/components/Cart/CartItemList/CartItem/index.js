@@ -1,15 +1,21 @@
 // src/components/Cart/CartItem
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import styles from './cartitem.module.css';
 import { getItems, removeItem } from '../../../../store/cartItem'
 
 export default function CartItem({item}) {
   const dispatch = useDispatch();
+  const history = useHistory();
 
-  const handleRemoveCartItem = () => {
+  const handleRemoveCartItem = (e) => {
+    e.stopPropagation();
     dispatch(removeItem(item.id))
+  }
+
+  const handleGoToCatPage = (e) => {
+    history.push(`/cats/${item.cat.id}`)
   }
 
   useEffect(() => {
@@ -18,8 +24,7 @@ export default function CartItem({item}) {
 
 
   return (
-    <Link className={styles.itemCardLink} to={`/cats/${item.cat.id}`}>
-      <div className={styles.itemCard}>
+      <div onClick={handleGoToCatPage} className={styles.itemCard}>
         <div className={styles.imageContainer} style={{"backgroundImage":`url(${item.cat.image_url})`}}></div>
         {/* <div className={styles.imageContainer}>
           <img className={styles.image} src={item.cat.image_url} alt="cute cat"/>
@@ -33,6 +38,5 @@ export default function CartItem({item}) {
           <button onClick={handleRemoveCartItem}>X</button>
         </div>
       </div>
-    </Link>
   )
 }

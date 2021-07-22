@@ -1,7 +1,3 @@
-.itemCardLink {
-  text-decoration: none;
-}
-
 .itemCard {
   display: flex;
   flex-direction: row;
@@ -12,6 +8,7 @@
 }
 
 .itemCard:hover {
+  cursor: pointer;
   box-shadow: 1px 1px 5px 2px rgba(80, 80, 80, 0.5);
   transform: scale(1.01);
   transform: translate(10px, -10px);

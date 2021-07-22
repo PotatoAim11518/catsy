@@ -38,7 +38,7 @@ export const addItem = (cat_id) => async (dispatch) => {
 }
 
 export const removeItem = (item_id) => async (dispatch) => {
-  const response = await fetch(`api/cart/items/${item_id}/remove`, {
+  const response = await fetch(`/api/cart/items/${item_id}/remove`, {
     method: "DELETE",
     body: JSON.stringify({
       item_id
