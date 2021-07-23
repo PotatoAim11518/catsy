@@ -6,6 +6,7 @@ import Comments from './components/Comments/Comments_Form';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import Cart from './components/Cart'
+import Cat from './components/Cat'
 import { authenticate } from './store/session';
 import Navbar from './components/Navbar';
 import Homepage from './components/Homepage'
@@ -33,6 +34,9 @@ function App() {
       <Switch>
         <Route path='/' exact={true}>
           <Homepage />
+        </Route>
+        <Route path='/cats/:cat_id' exact={true}>
+          <Cat />
         </Route>
         <ProtectedRoute path='/cart' exact={true} >
           <Cart />
