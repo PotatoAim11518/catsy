@@ -14,13 +14,14 @@ import { getAges, getSizes, getCoats, getBreeds, getGenders } from '../../store/
 const Navbar = () => {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
+  const [dropDownMenuContent, setDropMenuContent] = useState([]);
   //Allows access to the store to grab the state
-  const user = useSelector(state => state.session.user)
-  const categories = useSelector(state => state.categories)
+  const user = useSelector(state => state.session.user);
+  const categories = useSelector(state => state.categories);
   const history = useHistory();
 
   const goToCart = () => {
-    history.push('/cart')
+    history.push('/cart');
   }
 
   useEffect(() => {
@@ -51,21 +52,37 @@ const Navbar = () => {
         </button>
       </>
     )
-  }
+  };
   
-  console.log("AGES CATEGORY",categories.ages)
-
+  
   const showAgesDropDown = () => {
     console.log("DOES THIS WORK?")
-    if (showMenu) return;
-    setShowMenu(true);
-    return (
-      categories.ages.map(age => (
-        <div>{age}</div>
-      ))
-    )
-  }
+    console.log("AGES CATEGORY",categories.ages)
+    setDropMenuContent(categories.ages)
+  };
 
+  const showGendersDropDown = () => {
+    setDropMenuContent(categories.genders)
+  };
+
+  const showSizesDropDown = () => {
+    setDropMenuContent(categories.sizes)
+  };
+
+  const showBreedsDropDown = () => {
+    setDropMenuContent(categories.breeds)
+  };
+  
+
+  const showCoatsDropDown = () => {
+    setDropMenuContent(categories.coats)
+  };
+
+  const handleMouseLeave = () => {
+    setDropMenuContent([]);
+  };
+
+  console.log("DROP MENU CONTENT", dropDownMenuContent);
 
   return (
     <>
@@ -84,28 +101,34 @@ const Navbar = () => {
           <Link to="#">Age</Link>
           <i class="fas fa-sort-down"></i>
         </div>
-        <div className="category" onMouseEnter={() => null}>
+        <div className="category" onMouseEnter={showGendersDropDown}>
           <Link to="#">Gender</Link>
           <i class="fas fa-sort-down"></i>
         </div>
-        <div className="category" onMouseEnter={() => null}>
+        <div className="category" onMouseEnter={showSizesDropDown}>
           <Link to="#">Size</Link>
           <i class="fas fa-sort-down"></i>
         </div>
-        <div className="category" onMouseEnter={() => null}>
+        <div className="category" onMouseEnter={showCoatsDropDown}>
           <Link to="#">Coats</Link>
           <i class="fas fa-sort-down"></i>
         </div>
-        <div className="category" onMouseEnter={() => null}>
+        <div className="category" onMouseEnter={showBreedsDropDown}>
           <Link to="#">Breeds</Link>
           <i class="fas fa-sort-down"></i>
         </div>
       </nav>
-      {showMenu && (
+      {/* {showMenu && showAgesDropDown()} */}
+      <div className="dropdown-menu" onMouseLeave={handleMouseLeave}>
+          {dropDownMenuContent.map(category => (
+            <Link>{category}</Link>
+          ))}
+      </div>
+      {/* {showMenu && (
       categories.ages.map(age => (
         <div onMouseLeave={null}>{age}</div>
       ))
-      )}
+      )} */}
     </>
   )
 };
