@@ -15,7 +15,7 @@ const mockData = {
             "created_at": "Tue, 20 Jul 2021 11:25:10 GMT",
             "id": 137,
             "updated_at": "Tue, 20 Jul 2021 11:25:10 GMT",
-            "user_id": 2
+            "user_id": 13
         },
         {
             "cat_id": 25,
@@ -23,7 +23,7 @@ const mockData = {
             "created_at": "Tue, 20 Jul 2021 11:25:10 GMT",
             "id": 137,
             "updated_at": "Tue, 20 Jul 2021 11:25:10 GMT",
-            "user_id": 2
+            "user_id": 1
           }
     ]
 }
@@ -43,7 +43,7 @@ const CommentPage = () => {
         <div>
             <CommentsForm />
             {
-             comments["all_comments"].map(comment => <Comment key={ comment.id } props={ comment }/>)
+                comments["all_comments"].map(comment => <Comment key={comment.id} props={comment} />)
             }
         </div>
     )

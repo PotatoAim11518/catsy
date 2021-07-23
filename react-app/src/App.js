@@ -41,7 +41,7 @@ function App() {
         <ProtectedRoute path='/cart' exact={true} >
           <Cart />
         </ProtectedRoute>
-        <Route path='/cats/comments' exact={true}>
+        <Route path='/cats/testing/comments' exact={true}>
           <CommentPage comments={comments} />
         </Route>
         {/* <ProtectedRoute path='/users' exact={true} >
