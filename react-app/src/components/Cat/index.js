@@ -1,16 +1,21 @@
-import React, { useDebugValue, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router";
+import { useParams, useHistory } from "react-router-dom";
 
 import { getCats } from "../../store/cats";
+import { getItems, addItem } from "../../store/cartItem";
+import { getCart } from "../../store/cart";
 import styles from "./cat.module.css";
 
 const Cat = () => {
   const { cat_id } = useParams();
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const cats = useSelector((state) => state.cats);
+  const cart_items = useSelector((state) => Object.values(state.cart_items));
   const cat = cats[cat_id];
+  const isInCart = cart_items.map((item) => item.cat_id).includes(cat?.id)
 
   const randomWelcome = (name) => {
     const greetings = [
@@ -27,14 +32,25 @@ const Cat = () => {
       `Ain’t no meowtain high enough to keep ${name} from you.`,
       `My hooman made me take this picture.`,
       `${name} thinks "crazy cat lady" is a compliment.`,
-      `Do you wannya play with me?`,
+      `Do you wann-nya play with me?`,
     ];
     return greetings[Math.floor(Math.random() * greetings.length)];
   };
 
+  const [inCart, setInCart] = useState(false)
+
+  const handleAddToBox = () => {
+    setInCart(true)
+    dispatch(addItem(cat?.id))
+    history.push('/cart')
+  }
+
   useEffect(() => {
-    dispatch(getCats());
-  }, [dispatch, cat_id]);
+    dispatch(getCats())
+    dispatch(getCart())
+    dispatch(getItems())
+    setInCart(isInCart)
+  }, [dispatch, isInCart]);
 
   return (
     <>
@@ -55,9 +71,11 @@ const Cat = () => {
             </div>
             <div>
               <div className={styles.catActionButtons}>
-                <button className={styles.addToBoxButton}>
-                  Add to cardboard box
+                <button disabled={inCart} onClick={handleAddToBox} className={inCart ? styles.addToBoxButtonDisabled : styles.addToBoxButton}>
                 </button>
+                <div className={styles.buttonText}>
+                  {inCart ? "Hiding in your cardboard box!" : "Add to cardboard box"}
+                </div>
               </div>
             </div>
           <p className={styles.cat}>Adopted: {cat?.adopted ? "Yes" : "No"}</p>
