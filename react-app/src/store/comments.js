@@ -37,6 +37,7 @@ export const get_all_comments = (cat_id) => async (dispatch) => {
 
     if (response.ok) {
         const comment = await response.json();
+        console.log("DICKSSSSS", comment);
         dispatch(get_comments(comment));
         return 'SUCCESS'
     }
@@ -109,6 +110,7 @@ const comments_reducer = (state = initialState, action) => {
             return new_state;
         }
         case GET_COMMENTS: {
+            console.log(action.payload);
             const new_state = {
                 ...state,
                 list: action.payload

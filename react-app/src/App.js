@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import Comments from './components/Comments/Comments_Form';
+import CommentPage from './components/Comments/Comments_Page';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import Cart from './components/Cart'
@@ -38,7 +38,7 @@ function App() {
           <Cart />
         </ProtectedRoute>
         <Route path='/cats/comments' exact={true}>
-          <Comments comments={comments} />
+          <CommentPage comments={comments} />
         </Route>
         {/* <ProtectedRoute path='/users' exact={true} >
           <UsersList />

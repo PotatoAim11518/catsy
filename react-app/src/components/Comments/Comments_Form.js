@@ -5,8 +5,7 @@ import { add_comment } from "../../store/comments";
 import * as sessionActions from "../../store/session";
 
 
-
-export const Comments = ({ catScratch }) => {
+export const CommentsForm = ({ catScratch }) => {
    const dispatch = useDispatch();
    const user = useSelector(state => state.session.user);
    // const cat_id = useSelector(state => state.comments.cat_id);
@@ -53,6 +52,7 @@ export const Comments = ({ catScratch }) => {
                name="scratches"
                onChange={(e) => setComment(e.target.value)}
                value={comment}
+                  placeholder="<Purrrr> Scratches please! But not the belly if you enjoy having fingers..."
                // required={true}
             ></textarea>
             <div>
@@ -64,4 +64,4 @@ export const Comments = ({ catScratch }) => {
       </div>
    )
 }
-export default Comments;
+export default CommentsForm;
