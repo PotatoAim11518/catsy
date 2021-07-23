@@ -24,7 +24,7 @@ export const getItems = () => async (dispatch) => {
 }
 
 export const addItem = (cat_id) => async (dispatch) => {
-  const response = await fetch('/api/cart/items/add', {
+  const response = await fetch(`/api/cart/items/${cat_id}/add`, {
     method: "POST",
     body: JSON.stringify({
       cat_id
