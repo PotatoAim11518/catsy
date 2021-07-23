@@ -17,6 +17,12 @@ export default function Cart() {
     dispatch(clearCart())
   }
 
+  const handleAdopt = (e) => {
+    window.alert("You tried to adopt cats!")
+    // dispatch(removeCart())
+    // dispatch(clearCart())
+  }
+
   useEffect(() => {
     dispatch(getCart())
     dispatch(getItems())
@@ -29,7 +35,7 @@ export default function Cart() {
       {cart_items.length > 0 &&
       <div>
         <button onClick={handleEmptyCart}>Clear Cart</button>
-        <button>Adopt!</button>
+        <button onClick={handleAdopt}>Adopt!</button>
       </div>}
     </>
   );
