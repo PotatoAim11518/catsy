@@ -1,6 +1,7 @@
-from flask import Blueprint
+from typing import NamedTuple
+from flask import Blueprint, request
 from flask_login.utils import login_required
-from app.models import Cat
+from app.models import db, Cat
 from flask_login import login_required
 
 cat_routes = Blueprint('cats', __name__)
@@ -17,12 +18,11 @@ def cat(id):
     cat = Cat.query.get(id)
     return cat.to_dict()
 
-# CONTINUE HERE>>>>>>>.
+
 @cat_routes.route('/<int:id>', methods=["PATCH"])
 @login_required
-def catUpdate(id, **payload):
-    cat = Cat.query.get(id)
-    cat_dict = cat.to_dict()
-    for attr, val in payload.items():
-        cat_dict[attr] = val
-    return cat_dict
+def catUpdate(id):
+    req = request.get_json()
+    cat = Cat.query.filter(Cat.id == id).update(req, synchronize_session=False)
+    db.session.commit()
+    return cat.to_dict()

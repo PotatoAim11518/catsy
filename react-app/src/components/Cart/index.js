@@ -5,10 +5,10 @@ import { getCart, addCart, removeCart } from "../../store/cart";
 import { getItems, clearCart, addItem, removeItem } from "../../store/cartItem";
 import CartItemList from "./CartItemList";
 import styles from './cart.module.css'
+import { changeCat } from "../../store/cats";
 
 export default function Cart() {
   const dispatch = useDispatch();
-  const cart = useSelector((state) => Object.values(state.cart));
   const user = useSelector((state) => state.session.user);
   const cart_items = useSelector((state) => Object.values(state.cart_items));
 
@@ -18,9 +18,11 @@ export default function Cart() {
   }
 
   const handleAdopt = (e) => {
-    window.alert("You tried to adopt cats!")
-    // dispatch(removeCart())
-    // dispatch(clearCart())
+    cart_items.forEach((item) =>
+      dispatch(changeCat(item?.cat?.id, {'owner_id': user?.id,'adopted': true}))
+    );
+    dispatch(removeCart())
+    dispatch(clearCart())
   }
 
   useEffect(() => {

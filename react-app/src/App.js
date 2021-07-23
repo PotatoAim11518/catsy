@@ -10,6 +10,7 @@ import Cat from './components/Cat'
 import { authenticate } from './store/session';
 import Navbar from './components/Navbar';
 import Homepage from './components/Homepage'
+import AdoptionPage from './components/AdoptionPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -40,6 +41,9 @@ function App() {
         </Route>
         <ProtectedRoute path='/cart' exact={true} >
           <Cart />
+        </ProtectedRoute>
+        <ProtectedRoute path='/adopted' exact={true} >
+          <AdoptionPage />
         </ProtectedRoute>
         <Route path='/cats/comments' exact={true}>
           <Comments comments={comments} />
