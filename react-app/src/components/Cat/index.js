@@ -58,9 +58,9 @@ const Cat = () => {
                 <button className={styles.addToBoxButton}>
                   Add to cardboard box
                 </button>
-          <p className={styles.cat}>Adopted: {cat?.adopted ? "Yes" : "No"}</p>
               </div>
             </div>
+          <p className={styles.cat}>Adopted: {cat?.adopted ? "Yes" : "No"}</p>
           </div>
         </div>
         <h1 className={styles.randomWelcome}>{randomWelcome(cat?.name)}</h1>

@@ -88,11 +88,23 @@
 }
 
 .catActionButtons {
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .addToBoxButton {
+  padding: 14px 20px;
+  border: none;
+  width: 80%;
+  border-radius: 32px;
+  font-size: 14px;
+}
 
+.addToBoxButton:hover {
+  transform: scale(1.03);
+  transition: transform 0.3s;
 }
 
 .catInfo {
