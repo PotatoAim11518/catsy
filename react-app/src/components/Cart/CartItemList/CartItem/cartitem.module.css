@@ -4,6 +4,7 @@
   padding: 10px;
   width: 600px;
   height: auto;
+  border-radius: 8px;
   transition: transform 0.2s ease-out;
 }
 

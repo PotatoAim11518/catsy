@@ -1,0 +1,134 @@
+.catContainer {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60vw;
+  border: 1px solid black;
+}
+
+.catSummary {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.catImage {
+  position: relative;
+  max-width: 600px;
+  min-width: 600px;
+  height: 420px;
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 8px;
+  margin: 10px;
+  /* border: 1px solid rgba(80, 80, 80, 0.5); */
+  box-shadow: 1px 1px 5px 2px rgba(80, 80, 80, 0.5);
+}
+
+.catBasicInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.catBasicInfoText {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+.catName {
+
+}
+
+.catBreed {
+
+}
+
+.catLocation {
+
+}
+
+.catActionButtons {
+
+}
+
+.addToBoxButton {
+
+}
+
+.catInfo {
+
+}
+
+.cat {
+
+}
+
+.catQuickInfo {
+
+}
+
+.catInfoHeader {
+
+}
+
+.catText {
+
+}
+
+.catInfoHeader {
+
+}
+
+
+
+
+.itemCard {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  width: 600px;
+  height: auto;
+  transition: transform 0.2s ease-out;
+}
+
+.itemCard:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 5px 2px rgba(80, 80, 80, 0.5);
+  transform: scale(1.01);
+  transform: translate(10px, -10px);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+
+.cardText {
+  color: black;
+}
+
+.catName {
+  font-size: 40px;
+  font-family: 'Nanum Pen Script', cursive;
+}
+
+.catBreed {
+  font-size: 24px;
+  font-family: 'Nanum Pen Script', cursive;
+}
+
+.catDescription {
+  padding: 8px;
+}
+
+
+@keyframes transitionIn {
+  from {
+      opacity: 0.0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1.0;
+  }
+}
