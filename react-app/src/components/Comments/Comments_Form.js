@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { add_comment } from "../../store/comments";
 import * as sessionActions from "../../store/session";
+import styles from "./comments.module.css";
 
 
 export const CommentsForm = ({ catScratch }) => {
@@ -42,25 +43,31 @@ export const CommentsForm = ({ catScratch }) => {
 
 
    return (
-      <div>
-         <h1>Scratching Post</h1>
-         <form onSubmit={onSubmit}>
+      <div className={styles.Scratches_Div}>
          <div>
-            <textarea
-               id="scratch"
-               type="text"
-               name="scratches"
-               onChange={(e) => setComment(e.target.value)}
-               value={comment}
+            <h1 className={styles.Header}>Scratching Post</h1>
+            <form
+               onSubmit={onSubmit}
+               className={styles.Submit}>
+               <div
+                  className={styles.TextContainer}>
+               <textarea
+                  id="scratch"
+                  type="text"
+                  name="scratches"
+                  onChange={(e) => setComment(e.target.value)}
+                  value={comment}
                   placeholder="<Purrrr> Scratches please! But not the belly if you enjoy having fingers..."
-               // required={true}
-            ></textarea>
-            <div>
-               <button type="submit">Scratch the Post!</button>
-               <button type="submit">Edit Scratch!</button>
+                  className={styles.TextArea}
+               ></textarea>
+               <div>
+                     <button
+                        className={styles.Submit_ScratchBtn} type="submit">Scratch the Post!</button>
+
+               </div>
             </div>
+            </form>
          </div>
-         </form>
       </div>
    )
 }

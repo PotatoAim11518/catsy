@@ -5,7 +5,9 @@ import { add_comment } from "../../store/comments";
 import * as sessionActions from "../../store/session";
 import {CommentsForm} from "./Comments_Form";
 import { get_all_comments } from "../../store/comments";
-import {Comment}  from "./Comments";
+import { Comment } from "./Comments";
+import styles from "./comments.module.css";
+
 
 const mockData = {
     'all_comments': [

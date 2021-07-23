@@ -6,6 +6,7 @@ import { getCats } from "../../store/cats";
 import { getItems, addItem } from "../../store/cartItem";
 import { getCart } from "../../store/cart";
 import styles from "./cat.module.css";
+import CommentsForm from "../Comments/Comments_Form";
 
 const Cat = () => {
   const { cat_id } = useParams();
@@ -104,7 +105,7 @@ const Cat = () => {
         <div></div>
       </div>
       <div>
-        <h1>Scratching Post Area</h1>
+        <CommentsForm />
       </div>
     </>
   );
