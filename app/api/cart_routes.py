@@ -52,11 +52,11 @@ def getMyCartItems():
     return {"items": [item.to_dict() for item in items]} or {}
 
 
-@items.route('/add', methods=["POST"])
+@items.route('/<int:cat_id>/add', methods=["POST"])
 @login_required
 def addCartItem(cat_id):
     cart = Adoption_Session.query.filter(Adoption_Session.user_id == current_user.id).first()
-    session_id = cart.to_dict()['session_id']
+    session_id = cart.to_dict()['id']
     cart_item = Cart_Item.query.filter(Cart_Item.user_id == current_user.id, Cart_Item.cat_id == cat_id).first()
 
     if not cart_item:
@@ -67,6 +67,7 @@ def addCartItem(cat_id):
         )
         db.session.add(new_cart_item)
         db.session.commit()
+        print(">>>>>>>>>>>>>>>>>>>NEW CART ITEM<<<<<<<<<<<<<<", new_cart_item.to_dict())
         return new_cart_item.to_dict()
     else:
         return {'message': 'Cat already in box'}

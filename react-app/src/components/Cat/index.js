@@ -1,16 +1,26 @@
-import React, { useDebugValue, useEffect } from "react";
+import React, { useDebugValue, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 
 import { getCats } from "../../store/cats";
+import { getItems, addItem } from "../../store/cartItem";
 import styles from "./cat.module.css";
+import cartReducer from "../../store/cart";
 
 const Cat = () => {
   const { cat_id } = useParams();
   const dispatch = useDispatch();
 
   const cats = useSelector((state) => state.cats);
+  const cart_items = useSelector((state) => Object.values(state.cart_items));
   const cat = cats[cat_id];
+
+  const isInCart = (cart_items) => {
+    const catsFound = cart_items?.filter((item) => item.cat_id === cat_id)
+    return catsFound?.length > 0
+  }
+
+  const [inCart, setInCart] = useState(isInCart)
 
   const randomWelcome = (name) => {
     const greetings = [
@@ -32,9 +42,15 @@ const Cat = () => {
     return greetings[Math.floor(Math.random() * greetings.length)];
   };
 
+  const handleAddToBox = () => {
+    setInCart(true)
+    dispatch(addItem(cat?.id))
+  }
+
   useEffect(() => {
     dispatch(getCats());
-  }, [dispatch, cat_id]);
+    dispatch(getItems());
+  }, [dispatch, cat_id, inCart]);
 
   return (
     <>
@@ -55,7 +71,7 @@ const Cat = () => {
             </div>
             <div>
               <div className={styles.catActionButtons}>
-                <button className={styles.addToBoxButton}>
+                <button disabled={!isInCart} onClick={handleAddToBox} className={styles.addToBoxButton}>
                   Add to cardboard box
                 </button>
               </div>
