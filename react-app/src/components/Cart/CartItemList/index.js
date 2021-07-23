@@ -8,7 +8,7 @@ export default function CartItemList({ cart_items }) {
     <div className={styles.cartContainer}>
       {cart_items && cart_items.map((item) => {
         return <CartItem key={item.id} item={item} />
-      })}
+      }).reverse()}
       {cart_items.length < 1 &&
         <div className={styles.emptyCartContainer}>
           <img className={styles.unknownCat} src="assets/schrodingers_cat.jpg" alt="unknown cat"/>
