@@ -1,6 +1,7 @@
 const SET_CART_ITEMS = 'cart/SET_CART_ITEM';
 const ADD_CART_ITEM = 'cart/ADD_CART_ITEMS';
 const REMOVE_CART_ITEM = 'cart/REMOVE_CART_ITEM';
+const CLEAR_CART = 'cart/CLEAR_CART';
 
 const setItems = (items) => ({
   type: SET_CART_ITEMS,
@@ -15,6 +16,10 @@ const add = (item) => ({
 const remove = (item) => ({
   type: REMOVE_CART_ITEM,
   item
+})
+
+const clear = () => ({
+  type: CLEAR_CART
 })
 
 export const getItems = () => async (dispatch) => {
@@ -50,6 +55,9 @@ export const removeItem = (item_id) => async (dispatch) => {
   }
 }
 
+export const clearCart = () => async (dispatch) => {
+  dispatch(clear())
+}
 
 const initialState = {}
 
@@ -67,6 +75,9 @@ const cartItemReducer = (state=initialState, action) => {
       const newState = {...state}
       delete newState[action.item['id']]
       return newState
+    case CLEAR_CART:
+      const clearState = {}
+      return clearState
     default:
       return state;
   }

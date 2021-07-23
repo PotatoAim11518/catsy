@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCart, addCart, removeCart } from "../../store/cart";
-import { getItems, addItem, removeItem } from "../../store/cartItem";
+import { getItems, clearCart, addItem, removeItem } from "../../store/cartItem";
 import CartItemList from "./CartItemList";
 import styles from './cart.module.css'
 
@@ -13,7 +13,8 @@ export default function Cart() {
   const cart_items = useSelector((state) => Object.values(state.cart_items));
 
   const handleEmptyCart = (e) => {
-    return dispatch(removeCart(user.id))
+    dispatch(removeCart())
+    dispatch(clearCart())
   }
 
   useEffect(() => {
