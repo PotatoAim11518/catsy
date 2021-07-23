@@ -13,7 +13,7 @@ export default function Cart() {
   const cart_items = useSelector((state) => Object.values(state.cart_items));
 
   const handleEmptyCart = (e) => {
-    return dispatch(removeCart(user.id))
+    return dispatch(removeCart())
   }
 
   useEffect(() => {

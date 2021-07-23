@@ -37,12 +37,9 @@ export const addCart = (user_id) => async (dispatch) => {
   }
 }
 
-export const removeCart = (user_id) => async (dispatch) => {
+export const removeCart = () => async (dispatch) => {
   const response = await fetch('/api/cart/empty', {
-    method: "DELETE",
-    body: JSON.stringify({
-      user_id
-    })
+    method: "DELETE"
   })
   if (response.ok) {
     const cart = await response.json()
