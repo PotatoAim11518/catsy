@@ -7,6 +7,7 @@ import { getItems, addItem } from "../../store/cartItem";
 import { getCart } from "../../store/cart";
 import styles from "./cat.module.css";
 import CommentsForm from "../Comments/Comments_Form";
+import CommentPage from "../Comments/Comments_Page";
 
 const Cat = () => {
   const { cat_id } = useParams();
@@ -104,8 +105,11 @@ const Cat = () => {
         </div>
         <div></div>
       </div>
-      <div>
+      {/* <div>
         <CommentsForm />
+      </div> */}
+      <div>
+        <CommentPage />
       </div>
     </>
   );

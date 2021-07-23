@@ -37,7 +37,6 @@ export const get_all_comments = (cat_id) => async (dispatch) => {
 
     if (response.ok) {
         const comment = await response.json();
-        console.log("DICKSSSSS", comment);
         dispatch(get_comments(comment));
         return 'SUCCESS'
     }

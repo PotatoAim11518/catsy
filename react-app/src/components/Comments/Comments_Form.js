@@ -43,8 +43,8 @@ export const CommentsForm = ({ catScratch }) => {
 
 
    return (
-      <div className={styles.Scratches_Div}>
-         <div>
+      <div className={styles.All_Scratches}>
+         <div className={styles.Scratches_Div}>
             <h1 className={styles.Header}>Scratching Post</h1>
             <form
                onSubmit={onSubmit}
@@ -57,12 +57,12 @@ export const CommentsForm = ({ catScratch }) => {
                   name="scratches"
                   onChange={(e) => setComment(e.target.value)}
                   value={comment}
-                  placeholder="<Purrrr> Scratches please! But not the belly if you enjoy having fingers..."
+                  placeholder="<Purrrr> Scratches please! But not the belly if you like your fingers..."
                   className={styles.TextArea}
                ></textarea>
                <div>
                      <button
-                        className={styles.Submit_ScratchBtn} type="submit">Scratch the Post!</button>
+                        className={styles.Submit_ScratchBtn} type="submit">Scratch the Kitty!</button>
 
                </div>
             </div>
