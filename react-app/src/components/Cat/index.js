@@ -39,7 +39,6 @@ const Cat = () => {
   return (
     <>
       <div className={styles.catContainer}>
-        <h1>{randomWelcome(cat?.name)}</h1>
         <div className={styles.catSummary}>
           <div
             className={styles.catImage}
@@ -59,13 +58,14 @@ const Cat = () => {
                 <button className={styles.addToBoxButton}>
                   Add to cardboard box
                 </button>
+          <p className={styles.cat}>Adopted: {cat?.adopted ? "Yes" : "No"}</p>
               </div>
             </div>
           </div>
         </div>
+        <h1 className={styles.randomWelcome}>{randomWelcome(cat?.name)}</h1>
 
         <div className={styles.catInfo}>
-          <p className={styles.cat}>Adopted: {cat?.adopted ? "Yes" : "No"}</p>
           <p className={styles.catQuickInfo}>
             {cat?.age.name} | {cat?.gender.name} | {cat?.size.name}
           </p>
@@ -77,9 +77,11 @@ const Cat = () => {
             Spayed/Neutered: {cat?.spayed_neutered ? "Yes" : "No"}
           </p>
           <h2 className={styles.catInfoHeader}>Contact</h2>
-          <p className={styles.catText}>Owner: {cat?.owner.username}</p>
-          <p className={styles.catText}>Contact: {cat?.owner.email}</p>
-          <p className={styles.catText}>Description: {cat?.description}</p>
+          <p className={styles.catText}>{cat?.owner.username}</p>
+          <p className={styles.catText}>{cat?.owner.email}</p>
+          <p className={styles.catQuickDisclaimer}><i class="fas fa-cat"> </i> Catsy Recommends that you should always make reasonable decisions when adopting pets. Their lives are in your hands!</p>
+          <h2 className={styles.catInfoHeader}>{`Meet ${cat?.name}`}</h2>
+          <p className={styles.catText}>{cat?.description}</p>
         </div>
         <div></div>
       </div>
