@@ -71,7 +71,7 @@ const Cat = () => {
             </div>
             <div>
               <div className={styles.catActionButtons}>
-                <button disabled={inCart} onClick={handleAddToBox} className={styles.addToBoxButton}>
+                <button disabled={inCart} onClick={handleAddToBox} className={inCart ? styles.addToBoxButtonDisabled : styles.addToBoxButton}>
                 </button>
                 <div className={styles.buttonText}>
                   {inCart ? "Hiding in your cardboard box!" : "Add to cardboard box"}

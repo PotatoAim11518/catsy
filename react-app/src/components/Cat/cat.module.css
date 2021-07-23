@@ -96,13 +96,21 @@
 
 .addToBoxButton {
   position: absolute;
-  color: white;
   padding: 20px 20px;
   border: none;
   width: 260px;
   border-radius: 40px;
-  /* font-size: 14px; */
-  background-color: rgb(65, 65, 65);
+  background-color: rgb(40, 40, 40);
+  transition: background-color 0.3s, transform 0.3s;
+}
+.addToBoxButtonDisabled {
+  position: absolute;
+  color: black;
+  padding: 20px 20px;
+  border: none;
+  width: 260px;
+  border-radius: 40px;
+  background-color: rgb(200, 200, 200);
   transition: background-color 0.3s, transform 0.3s;
 }
 
@@ -116,7 +124,7 @@
 }
 
 .addToBoxButton:hover {
-  background-color: rgb(80, 80, 80);
+  background-color: rgb(60, 60, 60);
   transform: scale(1.07, 1.05);
   transition: background-color 0.3s, transform 0.3s;
 }
