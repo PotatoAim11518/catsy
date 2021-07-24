@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { add_comment } from "../../store/comments";
 import * as sessionActions from "../../store/session";
+import * as userActions from "../../store/comments"
 import styles from "./comments.module.css";
 
 

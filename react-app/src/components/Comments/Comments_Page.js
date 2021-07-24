@@ -7,7 +7,7 @@ import {CommentsForm} from "./Comments_Form";
 import { get_all_comments } from "../../store/comments";
 import { Comment } from "./Comments";
 import styles from "./comments.module.css";
-
+import * as userActions from "../../store/comments";
 
 const mockData = {
     'all_comments': [
@@ -26,15 +26,7 @@ const mockData = {
             "id": 137,
             "updated_at": "Tue, 20 Jul 2021 11:25:10 GMT",
             "user_id": 1
-        },
-        // {
-        //     "cat_id": 26,
-        //     "comment": "Laborum necessitatibus delectus, ipsa maiores sequi tenetur dolores itaque quam.",
-        //     "created_at": "Tue, 20 Jul 2021 11:25:10 GMT",
-        //     "id": 137,
-        //     "updated_at": "Tue, 20 Jul 2021 11:25:10 GMT",
-        //     "user_id": 10
-        //   }
+        }
     ]
 }
 

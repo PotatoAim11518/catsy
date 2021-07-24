@@ -8,6 +8,7 @@ import { useParams } from 'react-router-dom';
 import User from "../User";
 import userComponents from "../UsersList";
 import Cat from "../Cat";
+import * as userActions from "../../store/comments";
 
 
 export const Comment = ({ props }) => {
