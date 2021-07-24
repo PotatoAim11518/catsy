@@ -15,7 +15,7 @@ const Cat = () => {
   const cats = useSelector((state) => state.cats);
   const cart_items = useSelector((state) => Object.values(state.cart_items));
   const cat = cats[cat_id];
-  const isInCart = cart_items.map((item) => item.cat_id).includes(cat?.id)
+  const isInCart = cart_items.map((item) => item.cat_id).includes(cat?.id);
 
   const randomWelcome = (name) => {
     const greetings = [
@@ -37,19 +37,19 @@ const Cat = () => {
     return greetings[Math.floor(Math.random() * greetings.length)];
   };
 
-  const [inCart, setInCart] = useState(false)
+  const [inCart, setInCart] = useState(false);
 
   const handleAddToBox = () => {
-    setInCart(true)
-    dispatch(addItem(cat?.id))
-    history.push('/cart')
-  }
+    setInCart(true);
+    dispatch(addItem(cat?.id));
+    history.push("/cart");
+  };
 
   useEffect(() => {
-    dispatch(getCats())
-    dispatch(getCart())
-    dispatch(getItems())
-    setInCart(isInCart)
+    dispatch(getCats());
+    dispatch(getCart());
+    dispatch(getItems());
+    setInCart(isInCart);
   }, [dispatch, isInCart]);
 
   return (
@@ -71,14 +71,34 @@ const Cat = () => {
             </div>
             <div>
               <div className={styles.catActionButtons}>
-                <button disabled={inCart} onClick={handleAddToBox} className={inCart ? styles.addToBoxButtonDisabled : styles.addToBoxButton}>
-                </button>
-                <div className={styles.buttonText}>
-                  {inCart ? "Hiding in your cardboard box!" : "Add to cardboard box"}
-                </div>
+                {cat?.adopted ? (
+                  <>
+                    <button
+                      disabled={true}
+                      className={styles.addToBoxButtonDisabled}
+                    ></button>
+                    <div className={styles.buttonText}>Already has a home</div>
+                  </>
+                ) : (
+                  <>
+                    <button
+                      disabled={inCart}
+                      onClick={handleAddToBox}
+                      className={
+                        inCart
+                          ? styles.addToBoxButtonDisabled
+                          : styles.addToBoxButton
+                      }
+                    ></button>
+                    <div className={styles.buttonText}>
+                      {inCart
+                        ? "Hiding in your cardboard box!"
+                        : "Add to cardboard box"}
+                    </div>
+                  </>
+                )}
               </div>
             </div>
-          <p className={styles.cat}>Adopted: {cat?.adopted ? "Yes" : "No"}</p>
           </div>
         </div>
         <h1 className={styles.randomWelcome}>{randomWelcome(cat?.name)}</h1>
@@ -97,7 +117,11 @@ const Cat = () => {
           <h2 className={styles.catInfoHeader}>Contact</h2>
           <p className={styles.catText}>{cat?.owner.username}</p>
           <p className={styles.catText}>{cat?.owner.email}</p>
-          <p className={styles.catQuickDisclaimer}><i class="fas fa-cat"> </i> Catsy Recommends that you should always make reasonable decisions when adopting pets. Their lives are in your hands!</p>
+          <p className={styles.catQuickDisclaimer}>
+            <i class="fas fa-cat"> </i> Catsy Recommends that you should always
+            make reasonable decisions when adopting pets. Their lives are in
+            your hands!
+          </p>
           <h2 className={styles.catInfoHeader}>{`Meet ${cat?.name}`}</h2>
           <p className={styles.catText}>{cat?.description}</p>
         </div>

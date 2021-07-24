@@ -1,20 +1,20 @@
 .catCard {
   display: flex;
   flex-direction: column;
-  /* padding: 10px; */
   width: 380px;
   height: 450px;
   border-radius: 12px;
   border: 1px solid rgba(40, 40, 40, 0.25);
-  transition: box-shadow 0.3s, transform 0.5s ease-out;
+  transition: box-shadow 0.3s, transform 0.5s ease-out, background-color 0.3s;
+  background-color:rgba(200, 200, 200, 0.25);
 }
 
 .catCard:hover {
   cursor: pointer;
-  background-color: rgba(255, 192, 203, 0.219);
+  background-color:rgba(200, 200, 200, 0);
   box-shadow: 0px 2px 8px rgba(40, 40, 40, 0.25);
   transform: translate3D(0px, -1px, 600px);
-  transition: box-shadow 0.3s, transform 0.3s;
+  transition: box-shadow 0.3s, transform 0.3s, background-color 0.3s;
 }
 
 .imageContainer {
@@ -27,23 +27,8 @@
   background-repeat: no-repeat;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
-  /* border: 1px solid rgba(40, 40, 40, 0.25);
-  box-shadow: 1px 1px 5px 2px rgba(40, 40, 40, 0.25); */
 }
 
-/* .imageContainer {
-  position: relative;
-  max-width: 150px;
-  min-width: 150px;
-  height: 150px;
-  background-position: 50% 50%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  border-radius: 51%;
-  margin: 10px;
-  border: 1px solid rgba(40, 40, 40, 0.25);
-  box-shadow: 1px 1px 5px 2px rgba(40, 40, 40, 0.25);
-} */
 
 .textContainer {
   display: flex;
@@ -57,7 +42,7 @@
   padding-top: 20px;
   font-size: 30px;
   font-family: 'Nanum Myeongjo', serif;
-  text-shadow: 6px 6px 18px #f7c39e;
+  text-shadow: 6px 6px 15px #f7c39e;
 }
 
 .description {
@@ -70,12 +55,16 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  padding: 30px 0;
-  border-top: 1px solid rgba(40, 40, 40, 0.25);
+  padding: 15px 0;
+  border-top: 2px solid rgba(40, 40, 40, 0.25);
 }
 
 .adoptionStatus {
+  color: white;
   position: absolute;
   transform: translate(350px, -10px);
-  background-color: gold;
+  background-color:pink;
+  border-radius: 33%;
+  padding: 3px 4px;
+  font-family: 'Nanum Pen Script', cursive;
 }
