@@ -59,7 +59,15 @@ const Cat = () => {
           <div
             className={styles.catImage}
             style={{ backgroundImage: `url(${cat?.image_url})` }}
-          ></div>
+          >
+            {cat?.adopted && (
+              <img
+                className={styles.adoptedStamp}
+                src="/assets/cat_adopted.png"
+                alt="cat adopted"
+              />
+            )}
+          </div>
 
           <div className={styles.catBasicInfo}>
             <div className={styles.catBasicInfoText}>
