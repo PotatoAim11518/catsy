@@ -1,0 +1,51 @@
+.catCard {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  width: 600px;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.2s ease-out;
+}
+
+.catCard:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 5px 2px rgba(80, 80, 80, 0.5);
+  transform: scale(1.01);
+  transform: translate(10px, -10px);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.imageContainer {
+  position: relative;
+  max-width: 150px;
+  min-width: 150px;
+  height: 150px;
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 51%;
+  margin: 10px;
+  border: 1px solid rgba(80, 80, 80, 0.5);
+  box-shadow: 1px 1px 5px 2px rgba(80, 80, 80, 0.5);
+}
+
+.text {
+
+}
+
+.name {
+
+}
+
+.description {
+
+}
+
+.adoptionDate {
+
+}
+
+.adoptionStatus {
+
+}

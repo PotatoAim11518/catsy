@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCats } from '../../store/cats';
+import AdoptedList from './AdoptedList'
 
-export default function AdoptionPage({newly_adopted_cats}) {
+export default function AdoptionPage() {
   const dispatch = useDispatch();
 
   const user = useSelector((state) => state.session.user);
@@ -12,9 +13,6 @@ export default function AdoptionPage({newly_adopted_cats}) {
       .filter((cat) =>
         (cat.owner_id === user.id && cat.adopted === true)
         )
-      // .map((cat) =>
-      //   cat.id
-      //   )
 
   useEffect(() => {
     dispatch(getCats())
@@ -23,7 +21,7 @@ export default function AdoptionPage({newly_adopted_cats}) {
   return (
     <>
     <h1>Your Cat Collection</h1>
-      {your_cats.map((cat) => cat)}
+      <AdoptedList your_cats={your_cats}/>
     </>
   )
 }
