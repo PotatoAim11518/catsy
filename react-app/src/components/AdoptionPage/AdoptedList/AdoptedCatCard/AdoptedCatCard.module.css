@@ -1,22 +1,37 @@
 .catCard {
   display: flex;
-  flex-direction: row;
-  padding: 10px;
-  width: 600px;
-  height: auto;
-  border-radius: 8px;
-  transition: transform 0.2s ease-out;
+  flex-direction: column;
+  /* padding: 10px; */
+  width: 380px;
+  height: 450px;
+  border-radius: 12px;
+  border: 1px solid rgba(40, 40, 40, 0.25);
+  transition: box-shadow 0.3s, transform 0.5s ease-out;
 }
 
 .catCard:hover {
   cursor: pointer;
-  box-shadow: 1px 1px 5px 2px rgba(80, 80, 80, 0.5);
-  transform: scale(1.01);
-  transform: translate(10px, -10px);
+  background-color: rgba(255, 192, 203, 0.219);
+  box-shadow: 0px 2px 8px rgba(40, 40, 40, 0.25);
+  transform: translate3D(0px, -1px, 600px);
   transition: box-shadow 0.3s, transform 0.3s;
 }
 
 .imageContainer {
+  position: relative;
+  max-width: 100%;
+  min-width: 100%;
+  height: 300px;
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  /* border: 1px solid rgba(40, 40, 40, 0.25);
+  box-shadow: 1px 1px 5px 2px rgba(40, 40, 40, 0.25); */
+}
+
+/* .imageContainer {
   position: relative;
   max-width: 150px;
   min-width: 150px;
@@ -26,26 +41,41 @@
   background-repeat: no-repeat;
   border-radius: 51%;
   margin: 10px;
-  border: 1px solid rgba(80, 80, 80, 0.5);
-  box-shadow: 1px 1px 5px 2px rgba(80, 80, 80, 0.5);
-}
+  border: 1px solid rgba(40, 40, 40, 0.25);
+  box-shadow: 1px 1px 5px 2px rgba(40, 40, 40, 0.25);
+} */
 
-.text {
-
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  color: black;
 }
 
 .name {
-
+  padding-top: 20px;
+  font-size: 30px;
+  font-family: 'Nanum Myeongjo', serif;
+  text-shadow: 6px 6px 18px #f7c39e;
 }
 
 .description {
-
+  padding: 20px 30px;
 }
 
 .adoptionDate {
-
+  font-size: 28px;
+  font-family: 'Nanum Pen Script', cursive;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 30px 0;
+  border-top: 1px solid rgba(40, 40, 40, 0.25);
 }
 
 .adoptionStatus {
-
+  position: absolute;
+  transform: translate(350px, -10px);
+  background-color: gold;
 }

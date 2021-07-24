@@ -14,15 +14,15 @@ export default function AdoptedCatCard({cat}) {
   return (
       <div onClick={handleGoToCatPage} className={styles.catCard}>
         <div className={styles.imageContainer} style={{"backgroundImage":`url(${cat.image_url})`}}></div>
-        <div className={styles.text}>
+          {((new Date() - new Date(cat.updated_at)) / 3600000) < 24 && (<div className={styles.adoptionStatus}>
+            NEW
+          </div>)}
+        <div className={styles.textContainer}>
           <h2 className={styles.name}>{cat.name}</h2>
           <p className={styles.description}>{cat.description ? cat.description : "No description provided"}</p>
-          <h3 className={styles.adoptionDate}>Adopted {new Date(cat.updated_at)
-            .toLocaleDateString('en-US', {year: 'numeric', month: 'short', day: 'numeric'})}</h3>
+          <div className={styles.adoptionDate}>Adopted {new Date(cat.updated_at)
+            .toLocaleDateString('en-US', {year: 'numeric', month: 'short', day: 'numeric'})}</div>
         </div>
-        {((new Date() - new Date(cat.updated_at)) / 3600000) < 24 && (<div className={styles.adoptionStatus}>
-          "Recently adopted"
-        </div>)}
       </div>
   )
 }

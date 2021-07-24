@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCats } from '../../store/cats';
 import AdoptedList from './AdoptedList'
+import styles from './AdoptionPage.module.css'
 
 export default function AdoptionPage() {
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ export default function AdoptionPage() {
 
   return (
     <>
-    <h1>Your Cat Collection</h1>
+    <h1 className={styles.header}>Your Cat Collection</h1>
       <AdoptedList your_cats={your_cats}/>
     </>
   )

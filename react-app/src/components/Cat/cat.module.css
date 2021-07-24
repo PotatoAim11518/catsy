@@ -151,8 +151,9 @@
 }
 
 .catText {
-  font-family: 'Nanum Pen Script', cursive;
-  font-size: 22px;
+  font-family: 'Nanum Myeongjo', serif;
+  /* font-family: 'Nanum Pen Script', cursive; */
+  font-size: 16px;
   font-weight: 100;
   padding: 4px 0;
 

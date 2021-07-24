@@ -1,0 +1,29 @@
+.catContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  padding: 20px 10vw;
+  gap: 20px;
+}
+
+.emptyContainer {
+  position: sticky;
+  top: 25vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.unknownCat {
+  border-radius: 10px;
+  box-shadow: 0px 1px 8px rgba(40, 40, 40, 0.25);
+}
+
+.empty {
+  font-size: 30px;
+  color: black;
+  text-shadow: 1px 1px 2px pink;
+}
