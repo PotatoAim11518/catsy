@@ -8,16 +8,8 @@ export default function CartItemList({ cart_items }) {
     <div className={styles.cartContainer}>
       {cart_items && cart_items.map((item) => {
         return <CartItem key={item.id} item={item} />
-      })}
-      {cart_items.length < 1 &&
-        <div className={styles.emptyCartContainer}>
-          <img className={styles.unknownCat} src="assets/schrodingers_cat.jpg" alt="unknown cat"/>
-          <h1 className={styles.empty}>Your box is empty.</h1>
-          <h2 className={styles.probably}>(probably)</h2>
-          <div>
-          </div>
-        </div>
-      }
+      }).reverse()}
+      
     </div>
   );
 }

@@ -3,10 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { add_comment } from "../../store/comments";
 import * as sessionActions from "../../store/session";
+import * as userActions from "../../store/comments"
+import styles from "./comments.module.css";
 
 
-
-export const Comments = ({ catScratch }) => {
+export const CommentsForm = ({ catScratch }) => {
    const dispatch = useDispatch();
    const user = useSelector(state => state.session.user);
    // const cat_id = useSelector(state => state.comments.cat_id);
@@ -43,25 +44,32 @@ export const Comments = ({ catScratch }) => {
 
 
    return (
-      <div>
-         <h1>Scratching Post</h1>
-         <form onSubmit={onSubmit}>
-         <div>
-            <textarea
-               id="scratch"
-               type="text"
-               name="scratches"
-               onChange={(e) => setComment(e.target.value)}
-               value={comment}
-               // required={true}
-            ></textarea>
-            <div>
-               <button type="submit">Scratch the Post!</button>
-               <button type="submit">Edit Scratch!</button>
+      <div className={styles.All_Scratches}>
+         <div className={styles.Scratches_Div}>
+            <h1 className={styles.Header}>Scratching Post</h1>
+            <form
+               onSubmit={onSubmit}
+               className={styles.Submit}>
+               <div
+                  className={styles.TextContainer}>
+               <textarea
+                  id="scratch"
+                  type="text"
+                  name="scratches"
+                  onChange={(e) => setComment(e.target.value)}
+                  value={comment}
+                  placeholder="<Purrrr> Scratches please! But not the belly if you like your fingers..."
+                  className={styles.TextArea}
+               ></textarea>
+               <div>
+                     <button
+                        className={styles.Submit_ScratchBtn} type="submit">Scratch the Kitty!</button>
+
+               </div>
             </div>
+            </form>
          </div>
-         </form>
       </div>
    )
 }
-export default Comments;
+export default CommentsForm;

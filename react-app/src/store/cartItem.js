@@ -1,6 +1,8 @@
 const SET_CART_ITEMS = 'cart/SET_CART_ITEM';
 const ADD_CART_ITEM = 'cart/ADD_CART_ITEMS';
 const REMOVE_CART_ITEM = 'cart/REMOVE_CART_ITEM';
+const REMOVE_ADOPTED = 'cart/REMOVE_ADOPTED';
+const CLEAR_CART = 'cart/CLEAR_CART';
 
 const setItems = (items) => ({
   type: SET_CART_ITEMS,
@@ -15,6 +17,14 @@ const add = (item) => ({
 const remove = (item) => ({
   type: REMOVE_CART_ITEM,
   item
+})
+
+const removeAdopted = () => ({
+  type: REMOVE_ADOPTED
+})
+
+const clear = () => ({
+  type: CLEAR_CART
 })
 
 export const getItems = () => async (dispatch) => {
@@ -50,6 +60,13 @@ export const removeItem = (item_id) => async (dispatch) => {
   }
 }
 
+export const clearCart = () => async (dispatch) => {
+  dispatch(clear())
+}
+
+export const clearAdopted = () => async (dispatch) => {
+  dispatch(removeAdopted())
+}
 
 const initialState = {}
 
@@ -67,6 +84,18 @@ const cartItemReducer = (state=initialState, action) => {
       const newState = {...state}
       delete newState[action.item['id']]
       return newState
+    case REMOVE_ADOPTED:
+      const noAdoptedState = {...state}
+      for (let itemKey in noAdoptedState) {
+        console.log(noAdoptedState[itemKey].cat.adopted)
+        if (noAdoptedState[itemKey].cat.adopted === true) {
+          delete noAdoptedState[itemKey]
+        }
+      }
+      return noAdoptedState
+    case CLEAR_CART:
+      const clearState = {}
+      return clearState
     default:
       return state;
   }

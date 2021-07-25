@@ -21,9 +21,9 @@ export const changeCat = (cat_id, payload) => async (dispatch) => {
   const response = await fetch(`/api/cats/${cat_id}`, {
     method: "PATCH",
     headers: {'Content-type': 'application/json'},
-    body: {
-      payload
-    }
+    body: JSON.stringify({
+      ...payload
+    })
   })
   const cat = await response.json()
   dispatch(updateCat(cat))

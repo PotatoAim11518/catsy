@@ -109,6 +109,7 @@ const comments_reducer = (state = initialState, action) => {
             return new_state;
         }
         case GET_COMMENTS: {
+            console.log(action.payload);
             const new_state = {
                 ...state,
                 list: action.payload
