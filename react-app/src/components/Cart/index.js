@@ -8,6 +8,7 @@ import { getItems, clearCart, addItem, removeItem } from "../../store/cartItem";
 import { changeCat } from "../../store/cats";
 
 import CartItemList from "./CartItemList";
+import Button from "../Button";
 
 import styles from "./cart.module.css";
 
@@ -40,14 +41,22 @@ export default function Cart() {
 
   return (
     <>
-      <h1 className={styles.header}>My Cardboard Box</h1>
-      <CartItemList cart_items={cart_items} />
-      {cart_items.length > 0 && (
-        <div>
-          <button onClick={handleEmptyCart}>Clear Cart</button>
-          <button onClick={handleAdopt}>Adopt!</button>
-        </div>
-      )}
+      <h1 className={styles.header}>
+        {`${cart_items.length}` <= 1
+          ? `${cart_items.length} Cat`
+          : `${cart_items.length} Cats`}{" "}
+        in your Cardboard box
+      </h1>
+      <div className={styles.cartArea}>
+        <CartItemList cart_items={cart_items} />
+        {cart_items.length > 0 && (
+          <div className={styles.buttonArea}>
+            <img className={styles.catInBox} src="assets/cat_in_box.png" alt="box cat"/>
+            <Button text={"Clear Cart"} action={handleEmptyCart} color={"lightslategray"}/>
+            <Button text={"Adopt!"} action={handleAdopt} color={"pink"}/>
+          </div>
+        )}
+      </div>
     </>
   );
 }
