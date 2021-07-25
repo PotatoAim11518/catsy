@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, session, request, render_template, redirect
 from flask_login import login_required, current_user
-from app.models import User_Comment, db
+from app.models import User_Comment, User, db
 from app.forms.comments_form import CommentForm
 from app.api.auth_routes import validation_errors_to_error_messages
 
@@ -23,7 +23,6 @@ def comments(cat_id):
 def new_comment():
     form = CommentForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    print("DATAAAAA", form.data)
     if form.validate_on_submit():
         comment = User_Comment()
         comment.comment = form.comment.data
@@ -35,20 +34,39 @@ def new_comment():
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 #? ------------ Update a comment ------------
-# ***** it works *****
 
+#! **--**--** Below is a test route **-**-**
 @comments_routes.route('/<int:id>/update', methods=['PUT'])
 @login_required
 def update_comment(id):
-    comment = User_Comment.query.get_or_404(id)
-    form = CommentForm()
-    if form.validate_on_submit():
-        comment.comment = request.json["comment"]
-        db.session.add(comment)
-        db.session.commit()
-        return comment.to_dict()
-    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+    user_id = int(current_user.id)
+    comment = User_Comment.query.all()
+    res = request.get_json()
 
+    if user_id == comment.user_id:
+        form = CommentForm()
+        if form.validate_on_submit():
+            new_comment.comment = res["comment"]
+
+            db.session.add(comment)
+            db.session.commit()
+            return comment.to_dict()
+        return {'errors':   validation_errors_to_error_messages(form.errors)}, 401
+
+# ***** Below works *****
+
+# @comments_routes.route('/<int:id>/update', methods=['PUT'])
+# @login_required
+# def update_comment(id):
+#     user_id = int(current_user.id)
+#     comment = User_Comment.query.get(id)
+#     form = CommentForm()
+#     if form.validate_on_submit():
+#         comment.comment = request.json["comment"]
+#         db.session.add(comment)
+#         db.session.commit()
+#         return comment.to_dict()
+#     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
 #? ------------ Delete a comment ------------
@@ -57,7 +75,7 @@ def update_comment(id):
 @comments_routes.route('/<int:id>/delete', methods=['DELETE'])
 @login_required
 def delete_comment(id):
-    comment = User_Comment.query.get_or_404(id)
+    comment = User_Comment.query.get(id)
     db.session.delete(comment)
     db.session.commit()
     print("success!")

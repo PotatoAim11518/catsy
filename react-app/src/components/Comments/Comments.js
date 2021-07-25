@@ -14,10 +14,30 @@ import * as userActions from "../../store/comments";
 export const Comment = ({ props }) => {
     console.log('TESTING FOR PROPS', props)
     const [comment, setComment] = useState(props.comment);
-    const user = useSelector(state => state.session.user);
+    const user = useSelector((state) => state.session.user);
     const isUser = props.user_id === user.id;
     const username = user.username
-    const catId = props.cat_id;
+    // const cat_id = cat.id;
+
+
+    function updateComment(e) {
+        e.preventDefault();
+
+        const data = {
+            comment,
+            user_id: user.id
+        }
+        dispatchEvent(userActions.edit_comment(data))
+    }
+
+    function deleteComment(e) {
+        e.preventDefault();
+
+        const data = {
+            comment
+
+        }
+    }
 
     return (
         <>

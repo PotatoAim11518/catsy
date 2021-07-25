@@ -39,6 +39,7 @@ const CommentPage = () => {
     }, [dispatch])
 
     const commentId = comments.id
+    const catId = comments.cat_id
 
 
     return (
