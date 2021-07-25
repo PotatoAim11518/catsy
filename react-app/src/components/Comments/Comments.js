@@ -32,8 +32,6 @@ export const Comment = ({ props }) => {
         dispatch(userActions.remove_comment(props.id))
     }
 
-    console.log(props);
-    console.log(comment);
 
     return (
         <>
