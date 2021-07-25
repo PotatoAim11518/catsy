@@ -29,17 +29,17 @@
   border-top-left-radius: 10px;
 }
 
-
 .textContainer {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   color: black;
+  height: 100%;
 }
 
 .name {
-  padding-top: 20px;
+  padding-top: 30px;
   font-size: 30px;
   font-family: 'Nanum Myeongjo', serif;
   text-shadow: 6px 6px 15px #f7c39e;

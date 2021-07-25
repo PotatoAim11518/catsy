@@ -22,8 +22,23 @@
   box-shadow: 0px 1px 8px rgba(40, 40, 40, 0.25);
 }
 
+.empty,
+.poptart {
+  font-family: 'Nanum Pen Script', cursive;
+  margin: 5px 0;
+}
+
 .empty {
+  font-family: 'Nanum Myeongjo', serif;
   font-size: 30px;
   color: black;
   text-shadow: 1px 1px 2px pink;
+  padding: 30px 0;
+}
+
+.poptart {
+  font-size: 24px;
+  background: linear-gradient(to right, blue, indigo, violet, red, orange, yellow, green);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

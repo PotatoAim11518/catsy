@@ -11,8 +11,9 @@ export default function AdoptedList({ your_cats }) {
       ).reverse()}
       {your_cats.length < 1 &&
         <div className={styles.emptyContainer}>
-          <img className={styles.unknownCat} src="assets/schrodingers_cat.jpg" alt="unknown cat"/>
+          <img className={styles.unknownCat} src="assets/nyancat.gif" alt="unknown cat"/>
           <h1 className={styles.empty}>You don't own any cats yet.</h1>
+          <h2 className={styles.poptart}>...so here's a pop tart.</h2>
 
         </div>
       }

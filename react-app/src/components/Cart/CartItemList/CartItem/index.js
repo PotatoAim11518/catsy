@@ -23,7 +23,15 @@ export default function CartItem({item}) {
 
   return (
       <div onClick={handleGoToCatPage} className={styles.itemCard}>
-        <div className={styles.imageContainer} style={{"backgroundImage":`url(${item.cat.image_url})`}}></div>
+        <div className={styles.imageContainer} style={{"backgroundImage":`url(${item.cat.image_url})`}}>
+          {item?.cat?.adopted && (
+                <img
+                  className={styles.adoptedStamp}
+                  src="/assets/cat_adopted.png"
+                  alt="cat adopted"
+                />
+              )}
+        </div>
         <div className={styles.cardText}>
           <h2 className={styles.catName}>{item.cat.name}</h2>
           <h3 className={styles.catBreed}>{item.cat.breed.name}</h3>

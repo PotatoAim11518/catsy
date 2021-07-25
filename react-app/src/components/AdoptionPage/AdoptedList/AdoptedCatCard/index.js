@@ -1,28 +1,39 @@
 // src/components/AdoptionPage/AdoptedList/AdoptedCatCard
-import React from 'react';
-import { useHistory } from 'react-router-dom';
-import styles from './AdoptedCatCard.module.css';
+import React from "react";
+import { useHistory } from "react-router-dom";
+import styles from "./AdoptedCatCard.module.css";
 
-export default function AdoptedCatCard({cat}) {
+export default function AdoptedCatCard({ cat }) {
   const history = useHistory();
 
   const handleGoToCatPage = (e) => {
-    history.push(`/cats/${cat.id}`)
-    return
-  }
+    history.push(`/cats/${cat.id}`);
+    return;
+  };
 
   return (
-      <div onClick={handleGoToCatPage} className={styles.catCard}>
-        <div className={styles.imageContainer} style={{"backgroundImage":`url(${cat.image_url})`}}></div>
-          {((new Date() - new Date(cat.updated_at)) / 3600000) < 24 && (<div className={styles.adoptionStatus}>
-            NEW
-          </div>)}
-        <div className={styles.textContainer}>
-          <h2 className={styles.name}>{cat.name}</h2>
-          <p className={styles.description}>{cat.description ? cat.description : "No description provided"}</p>
-          <div className={styles.adoptionDate}>Adopted {new Date(cat.updated_at)
-            .toLocaleDateString('en-US', {year: 'numeric', month: 'short', day: 'numeric'})}</div>
+    <div onClick={handleGoToCatPage} className={styles.catCard}>
+      <div
+        className={styles.imageContainer}
+        style={{ backgroundImage: `url(${cat.image_url})` }}
+      ></div>
+      <div className={styles.textContainer}>
+        <h2 className={styles.name}>{cat.name}</h2>
+        <p className={styles.description}>
+          {cat.description ? cat.description : "No description provided"}
+        </p>
+        <div className={styles.adoptionDate}>
+          Adopted{" "}
+          {new Date(cat.updated_at).toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+          })}
         </div>
       </div>
-  )
+      {(new Date() - new Date(cat.updated_at)) / 3600000 < 24 && (
+        <div className={styles.adoptionStatus}>NEW</div>
+      )}
+    </div>
+  );
 }
