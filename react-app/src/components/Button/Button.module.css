@@ -1,0 +1,34 @@
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+
+.button {
+  cursor: pointer;
+  position: absolute;
+  padding: 20px 20px;
+  border: none;
+  width: 260px;
+  border-radius: 40px;
+  background-color: rgb(40, 40, 40);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.buttonText {
+  display: block;
+  color: white;
+  position: relative;
+  pointer-events: none;
+  font-family: 'Nanum Pen Script', cursive;
+  font-size: 24px;
+}
+
+.button:hover {
+  background-color: rgb(60, 60, 60);
+  transform: scale(1.07, 1.05);
+  transition: background-color 0.3s, transform 0.3s;
+}

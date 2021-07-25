@@ -3,7 +3,8 @@ import React, { useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import styles from './cartitem.module.css';
-import { getItems, removeItem } from '../../../../store/cartItem'
+import { getItems, removeItem } from '../../../../store/cartItem';
+import Button from '../../../Button';
 
 export default function CartItem({item}) {
   const dispatch = useDispatch();
@@ -22,17 +23,23 @@ export default function CartItem({item}) {
 
   return (
       <div onClick={handleGoToCatPage} className={styles.itemCard}>
-        <div className={styles.imageContainer} style={{"backgroundImage":`url(${item.cat.image_url})`}}></div>
-        {/* <div className={styles.imageContainer}>
-          <img className={styles.image} src={item.cat.image_url} alt="cute cat"/>
-        </div> */}
+        <div className={styles.imageContainer} style={{"backgroundImage":`url(${item.cat.image_url})`}}>
+          {item?.cat?.adopted && (
+                <img
+                  className={styles.adoptedStamp}
+                  src="/assets/cat_adopted.png"
+                  alt="cat adopted"
+                />
+              )}
+        </div>
         <div className={styles.cardText}>
           <h2 className={styles.catName}>{item.cat.name}</h2>
           <h3 className={styles.catBreed}>{item.cat.breed.name}</h3>
           <p className={styles.catDescription}>{item.cat.description}</p>
         </div>
-        <div>
-          <button onClick={handleRemoveCartItem}>X</button>
+        <div className={styles.removeButton}>
+          <Button text={"X"} action={handleRemoveCartItem} color={"lightslategrey"} width={40}/>
+          {/* <button onClick={handleRemoveCartItem}>X</button> */}
         </div>
       </div>
   )

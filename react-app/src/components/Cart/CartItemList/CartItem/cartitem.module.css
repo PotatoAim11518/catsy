@@ -5,15 +5,17 @@
   width: 600px;
   height: auto;
   border-radius: 8px;
-  transition: transform 0.2s ease-out;
+  background-color: rgba(200, 200, 200, 0.25);
+  transition: box-shadow 0.3s, transform 0.3s, background-color 0.3s;
 }
 
 .itemCard:hover {
   cursor: pointer;
-  box-shadow: 1px 1px 5px 2px rgba(80, 80, 80, 0.5);
+  box-shadow: 0px 2px 8px rgba(40, 40, 40, 0.25);
   transform: scale(1.01);
-  transform: translate(10px, -10px);
-  transition: box-shadow 0.3s, transform 0.3s;
+  transform: translate(0px, -4px);
+  background-color: white;
+  transition: box-shadow 0.3s, transform 0.3s, background-color 0.3s;
 }
 .imageContainer {
   position: relative;
@@ -29,25 +31,31 @@
   box-shadow: 1px 1px 5px 2px rgba(80, 80, 80, 0.5);
 }
 
-/* .image {
-  border: 1px solid black;
-  position: relative;
-  border-radius: 51%;
-  max-width: 100%;
-  width: 100%;
-  height: auto;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-} */
+.adoptedStamp {
+  position: absolute;
+  max-width: 40px;
+  min-width: 40px;
+  height: 40px;
+  bottom: -15px;
+  right: -15px;
+  border-radius: 50%;
+  margin: 10px;
+  background-color: pink;
+  box-shadow: 0px 0px 12px 4px pink;
+}
 
 .cardText {
   color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  width: 100%;
 }
 
 .catName {
-  font-size: 40px;
-  font-family: 'Nanum Pen Script', cursive;
+  font-size: 30px;
+  font-family: 'Nanum Myeongjo', serif;
 }
 
 .catBreed {
@@ -57,6 +65,12 @@
 
 .catDescription {
   padding: 8px;
+}
+
+.removeButton {
+  position: relative;
+  top: -16px;
+  right: -8px;
 }
 
 
