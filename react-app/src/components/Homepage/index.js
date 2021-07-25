@@ -1,13 +1,15 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import ExploreCats from './ExploreCats';
-import AboutMe from './AboutMe';
+import About from './About';
 import { getCats } from '../../store/cats';
-import "./HomePage.css"
+import styles from './HomePage.module.css'
 
 const Homepage = () => {
   const dispatch = useDispatch();
+  const cats = useSelector((state) => Object.values(state.cats))
+  const category_names = useSelector((state) => Object.keys(state.categories))
 
   useEffect(() => {
     dispatch(getCats())
@@ -15,9 +17,9 @@ const Homepage = () => {
 
   return (
     <>
-      <div className="homepage-container">
-        <ExploreCats />
-        <AboutMe />
+      <div className="styles.homepageContainer">
+        <ExploreCats cats={cats} category_names={category_names}/>
+        <About />
         <div className="mailing-list">
           <div>Hello World</div>
         </div>

@@ -47,7 +47,7 @@ function App() {
           <AdoptionPage />
         </ProtectedRoute>
         <Route path='/cats/comments' exact={true}>
-          <Comments comments={comments} />
+          <CommentPage comments={comments} />
 
        {/*<Route path='/cats/:id/comments' exact={true}>*/}
 
