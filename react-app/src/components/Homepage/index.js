@@ -21,7 +21,7 @@ const Homepage = () => {
         <ExploreCats cats={cats} category_names={category_names}/>
         <About />
         <div className="mailing-list">
-          <div>Hello World</div>
+          <div>Footer Area</div>
         </div>
       </div>
     </>
