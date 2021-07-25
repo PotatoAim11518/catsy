@@ -39,7 +39,7 @@ export const Comment = ({ props }) => {
             {/* <div className={styles.blankSpace}></div> */}
             <div className={styles.Scratch_Container}>
                 <p className={styles.username}>User: {username} </p>
-                {!edit ? <p className={styles.Get_Scratches}>∙ {comment}</p> :
+                {!edit ? <p className={styles.Get_Scratches}>∙ {updatedComment}</p> :
                     <input
                         type="text"
                         value={updatedComment}

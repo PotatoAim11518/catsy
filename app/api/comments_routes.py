@@ -37,23 +37,6 @@ def new_comment():
 #? ------------ Update a comment ------------
 
 #! **--**--** Below is a test route **-**-**
-# @comments_routes.route('/<int:id>/update', methods=['PUT'])
-# @login_required
-# def update_comment(id):
-#     user_id = int(current_user.id)
-#     comment = User_Comment.query.all()
-#     res = request.get_json()
-
-#     if user_id == comment.user_id:
-#         form = CommentForm()
-#         if form.validate_on_submit():
-#             new_comment.comment = res["comment"]
-
-#             db.session.add(comment)
-#             db.session.commit()
-#             return comment.to_dict()
-#         return {'errors':   validation_errors_to_error_messages(form.errors)}, 401
-
 # ***** Below works *****
 
 @comments_routes.route('/<int:id>/update', methods=['PUT'])

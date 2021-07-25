@@ -77,6 +77,7 @@ export const edit_comment = (id, payload) => async (dispatch) => {
         body: JSON.stringify({comment: payload}),
     });
     const comment = await response.json();
+    console.log("Testing for Comments", comment);
     dispatch(update_comment(comment));
     return 'SUCCESS'
 }
