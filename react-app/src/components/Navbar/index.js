@@ -8,7 +8,7 @@ import './Categories.css'
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { getAges, getSizes, getCoats, getBreeds, getGenders } from '../../store/categories';
-// import * as categories 
+// import logo from '../../../public/assets/catsy_logo.png'
 
 
 const Navbar = () => {
@@ -88,7 +88,9 @@ const Navbar = () => {
     <>
       <nav className="nav-container">
         <div className="nav-logo">
-          <h1 id="catsy">Catsy</h1>
+          <Link to="/">
+            <img className="logo-pic" src="/assets/catsy_logo.png" alt="catsy-logo"></img>
+          </Link>
         </div>
         <SearchBar />
         <div className="nav-rightside">

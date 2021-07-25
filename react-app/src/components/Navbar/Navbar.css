@@ -6,6 +6,12 @@
   background-color: #f7c39e;
 }
 
+.logo-pic {
+  height: auto; 
+  width: auto; 
+  max-width: 135px; 
+  max-height: 150px;
+}
 .nav-container > *{
   padding: 0 20px 0 20px;
 }
@@ -37,6 +43,10 @@
   background-color: transparent;
   padding-left: 0px;
   color: #000
+}
+
+.search-input:focus {
+  background-color: #f3aa77;
 }
 
 .search-input::placeholder {
