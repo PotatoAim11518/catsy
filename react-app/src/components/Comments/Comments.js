@@ -14,29 +14,24 @@ import * as userActions from "../../store/comments";
 export const Comment = ({ props }) => {
     console.log('TESTING FOR PROPS', props)
     const [comment, setComment] = useState(props.comment);
+    const [edit, setEdit] = useState(false);
+    const [updatedComment, setUpdatedComment] = useState(props.comment);
     const user = useSelector((state) => state.session.user);
-    const isUser = props.user_id === user.id;
-    const username = user.username
-    // const cat_id = cat.id;
+    const isUser = props.user_id === user?.id;
+    const username = user?.username
 
+    const dispatch = useDispatch();
 
     function updateComment(e) {
         e.preventDefault();
-
-        const data = {
-            comment,
-            user_id: user.id
-        }
-        dispatchEvent(userActions.edit_comment(data))
+        dispatch(userActions.edit_comment(props.id, updatedComment))
+        setEdit(false);
     }
 
     function deleteComment(e) {
         e.preventDefault();
-
-        const data = {
-            comment
-
-        }
+        console.log("THESE ARE COMMNETTSSSS", comment);
+        dispatch(userActions.remove_comment(props.id))
     }
 
     return (
@@ -44,17 +39,32 @@ export const Comment = ({ props }) => {
             {/* <div className={styles.blankSpace}></div> */}
             <div className={styles.Scratch_Container}>
                 <p className={styles.username}>User: {username} </p>
-                <p className={styles.Get_Scratches}>∙ {comment}</p>
+                {!edit ? <p className={styles.Get_Scratches}>∙ {comment}</p> :
+                    <input
+                        type="text"
+                        value={updatedComment}
+                        onChange={(e) => setUpdatedComment(e.target.value)}
+                    />
+                    }
                     {isUser &&
                         <>
                         <button
-                        className={styles.Edit_ScratchBtn}>
-                            Edit
+                        className={styles.Edit_ScratchBtn}
+                        onClick={() => setEdit(!edit) }
+                    >
+                            {!edit? 'Edit': 'Cancel'}
                         </button>
                         <button
-                        className={styles.Delete_ScratchBtn}>
+                        className={styles.Delete_ScratchBtn}
+                        onClick={deleteComment}>
                             Delete
-                        </button>
+                    </button>
+                    {edit? <button
+                        className={styles.Delete_ScratchBtn}
+                        onClick={updateComment}
+                    >
+                        Save
+                    </button> : null}
                         </>
                     }
             </div>

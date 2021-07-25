@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, useParams } from "react-router-dom";
 import { add_comment } from "../../store/comments";
 import * as sessionActions from "../../store/session";
 import * as userActions from "../../store/comments"
@@ -14,6 +14,8 @@ export const CommentsForm = ({ catScratch }) => {
    const [errors, setErrors] = useState(null);
    const [comment, setComment] = useState('');
 
+   const cat_id = useParams().cat_id;
+
    const onSubmit = async (e) => {
       e.preventDefault();
       if (comment.length < 1) {
@@ -25,7 +27,7 @@ export const CommentsForm = ({ catScratch }) => {
       setErrors(null);
 
       const data = {
-         cat_id: 4,
+         cat_id,
          comment,
          user_id: user.id
       }
