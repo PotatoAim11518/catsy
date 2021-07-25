@@ -21,8 +21,10 @@ class User_Comment(db.Model, UserMixin):
         return {
             'id': self.id,
             'user_id': self.user_id,
+            'user' : self.user.to_dict(),
             'cat_id': self.cat_id,
             'comment': self.comment,
             'created_at': self.created_at,
             'updated_at': self.updated_at
         }
+

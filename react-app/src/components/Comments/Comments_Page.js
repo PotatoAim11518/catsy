@@ -15,10 +15,10 @@ const CommentPage = () => {
     const dispatch = useDispatch();
     const {cat_id} = useParams();
     useEffect(() => {
-        // setComments(get_all_comments(cat_id));
         dispatch(get_all_comments(cat_id))
     }, [dispatch])
 
+    console.log(comments);
 
     if (!comments) {
         return null
