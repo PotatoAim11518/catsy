@@ -12,7 +12,6 @@ import * as userActions from "../../store/comments";
 
 
 export const Comment = ({ props }) => {
-    console.log('TESTING FOR PROPS', props)
     const [comment, setComment] = useState(props.comment);
     const [edit, setEdit] = useState(false);
     const [updatedComment, setUpdatedComment] = useState(props.comment);
@@ -30,7 +29,6 @@ export const Comment = ({ props }) => {
 
     function deleteComment(e) {
         e.preventDefault();
-        console.log("THESE ARE COMMNETTSSSS", comment);
         dispatch(userActions.remove_comment(props.id))
     }
 

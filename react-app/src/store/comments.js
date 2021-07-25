@@ -34,11 +34,8 @@ const update_comment = (payload) => ({
 
 export const get_all_comments = (cat_id) => async (dispatch) => {
     const response = await fetch(`/api/comments/${cat_id}`);
-    console.log("RESSPOOOONNNSSEEE" ,response);
-
     if (response.ok) {
         const comment = await response.json();
-        console.log("COMMMMENNNNTTTTSSS",comment);
         dispatch(get_comments(comment.all_comments));
         return 'SUCCESS'
     }
@@ -68,7 +65,6 @@ export const add_comment = (payload) => async (dispatch) => {
 //* - ***** it works *****
 
 export const edit_comment = (id, payload) => async (dispatch) => {
-    console.log(payload);
     const response = await fetch(`/api/comments/${id}/update`, {
         method: 'PUT',
         headers: {
@@ -77,7 +73,6 @@ export const edit_comment = (id, payload) => async (dispatch) => {
         body: JSON.stringify({comment: payload}),
     });
     const comment = await response.json();
-    console.log("Testing for Comments", comment);
     dispatch(update_comment(comment));
     return 'SUCCESS'
 }

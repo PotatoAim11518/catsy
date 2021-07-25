@@ -19,7 +19,6 @@ const CommentPage = () => {
         dispatch(get_all_comments(cat_id))
     }, [dispatch])
 
-    console.log("POOOOOOP");
 
     if (!comments) {
         return null

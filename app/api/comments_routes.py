@@ -31,7 +31,7 @@ def new_comment():
         db.session.add(comment)
         db.session.commit()
         return comment.to_dict()
-    print(form.errors)
+
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 #? ------------ Update a comment ------------
@@ -43,13 +43,7 @@ def new_comment():
 # @login_required
 def update_comment(id):
     comment = User_Comment.query.get(int(id))
-    # print("THIS IS FROM THE UPDATE ROUTE", comment.to_dict())
-    # form = CommentForm()
-    # form['csrf_token'].data = request.cookies['csrf_token']
-    # if form.validate_on_submit():
-    print("THIS IS REQ.JSON.BODYYYYYYYYY", request.get_json())
     comment.comment = request.get_json()['comment']
-    # db.session.add(comment)
     db.session.commit()
     return comment.to_dict()
     # return {'errors': validation_errors_to_error_messages(form.errors)}, 401
