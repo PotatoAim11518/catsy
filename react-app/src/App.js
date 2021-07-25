@@ -12,6 +12,7 @@ import Navbar from './components/Navbar';
 import Homepage from './components/Homepage'
 import AdoptionPage from './components/AdoptionPage';
 
+
 function App() {
   const [loaded, setLoaded] = useState(false);
   const [comments, setComments] = useState([]);
@@ -47,7 +48,7 @@ function App() {
           <AdoptionPage />
         </ProtectedRoute>
         <Route path='/cats/comments' exact={true}>
-          <Comments comments={comments} />
+          <CommentPage comments={comments} />
 
        {/*<Route path='/cats/:id/comments' exact={true}>*/}
 

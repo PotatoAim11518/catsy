@@ -5,6 +5,7 @@ import cats from './cats'
 import cart from './cart'
 import cart_items from './cartItem'
 import categories from './categories';
+import comments_reducer from './comments';
 
 
 const rootReducer = combineReducers({
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
   cats,
   cart,
   categories,
-  cart_items
+  cart_items,
+  comments_reducer
 });
 
 

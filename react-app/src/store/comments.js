@@ -34,10 +34,9 @@ const update_comment = (payload) => ({
 
 export const get_all_comments = (cat_id) => async (dispatch) => {
     const response = await fetch(`/api/comments/${cat_id}`);
-
     if (response.ok) {
         const comment = await response.json();
-        dispatch(get_comments(comment));
+        dispatch(get_comments(comment.all_comments));
         return 'SUCCESS'
     }
 }
@@ -71,7 +70,7 @@ export const edit_comment = (id, payload) => async (dispatch) => {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({comment: payload}),
     });
     const comment = await response.json();
     dispatch(update_comment(comment));
@@ -85,17 +84,13 @@ export const remove_comment = (id) => async (dispatch) => {
     const response = await fetch(`/api/comments/${id}/delete`, {
         method: 'DELETE',
     });
-    const comment = await response.json();
-    dispatch(delete_comment(comment));
+    dispatch(delete_comment(id));
     return 'DELETED'
 };
 
 //--------------------------------------------------//
 
-const initialState = {
-    list: [],
-    current_comment: null
-};
+const initialState = {};
 
 //?----------------- Reducer -----------------//
 
@@ -104,29 +99,29 @@ const comments_reducer = (state = initialState, action) => {
         case NEW_COMMENT: {
             const new_state = {
                 ...state,
-                comment: action.payload
+                [action.payload.id]: action.payload
             };
             return new_state;
         }
         case GET_COMMENTS: {
-            console.log(action.payload);
             const new_state = {
-                ...state,
-                list: action.payload
             };
+            action.payload.forEach((comment) => {
+                new_state[comment.id] = comment;
+            });
             return new_state;
         }
         case DELETE_COMMENT: {
             const new_state = {
-                ...state,
-                list: state.list.filter(comment => comment.id !== action.payload.id)
+                ...state
             };
+            delete new_state[action.payload];
             return new_state;
         }
         case UPDATE_COMMENT: {
             const new_state = {
                 ...state,
-                current_comment: action.payload
+                [action.payload.id]: action.payload
             };
             return new_state;
         }
