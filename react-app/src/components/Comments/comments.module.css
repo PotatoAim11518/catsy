@@ -1,0 +1,137 @@
+
+.All_Scratches {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60vw;
+    max-width: 960px;
+    min-width: 960px;
+    box-shadow: 1px 1px 30px 1px rgba(80, 80, 80, 0.5);
+    border-radius: 10px;
+    padding: 30px;
+    margin-top: 50px;
+    /* margin-bottom: 60px; */
+}
+
+.Get_Scratches {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    max-width: 960px;
+    min-width: 960px;
+    /* box-shadow: 1px 1px 30px 1px rgba(80, 80, 80, 0.5); */
+    border-radius: 10px;
+    padding: 30px;
+    /* margin-top: 30px; */
+    /* margin-bottom: 80px; */
+}
+
+.Scratch_Container {
+    position: relative;
+    /* display: flex; */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60vw;
+    max-width: 960px;
+    min-width: 960px;
+    box-shadow: 1px 1px 30px 1px rgba(80, 80, 80, 0.5);
+    border-radius: 10px;
+    padding: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.Scratch_Container {
+    /* display: flex; */
+}
+
+.Delete_ScratchBtn,
+.Edit_ScratchBtn {
+    /* justify-content: flex-end; */
+    /* flex-direction: row-reverse; */
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 25px;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+
+.username {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.Header {
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 40px;
+    text-align: center;
+}
+
+.TextContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.TextArea {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 70%;
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 30px;
+    border-radius: 10px;
+}
+
+.Submit_ScratchBtn {
+
+}
+
+.Delete_ScratchBtn,
+.Submit_ScratchBtn,
+.Edit_ScratchBtn {
+    position: inherit;
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 25px;
+    border-radius: 10px;
+    font-weight: 100;
+}
+
+.Submit_ScratchBtn:hover,
+.Delete_ScratchBtn:hover,
+.Edit_ScratchBtn:hover {
+    position: inherit;
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 25px;
+    border-radius: 7px;
+    box-shadow: 1px 1px 30px 1px rgba(80, 80, 80, 0.5);
+}
+
+.Submit_ScratchBtn:active,
+.Delete_ScratchBtn:active,
+.Edit_ScratchBtn:active {
+    position: inherit;
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 25px;
+    border-radius: 7px;
+    box-shadow: 1px 1px 30px 1px rgba(80, 80, 80, 0.7);
+    color:  #f56c0a;
+    font-weight: 1000;
+}
+
+
+
+
+.Delete_ScratchBtn {
+
+}
+
+.Scratches {
+
+}
+
+.All_Scratches {
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 25px;
+    width: 45%;
+}
