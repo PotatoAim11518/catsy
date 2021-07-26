@@ -1,16 +1,14 @@
 import React from 'react';
 import './footer.module.css';
-import { useHistory } from 'react-router-dom';
 
 import Button from '../Button'
 
 import styles from "./footer.module.css";
 
 export default function Footer() {
-    const history = useHistory();
 
     const goToGithub = () => {
-        history.push('https://github.com/commanderh/catsy')
+        window.location.href= 'https://github.com/commanderh/catsy';
     }
 
     return (

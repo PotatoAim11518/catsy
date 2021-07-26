@@ -5,6 +5,7 @@
   align-items: center;
   gap: 40px;
 }
+
 .profileDropdown {
   position: absolute;
   top: 75px;
@@ -13,7 +14,7 @@
   padding: 10px 20px;
   border-radius: 8px;
   box-shadow: 1px 1px 5px 2px rgba(80, 80, 80, 0.5);
-
+  z-index: 100;
 }
 
 .dropdownText {
