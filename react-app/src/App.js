@@ -11,6 +11,7 @@ import { authenticate } from './store/session';
 import Navbar from './components/Navbar';
 import Homepage from './components/Homepage'
 import AdoptionPage from './components/AdoptionPage';
+import SearchResultsPage from './components/SearchResultsPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -36,6 +37,9 @@ function App() {
         <Route path='/' exact={true}>
           <Homepage />
         </Route>
+        <Route path='/search/:searchTerm' >
+          <SearchResultsPage />
+        </Route>
         <Route path='/cats/:cat_id' exact={true}>
           <Cat />
         </Route>
@@ -47,7 +51,7 @@ function App() {
           <AdoptionPage />
         </ProtectedRoute>
         <Route path='/cats/comments' exact={true}>
-          <Comments comments={comments} />
+          <CommentPage comments={comments} />
 
        {/*<Route path='/cats/:id/comments' exact={true}>*/}
 
