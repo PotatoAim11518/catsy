@@ -37,9 +37,9 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Switch>
-        {/* <Route path='/' exact={true}>
+        <Route path='/' exact={true}>
           <Homepage />
-        </Route> */}
+        </Route>
         <Route path='/search/:searchTerm' >
           <SearchResultsPage />
         </Route>
