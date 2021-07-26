@@ -1,0 +1,26 @@
+.exploreContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: lightslategray;
+  margin: 50px 0;
+}
+
+.exploreHeader {
+  color: white;
+  font-size: 40px;
+  font-weight: 100;
+  font-family: 'Nanum Myeongjo', serif;
+  margin: 20px;
+}
+
+.categoryCardContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 30px;
+  align-items: center;
+  width: 100%;
+}

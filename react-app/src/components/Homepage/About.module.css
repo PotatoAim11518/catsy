@@ -1,0 +1,75 @@
+.aboutContainer {
+  background-color: lightpink;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 50px;
+  gap: 80px;
+}
+
+.aboutHeader {
+  color: black;
+  font-size: 50px;
+  font-weight: 400;
+  font-family: 'Nanum Myeongjo', serif;
+  margin: 20px 0;
+}
+
+.aboutSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 70%;
+}
+
+.aboutSectionText {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+
+.aboutSectionHeading {
+  color: black;
+  font-size: 30px;
+  font-weight: 600;
+  font-family: 'Nanum Myeongjo', serif;
+  padding: 25px 0;
+}
+
+.aboutText {
+  color: black;
+  font-size: 24px;
+  font-weight: 100;
+  font-family: 'Nanum Pen Script', cursive;
+}
+
+.imageContainer {
+  position: relative;
+  max-width: 400px;
+  min-width: 400px;
+  height: 350px;
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-top-right-radius: 51%;
+  border-bottom-left-radius: 51%;
+  margin: 10px;
+  border: 1px solid rgba(80, 80, 80, 0.5);
+  box-shadow: 1px 1px 5px 2px rgba(80, 80, 80, 0.5);
+}
+
+.imageContainerAlt {
+  position: relative;
+  max-width: 400px;
+  min-width: 400px;
+  height: 350px;
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-bottom-right-radius: 51%;
+  border-top-left-radius: 51%;
+  margin: 10px;
+  border: 1px solid rgba(80, 80, 80, 0.5);
+  box-shadow: 1px 1px 5px 2px rgba(80, 80, 80, 0.5);
+}
