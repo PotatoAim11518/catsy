@@ -8,7 +8,7 @@ export default function SignupFormModal() {
 
   return (
     <>
-      <Button text={"Register"} action={() => setShowModal(true)} color={"black"} width={75}/>
+      <Button text={"Register"} action={() => setShowModal(true)} color={"#f3aa77"} width={75}/>
 
       {/* <button onClick={() => setShowModal(true)}>Register</button> */}
       {showModal && (
