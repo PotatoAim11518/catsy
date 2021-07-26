@@ -1,21 +1,25 @@
 .footer_container {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     padding-top: 5px;
     padding-bottom: 10px;
     background-color: #f7c39e;
+    height: 55px;
 }
 
 .footer_text {
-    font-size: 22px;
+    font-size: 28px;
+    /* font-family: 'Nanum Pen Script', cursive; */
 }
 
 .footer_element {
-    font-size: 22px;
+    font-size: 28px;
+    /* font-family: 'Nanum Pen Script', cursive; */
 }
 
 .footer_element:hover {
-    /* box-shadow: 1px 1px 30px 1px rgba(80, 80, 80, 0.5); */
+    box-shadow: 1px 1px 30px 1px rgba(80, 80, 80, 0.5);
     font-weight: 900;
-    font-size: 23px;
+    font-size: 30px;
 }
