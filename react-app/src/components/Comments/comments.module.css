@@ -25,6 +25,8 @@
     padding: 30px;
     /* margin-top: 30px; */
     /* margin-bottom: 80px; */
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 25px;
 }
 
 .Scratch_Container {
@@ -58,7 +60,7 @@
 
 .username {
     font-family: 'Nanum Myeongjo', serif;
-    font-size: 17px;
+    font-size: 20px;
     font-weight: 700;
 }
 
@@ -70,6 +72,7 @@
 
 .TextContainer {
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
 }
@@ -81,6 +84,8 @@
     font-family: 'Nanum Pen Script', cursive;
     font-size: 30px;
     border-radius: 10px;
+    border: 1px dotted pink;
+    padding: 10px 20px;
 }
 
 .Submit_ScratchBtn {
@@ -120,7 +125,13 @@
 }
 
 
-
+.commentButtonContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+}
 
 .Delete_ScratchBtn {
 
@@ -131,7 +142,7 @@
 }
 
 .All_Scratches {
-    font-family: 'Nanum Pen Script', cursive;
+    /* font-family: 'Nanum Pen Script', cursive;
     font-size: 25px;
-    width: 45%;
+    width: 45%; */
 }
