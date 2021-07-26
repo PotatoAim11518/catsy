@@ -9,6 +9,7 @@ import { authenticate } from "../../store/session";
 import styles from "./cat.module.css";
 import CommentsForm from "../Comments/Comments_Form";
 import CommentPage from "../Comments/Comments_Page";
+import adoptedStamp from '../../assets/cat_adopted.png'
 
 const Cat = () => {
   const { cat_id } = useParams();
@@ -77,7 +78,7 @@ const Cat = () => {
             {cat?.adopted && (
               <img
                 className={styles.adoptedStamp}
-                src="/assets/cat_adopted.png"
+                src={adoptedStamp}
                 alt="cat adopted"
               />
             )}

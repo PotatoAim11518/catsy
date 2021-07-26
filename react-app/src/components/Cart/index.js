@@ -11,6 +11,8 @@ import CartItemList from "./CartItemList";
 import Button from "../Button";
 
 import styles from "./cart.module.css";
+import catInBox from '../../assets/cat_in_box.png'
+import schrodingersCat from '../../assets/schrodingers_cat.jpg'
 
 export default function Cart() {
   const dispatch = useDispatch();
@@ -63,7 +65,7 @@ export default function Cart() {
           <div className={styles.emptyCartContainer}>
             <img
               className={styles.unknownCat}
-              src="assets/schrodingers_cat.jpg"
+              src={schrodingersCat}
               alt="unknown cat"
             />
             <h1 className={styles.empty}>Your box is empty.</h1>
@@ -78,7 +80,7 @@ export default function Cart() {
           <div className={styles.buttonArea}>
             <img
               className={styles.catInBox}
-              src="assets/cat_in_box.png"
+              src={catInBox}
               alt="box cat"
             />
             <Button
