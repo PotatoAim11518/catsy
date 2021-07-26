@@ -13,7 +13,6 @@ comments_routes = Blueprint('comments', __name__)
 @comments_routes.route('/<int:cat_id>', methods=['GET'])
 def comments(cat_id):
     all_comments = User_Comment.query.filter(User_Comment.cat_id == cat_id).all()
-    # all_comments = db.session.query(User_Comment, User).join(User).join(User_Comment).filter(User_Comment.cat_id == cat_id).all()
     return {'all_comments': [comment.to_dict() for comment in all_comments]}
 
 #? ------------ Post a comment ------------

@@ -12,10 +12,12 @@ import Navbar from './components/Navbar';
 import Homepage from './components/Homepage'
 import AdoptionPage from './components/AdoptionPage';
 import SearchResultsPage from './components/SearchResultsPage';
+import Footer from './components/Footer/FooterIndex';
 
 
 function App() {
   const [loaded, setLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
   const [comments, setComments] = useState([]);
   const dispatch = useDispatch();
 
