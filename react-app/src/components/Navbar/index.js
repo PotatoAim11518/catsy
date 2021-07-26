@@ -16,6 +16,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const [dropDownMenuContent, setDropMenuContent] = useState([]);
+  const [toggleDropDownMenu, setToggleDropDownMenu] = useState(true);
   //Allows access to the store to grab the state
   const user = useSelector(state => state.session.user);
   const categories = useSelector(state => state.categories);
@@ -63,27 +64,33 @@ const Navbar = () => {
 
   const showAgesDropDown = () => {
     setDropMenuContent(categories.ages)
+    setToggleDropDownMenu(false);
   };
 
   const showGendersDropDown = () => {
     setDropMenuContent(categories.genders)
+    setToggleDropDownMenu(false);
   };
 
   const showSizesDropDown = () => {
     setDropMenuContent(categories.sizes)
+    setToggleDropDownMenu(false);
   };
 
   const showBreedsDropDown = () => {
     setDropMenuContent(categories.breeds)
+    setToggleDropDownMenu(false);
   };
 
 
   const showCoatsDropDown = () => {
     setDropMenuContent(categories.coats)
+    setToggleDropDownMenu(false);
   };
 
   const handleMouseLeave = () => {
     setDropMenuContent([]);
+    setToggleDropDownMenu(true);
   };
 
   return (
@@ -123,9 +130,12 @@ const Navbar = () => {
         </div>
       </nav>
       {/* {showMenu && showAgesDropDown()} */}
-      <div className="dropdown-menu" onMouseLeave={handleMouseLeave}>
+      <div hidden={toggleDropDownMenu} className="dropdown-menu" onMouseLeave={handleMouseLeave}>
           {dropDownMenuContent?.map(category => (
-            <Link to={`/search/${category.toLowerCase()}`} key={category}>{category}</Link>
+            <div className="subItem">
+              <Link to={`/search/${category.toLowerCase()}`} key={category}>{category}</Link>
+              <span><i class="fas fa-angle-right"></i></span>
+            </div>
           ))}
       </div>
       {/* {showMenu && (
@@ -136,5 +146,6 @@ const Navbar = () => {
     </>
   )
 };
+//If dropDownMenuContent is empty, 
 
 export default Navbar

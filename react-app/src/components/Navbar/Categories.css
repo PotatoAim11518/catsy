@@ -8,6 +8,8 @@
   font-family: Nanum Pen Script;
   margin: 0 40px 0 40px;
   font-size: 1.25rem;
+  padding: 0 5px 0 5px;
+  border-radius: 10px;
 }
 
 .category {
@@ -21,11 +23,43 @@
 }
 
 .dropdown-menu {
-  background-color: #fce7d8;
-  height: 200px;
-  width: 50%;
-  position: relative;
-  left: 25rem;
-  min-width: 300px;
+  display: flex;
+  justify-content: space-between;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  background-color: #f7c39e;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 63vw;
   min-height: 300px;
+  z-index: 9999;
+  margin-top: 5px;
+  border-radius: 0 0 15px 15px;
+  box-shadow: 1px 1px 10px 2px rgba(80, 80, 80, 0.5);
+}
+
+.subItem {
+  display: flex;
+  min-width: 20vw;
+  justify-content: space-between;
+  padding: 10px 5px 5px 8px;
+}
+
+.category:hover {
+  background-color: #f3aa77;
+  color: #fff;
+}
+
+.category > a:hover {
+  color: #fff;
+}
+
+.subItem:hover {
+  background-color: #f3aa77;
+  color: #fff;
+}
+
+[hidden] {
+  display: none !important;
 }
