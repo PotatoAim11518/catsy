@@ -69,7 +69,6 @@ function App() {
           <h1>My Home Page</h1>
         </ProtectedRoute> */}
       </Switch>
-      <Footer isLoaded={isLoaded}/>
     </BrowserRouter>
   );
 }
