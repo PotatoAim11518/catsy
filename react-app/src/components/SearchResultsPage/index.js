@@ -27,7 +27,7 @@ const SearchResultsPage = () => {
 
   return (
     <>
-      <h1>Search Term: {searchTerm}</h1>
+      <h1 className={styles.searchHeader}>Search Term: {searchTerm}</h1>
       <div className={styles.catContainer}>
         {allResults?.map(cat => <SearchCatCard key={cat.id} cat={cat}/>)}
       </div>

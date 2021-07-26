@@ -8,3 +8,9 @@
   gap: 20px;
 }
 
+.searchHeader {
+  font-size: 50px;
+  font-family: 'Nanum Pen Script', serif;
+  margin-left: 10vw;
+}
+
