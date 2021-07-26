@@ -18,15 +18,11 @@ const Homepage = () => {
   },[dispatch])
 
   return (
-    <>
       <div className="styles.homepageContainer">
         <ExploreCats cats={cats} category_names={category_names}/>
         <About />
-        <div className="mailing-list">
-          <Footer />
-        </div>
+        <Footer />
       </div>
-    </>
   )
 }
 
