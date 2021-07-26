@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { getAges, getSizes, getCoats, getBreeds, getGenders } from '../../store/categories';
 import Button from "../Button";
-// import logo from '../../../public/assets/catsy_logo.png'
+import logo from '../../assets/catsy_logo.png'
 
 
 const Navbar = () => {
@@ -98,7 +98,7 @@ const Navbar = () => {
       <nav className="nav-container">
         <div className="nav-logo">
           <Link to="/">
-            <img className="logo-pic" src="/assets/catsy_logo.png" alt="catsy-logo"></img>
+            <img className="logo-pic" src={logo} alt="catsy-logo"></img>
           </Link>
         </div>
         <SearchBar />
@@ -146,6 +146,6 @@ const Navbar = () => {
     </>
   )
 };
-//If dropDownMenuContent is empty, 
+//If dropDownMenuContent is empty,
 
 export default Navbar

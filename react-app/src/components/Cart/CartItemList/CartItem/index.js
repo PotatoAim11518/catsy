@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import styles from './cartitem.module.css';
 import { getItems, removeItem } from '../../../../store/cartItem';
 import Button from '../../../Button';
+import adoptedStamp from '../../../../assets/cat_adopted.png'
 
 export default function CartItem({item}) {
   const dispatch = useDispatch();
@@ -27,7 +28,7 @@ export default function CartItem({item}) {
           {item?.cat?.adopted && (
                 <img
                   className={styles.adoptedStamp}
-                  src="/assets/cat_adopted.png"
+                  src={adoptedStamp}
                   alt="cat adopted"
                 />
               )}
