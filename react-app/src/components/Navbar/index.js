@@ -8,6 +8,7 @@ import './Categories.css'
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { getAges, getSizes, getCoats, getBreeds, getGenders } from '../../store/categories';
+import Button from "../Button";
 // import logo from '../../../public/assets/catsy_logo.png'
 
 
@@ -22,6 +23,9 @@ const Navbar = () => {
   const history = useHistory();
 
   const goToCart = () => {
+    if (user) {
+      history.push('/cart');
+    }
     history.push('/cart');
   }
 
@@ -38,9 +42,10 @@ const Navbar = () => {
     userRender = (
       <>
         <ProfileButton user={user} />
-        <button className="closed-box-icon">
+        {/* <button className="closed-box-icon">
           <i onClick={goToCart} class="fas fa-box-open"></i>
-        </button>
+        </button> */}
+        <Button text={<i class="fas fa-box-open"></i>} action={goToCart} color={"#f3aa77"} width={10}/>
       </>
     )
   } else {
@@ -48,14 +53,15 @@ const Navbar = () => {
       <>
         <LoginFormModal className="nav-button" />
         <SignupFormModal className="nav-button" />
-        <button className="closed-box-icon">
-          <i class="fas fa-box"></i>
-        </button>
+        {/* <button className="closed-box-icon">
+          <i onClick={goToCart} class="fas fa-box"></i>
+        </button> */}
+        <Button text={<i class="fas fa-box"></i>} action={goToCart} color={"#f3aa77"} width={10}/>
       </>
     )
   };
-  
-  
+
+
   const showAgesDropDown = () => {
     setDropMenuContent(categories.ages)
     setToggleDropDownMenu(false);
@@ -75,7 +81,7 @@ const Navbar = () => {
     setDropMenuContent(categories.breeds)
     setToggleDropDownMenu(false);
   };
-  
+
 
   const showCoatsDropDown = () => {
     setDropMenuContent(categories.coats)
@@ -86,10 +92,6 @@ const Navbar = () => {
     setDropMenuContent([]);
     setToggleDropDownMenu(true);
   };
-
-
-
-  console.log("DROP MENU CONTENT", dropDownMenuContent);
 
   return (
     <>

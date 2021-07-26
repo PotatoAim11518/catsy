@@ -21,6 +21,14 @@ const LoginForm = () => {
     }
   };
 
+  const demoLogin = async (e) => {
+    e.preventDefault();
+    const data = await dispatch(login("demo@aa.io", "password"));
+    if (data) {
+      setErrors(data);
+    }
+  };
+
   const updateEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -64,6 +72,9 @@ const LoginForm = () => {
               <Button text={"Log In"} action={onLogin} color={"pink"} width={100}/>
             </button>
           </div>
+            <button type='submit'>
+              <Button text={"Demo User Login"} action={demoLogin} color={"hotpink"} width={180}/>
+            </button>
         <div className={styles.errorsContainer}>
           {errors.map((error, ind) => (
             <div className={styles.error} key={ind}>{error}</div>

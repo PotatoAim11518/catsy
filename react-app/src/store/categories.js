@@ -35,7 +35,6 @@ const loadGenders = list => ({
 //THUNKS
 export const getAges = () => async dispatch => {
   const response = await fetch(`/api/categories/ages`)
-  console.log(response)
   if(response.ok) {
     const list = await response.json();
     dispatch(loadAges(list.ages));
@@ -89,7 +88,6 @@ const categoriesReducer = (state = intialState, action) => {
   switch(action.type) {
     case LOAD_AGES: {
       let agesArray = [];
-      console.log(">>>>><<<<<<<<",action)
       action.list.forEach(age => agesArray.push(age.name))
       newState["ages"] = agesArray;
       return newState;
