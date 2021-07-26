@@ -1,134 +1,65 @@
-# Flask React Project
+# Catsy
 
-This is the starter for the Flask React project.
+<p align="center">
+    <img src="https://github.com/commanderh/catsy/blob/main/react-app/public/assets/catsy_logo.png" alt="Catsy Logo" />
+</p>
 
-## Getting started
+## Introduction
+Catsy is an adoption website where users can adopt and list their own cats.
 
-1. Clone this repository (only this branch)
+## Live Link
 
-   ```bash
-   git clone https://github.com/appacademy-starters/python-project-starter.git
-   ```
+* [Catsy](https://catsyapp.herokuapp.com)
 
-2. Install dependencies
+## Technologies Used
 
-      ```bash
-      pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
-      ```
+* React.js
+* Redux
+* JavaScript
+* Python
+* Flask
+* SQLAlchemy
+* Alembic
+* WTForms
+* PostgreSQL
+* Heroku
 
-3. Create a **.env** file based on the example with proper settings for your
-   development environment
-4. Setup your PostgreSQL user, password and database and make sure it matches your **.env** file
 
-5. Get into your pipenv, migrate your database, seed your database, and run your flask app
+## Documentation
+* [User Stories](https://github.com/commanderh/catsy/wiki/User-Stories)
+* [Database Schema](https://github.com/commanderh/catsy/wiki/Database-Schema)
+* [Backend(API) Routes](https://github.com/commanderh/catsy/wiki/API-Documentation)
+* [Frontend Routes](https://github.com/commanderh/catsy/wiki/Frontend-Routes)
 
-   ```bash
-   pipenv shell
-   ```
 
-   ```bash
-   flask db upgrade
-   ```
+## Features
+* [Feature List](https://github.com/commanderh/catsy/wiki/MVP-Feature-List)
+## Development
+### What you'll need on your machine:
 
-   ```bash
-   flask seed all
-   ```
+* PostgreSQL
+* Pipenv with Python v3.8
+* Node.js
 
-   ```bash
-   flask run
-   ```
+1. `git clone` this repo
+2. `cd` into the local repo
+3. Run `pipenv install -r --dev dev-requirements.txt && pipenv install -r requirements.txt`
+4. Create your own `.env` file based on the provided `.env.example`.
+5. Create a user and database in your PostgreSQL that matches your `.env` configuration
+6. In the first terminal, run `pipenv shell` to activate the Pipenv environment.
+7. Run `flask db upgrade` and then `flask seed all` to apply migrations and seed data to your database.
+8. Open another terminal window and `cd` into the local repo, then `cd` into `react-app`
+9. Run `npm install`
+10. In your terminal running Pipenv shell, run `flask run`.
+11. In your terminal in the `react-app`, run `npm start`.
+12. Your app should open in your default browser.
+13. If you are planning on developing, please make a fork and create pull requests as necessary.
 
-6. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
-
-***
-*IMPORTANT!*
-   If you add any python dependencies to your pipfiles, you'll need to regenerate your requirements.txt before deployment.
-   You can do this by running:
-
-   ```bash
-   pipenv lock -r > requirements.txt
-   ```
-
-*ALSO IMPORTANT!*
-   psycopg2-binary MUST remain a dev dependency because you can't install it on apline-linux.
-   There is a layer in the Dockerfile that will install psycopg2 (not binary) for us.
-***
-
-## Deploy to Heroku
-
-1. Before you deploy, don't forget to run the following command in order to
-ensure that your production environment has all of your up-to-date
-dependencies. You only have to run this command when you have installed new
-Python packages since your last deployment, but if you aren't sure, it won't
-hurt to run it again.
-
-   ```bash
-   pipenv lock -r > requirements.txt
-   ```
-
-2. Create a new project on Heroku
-3. Under Resources click "Find more add-ons" and add the add on called "Heroku Postgres"
-4. Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line)
-5. Run
-
-   ```bash
-   heroku login
-   ```
-
-6. Login to the heroku container registry
-
-   ```bash
-   heroku container:login
-   ```
-
-7. Update the `REACT_APP_BASE_URL` variable in the Dockerfile.
-   This should be the full URL of your Heroku app: i.e. "https://flask-react-aa.herokuapp.com"
-8. Push your docker container to heroku from the root directory of your project.
-   (If you are using an M1 mac, follow [these steps below](#for-m1-mac-users) instead, then continue on to step 9.)
-   This will build the Dockerfile and push the image to your heroku container registry.
-
-   ```bash
-   heroku container:push web -a {NAME_OF_HEROKU_APP}
-   ```
-
-9. Release your docker container to heroku
-
-      ```bash
-      heroku container:release web -a {NAME_OF_HEROKU_APP}
-      ```
-
-10. set up your database
-
-      ```bash
-      heroku run -a {NAME_OF_HEROKU_APP} flask db upgrade
-      heroku run -a {NAME_OF_HEROKU_APP} flask seed all
-      ```
-
-11. Under Settings find "Config Vars" and add any additional/secret .env
-variables.
-
-12. profit
-
-### For M1 Mac users
-
-(Replaces **Step 8**)
-
-1. Build image with linux platform for heroku servers. Replace
-{NAME_OF_HEROKU_APP} with your own tag:
-
-   ```bash=
-   docker buildx build --platform linux/amd64 -t {NAME_OF_HEROKU_APP} .
-   ```
-
-2. Tag your app with the url for your apps registry. Make sure to use the name
-of your Heroku app in the url and tag name:
-
-   ```bash=2
-   docker tag {NAME_OF_HEROKU_APP} registry.heroku.com/{NAME_OF_HEROKU_APP}/web
-   ```
-
-3. Use docker to push the image to the Heroku container registry:
-
-   ```bash=3
-   docker push registry.heroku.com/{NAME_OF_HEROKU_APP}/web
-   ```
+## Challenges
+### Eager Loading Database
+### Rendering button states based on user session
+### Routing assets to properly render on Heroku
+### Trying to adopt cats during your session when another user has adopted the cat
+### Re-rendering the cart to remove already adopted cats
+### Pulling seed from an external API and properly formatting the data to fit the database schema
+### Adding mouse over state changes for the dropdown menu
