@@ -17,7 +17,7 @@ export const Comment = ({ props }) => {
     const [updatedComment, setUpdatedComment] = useState(props.comment);
     const user = useSelector((state) => state.session.user);
     const isUser = props.user_id === user?.id;
-    const username = user?.username
+    const username = comment?.user?.username
 
     const dispatch = useDispatch();
 
@@ -32,11 +32,11 @@ export const Comment = ({ props }) => {
         dispatch(userActions.remove_comment(props.id))
     }
 
+
     return (
         <>
-            {/* <div className={styles.blankSpace}></div> */}
             <div className={styles.Scratch_Container}>
-                <p className={styles.username}>User: {username} </p>
+                <p className={styles.username}>User: {props.user.username} </p>
                 {!edit ? <p className={styles.Get_Scratches}>∙ {updatedComment}</p> :
                     <input
                         type="text"
