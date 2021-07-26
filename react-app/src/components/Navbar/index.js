@@ -122,8 +122,8 @@ const Navbar = () => {
       </nav>
       {/* {showMenu && showAgesDropDown()} */}
       <div className="dropdown-menu" onMouseLeave={handleMouseLeave}>
-          {dropDownMenuContent.map(category => (
-            <Link>{category}</Link>
+          {dropDownMenuContent?.map(category => (
+            <Link to={`/search/${category.toLowerCase()}`} key={category}>{category}</Link>
           ))}
       </div>
       {/* {showMenu && (

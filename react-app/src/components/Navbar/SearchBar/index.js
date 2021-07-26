@@ -8,16 +8,25 @@ const SearchBar = () => {
   const handleEnterKeyPress = e => {
     if(e.key === 'Enter') {
       handleSearch();
+      setSearchTerm("");
     }
   }
 
   const handleSearch = () => {
-    history.push(`/search/${searchTerm}`);
+    history.push(`/search/${searchTerm.toLowerCase()}`);
+    setSearchTerm("");
   }
 
   return (
     <div className="searchbar-container">
-      <input type="text" className="search-input" placeholder="Search for any cat" onChange={e => setSearchTerm(e.target.value)} onKeyPress={handleEnterKeyPress}></input>
+      <input 
+        type="text" 
+        className="search-input" 
+        value={searchTerm} 
+        placeholder="Search for any cat" 
+        onChange={e => setSearchTerm(e.target.value)} 
+        onKeyPress={handleEnterKeyPress}>
+        </input>
       <button>
         <i className="fas fa-search" onClick={handleSearch}></i>
       </button>

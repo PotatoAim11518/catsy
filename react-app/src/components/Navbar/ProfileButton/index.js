@@ -26,7 +26,7 @@ const ProfileButton = ({ user }) => {
     <>
       <button className="closed-box-icon" onClick={openMenu}>
         <i className="fas fa-user" />
-        <i class="fas fa-caret-down"></i>
+        <i className="fas fa-caret-down"></i>
       </button>
       {showMenu && 
       (
