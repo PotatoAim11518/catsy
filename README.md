@@ -1,7 +1,7 @@
 # Catsy
 
 <p align="center">
-    <img src="https://github.com/commanderh/catsy/blob/main/react-app/public/assets/catsy_logo.png" alt="Catsy Logo" />
+    <img src="https://github.com/commanderh/catsy/blob/main/react-app/src/assets/catsy_logo.png" alt="Catsy Logo" />
 </p>
 
 ## Introduction
