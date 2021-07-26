@@ -13,34 +13,37 @@ export const CommentsForm = ({ catScratch }) => {
    const dispatch = useDispatch();
    const user = useSelector(state => state.session.user);
    // const cat_id = useSelector(state => state.comments.cat_id);
-   const [errors, setErrors] = useState(null);
+   const [errors, setErrors] = useState([]);
    const [comment, setComment] = useState('');
 
+   const user_id = user?.id
    const cat_id = useParams().cat_id;
+
 
    const onSubmit = async (e) => {
       e.preventDefault();
-      if (comment.length < 1) {
-         setErrors({
-            comment: "Please enter a comment"
-         });
-         return
+      if (user_id) {
+         if (comment.length < 1) {
+            setErrors(['Please scratch something to post.']);
+            return
+         }
+         setErrors([]);
+         const data = {
+            cat_id,
+            comment,
+            user_id
+         }
+         dispatch(userActions.add_comment(data));
+      } else {
+         setErrors(['You must be logged in to scratch a post.'])
       }
-      setErrors(null);
-
-      const data = {
-         cat_id,
-         comment,
-         user_id: user.id
-      }
-      dispatch(userActions.add_comment(data));
    };
 
 
 
-   // useEffect(() => {
-   //    setComment(add_comment(comment, user.id));
-   // }, [dispatch]);
+   useEffect(() => {
+      setErrors([]);
+   }, [dispatch, user_id]);
 
 
    return (
@@ -68,6 +71,11 @@ export const CommentsForm = ({ catScratch }) => {
                      <button type="submit">
                         <Button text={"Scratch"} action={onSubmit} color={"pink"} width={150}/>
                      </button>
+                  </div>
+                  <div className={styles.errorsContainer}>
+                     {errors?.map((error, ind) => (
+                        <div className={styles.error} key={ind}>{error}</div>
+                     ))}
                   </div>
                </div>
             </form>

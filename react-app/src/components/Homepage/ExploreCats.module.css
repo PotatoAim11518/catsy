@@ -24,3 +24,7 @@
   align-items: center;
   width: 100%;
 }
+
+.randomCatButton {
+  transform: translateY(14px);
+}

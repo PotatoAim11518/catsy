@@ -1,8 +1,17 @@
 import React from "react";
 import styles from "./ExploreCats.module.css";
 import CategoryCard from "./CategoryCard";
+import Button from "../Button";
+import { useHistory } from "react-router-dom";
 
 const ExploreCats = ({ cats, category_names }) => {
+  const history = useHistory();
+
+  const getRandomCat = () => {
+    const randomCat = Math.floor(Math.random() * cats.length);
+    history.push(`/cats/${randomCat}`)
+  }
+
   return (
     <>
       <div className={styles.exploreContainer}>
@@ -19,6 +28,9 @@ const ExploreCats = ({ cats, category_names }) => {
               />
             );
           })}
+        </div>
+        <div className={styles.randomCatButton}>
+          <Button text={"Show me a random cat!"} action={getRandomCat} />
         </div>
       </div>
     </>

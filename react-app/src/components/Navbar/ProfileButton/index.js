@@ -26,6 +26,7 @@ const ProfileButton = ({ user }) => {
 
   const onLogout = async (e) => {
     await dispatch(logout());
+    history.push('/')
   };
 
   useEffect(() => {

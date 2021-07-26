@@ -146,3 +146,20 @@
     font-size: 25px;
     width: 45%; */
 }
+
+
+.errorsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+    height: auto;
+    padding: 20px 0;
+}
+
+.error {
+color: black;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
