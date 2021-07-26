@@ -2,6 +2,7 @@
 import React from "react";
 import AdoptedCatCard from "./AdoptedCatCard";
 import styles from './AdoptedList.module.css'
+import unknownCat from '../../../assets/nyancat.gif'
 
 export default function AdoptedList({ your_cats }) {
   return (
@@ -11,7 +12,7 @@ export default function AdoptedList({ your_cats }) {
       ).reverse()}
       {your_cats.length < 1 &&
         <div className={styles.emptyContainer}>
-          <img className={styles.unknownCat} src="assets/nyancat.gif" alt="unknown cat"/>
+          <img className={styles.unknownCat} src={unknownCat} alt="unknown cat"/>
           <h1 className={styles.empty}>You don't own any cats yet.</h1>
           <h2 className={styles.poptart}>...so here's a pop tart.</h2>
 
