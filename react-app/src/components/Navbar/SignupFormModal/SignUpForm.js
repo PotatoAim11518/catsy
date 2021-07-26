@@ -20,6 +20,8 @@ const SignUpForm = () => {
       if (data) {
         setErrors(data);
       }
+    } else {
+      setErrors(['Passwords do not match.'])
     }
   };
 
@@ -55,7 +57,8 @@ const SignUpForm = () => {
             placeholder="Username"
             onChange={updateUsername}
             value={username}
-            ></input>
+            required={true}
+          ></input>
         </div>
         <div className={styles.inputRow}>
           {/* <label>Email</label> */}
@@ -66,6 +69,7 @@ const SignUpForm = () => {
             placeholder="Email"
             onChange={updateEmail}
             value={email}
+            required={true}
             ></input>
         </div>
         <div className={styles.inputRow}>
@@ -77,7 +81,8 @@ const SignUpForm = () => {
             placeholder="Password"
             onChange={updatePassword}
             value={password}
-            ></input>
+            required={true}
+          ></input>
         </div>
         <div className={styles.inputRow}>
           {/* <label>Repeat Password</label> */}
@@ -89,12 +94,14 @@ const SignUpForm = () => {
             onChange={updateRepeatPassword}
             value={repeatPassword}
             required={true}
-            ></input>
+          ></input>
         </div>
         <button type="submit">Sign Up</button>
         <div className={styles.errorsContainer}>
           {errors.map((error, ind) => (
-            <div className={styles.error} key={ind}>{error}</div>
+            <div className={styles.error} key={ind}>
+              {error}
+            </div>
           ))}
         </div>
       </form>
