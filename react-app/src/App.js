@@ -12,10 +12,12 @@ import Navbar from './components/Navbar';
 import Homepage from './components/Homepage'
 import AdoptionPage from './components/AdoptionPage';
 import SearchResultsPage from './components/SearchResultsPage';
+import Footer from './components/Footer/FooterIndex';
 
 
 function App() {
   const [loaded, setLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
   const [comments, setComments] = useState([]);
   const dispatch = useDispatch();
 
@@ -35,9 +37,9 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Switch>
-        <Route path='/' exact={true}>
+        {/* <Route path='/' exact={true}>
           <Homepage />
-        </Route>
+        </Route> */}
         <Route path='/search/:searchTerm' >
           <SearchResultsPage />
         </Route>
@@ -67,6 +69,7 @@ function App() {
           <h1>My Home Page</h1>
         </ProtectedRoute> */}
       </Switch>
+      <Footer isLoaded={isLoaded}/>
     </BrowserRouter>
   );
 }

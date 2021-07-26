@@ -1,0 +1,21 @@
+.footer_container {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    background-color: #f7c39e;
+}
+
+.footer_text {
+    font-size: 22px;
+}
+
+.footer_element {
+    font-size: 22px;
+}
+
+.footer_element:hover {
+    /* box-shadow: 1px 1px 30px 1px rgba(80, 80, 80, 0.5); */
+    font-weight: 900;
+    font-size: 23px;
+}
