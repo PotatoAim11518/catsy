@@ -22,6 +22,9 @@ const Navbar = () => {
   const history = useHistory();
 
   const goToCart = () => {
+    if (user) {
+      history.push('/cart');
+    }
     history.push('/cart');
   }
 
@@ -49,7 +52,7 @@ const Navbar = () => {
         <LoginFormModal className="nav-button" />
         <SignupFormModal className="nav-button" />
         <button className="closed-box-icon">
-          <i class="fas fa-box"></i>
+          <i onClick={goToCart} class="fas fa-box"></i>
         </button>
       </>
     )
@@ -57,8 +60,6 @@ const Navbar = () => {
 
 
   const showAgesDropDown = () => {
-    console.log("DOES THIS WORK?")
-    console.log("AGES CATEGORY",categories.ages)
     setDropMenuContent(categories.ages)
   };
 
@@ -82,8 +83,6 @@ const Navbar = () => {
   const handleMouseLeave = () => {
     setDropMenuContent([]);
   };
-
-  console.log("DROP MENU CONTENT", dropDownMenuContent);
 
   return (
     <>

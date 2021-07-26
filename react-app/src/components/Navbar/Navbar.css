@@ -1,24 +1,21 @@
 .nav-container {
   display: flex;
-  justify-content :center;
+  justify-content: center;
   padding-top: 5px;
   padding-bottom: 10px;
   background-color: #f7c39e;
 }
 
 .logo-pic {
+  transform: translateY(20px);
   height: auto;
   width: auto;
   max-width: 135px;
   max-height: 150px;
+
 }
 .nav-container > *{
   padding: 0 20px 0 20px;
-}
-
-.nav-logo > h1#catsy {
-  font-family: Nanum Pen Script;
-  font-size: 50px;
 }
 
 .searchbar-container {
@@ -56,9 +53,10 @@
   font-size: 1.15rem;
 }
 
-
 .nav-rightside {
   display: flex;
+  justify-content: flex-end;
+  gap: 22px;
   height: 35px;
   margin-top: 13px;
 }

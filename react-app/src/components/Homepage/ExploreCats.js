@@ -13,6 +13,7 @@ const ExploreCats = ({ cats, category_names }) => {
             const randomCatImage = cats[randomCatId]?.image_url;
             return (
               <CategoryCard
+                key={category}
                 category={category}
                 randomCatImage={randomCatImage}
               />
