@@ -19,3 +19,13 @@
   position: relative;
   bottom: 2.5px;
 }
+
+.dropdown-menu {
+  background-color: #fce7d8;
+  height: 200px;
+  width: 50%;
+  position: relative;
+  left: 25rem;
+  min-width: 300px;
+  min-height: 300px;
+}
