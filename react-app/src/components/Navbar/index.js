@@ -8,6 +8,7 @@ import './Categories.css'
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { getAges, getSizes, getCoats, getBreeds, getGenders } from '../../store/categories';
+import Button from "../Button";
 // import logo from '../../../public/assets/catsy_logo.png'
 
 
@@ -53,8 +54,8 @@ const Navbar = () => {
       </>
     )
   };
-  
-  
+
+
   const showAgesDropDown = () => {
     console.log("DOES THIS WORK?")
     console.log("AGES CATEGORY",categories.ages)
@@ -72,7 +73,7 @@ const Navbar = () => {
   const showBreedsDropDown = () => {
     setDropMenuContent(categories.breeds)
   };
-  
+
 
   const showCoatsDropDown = () => {
     setDropMenuContent(categories.coats)

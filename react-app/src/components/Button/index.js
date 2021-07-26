@@ -10,7 +10,8 @@ export default function Button({text, action, color, width}) {
         onClick={action}
         style={{
           'background-color': color,
-          'width': width
+          'width': width,
+          // 'font-size': fontSize
         }}
       ></div>
       <div className={styles.buttonText}>
