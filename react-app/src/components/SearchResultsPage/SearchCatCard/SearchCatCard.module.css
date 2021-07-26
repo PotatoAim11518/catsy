@@ -1,8 +1,8 @@
 .catCard {
   display: flex;
   flex-direction: column;
-  width: 380px;
-  height: 450px;
+  width: 304px;
+  height: 360px;
   border-radius: 12px;
   border: 1px solid rgba(40, 40, 40, 0.25);
   transition: box-shadow 0.3s, transform 0.5s ease-out, background-color 0.3s;
@@ -32,17 +32,25 @@
 .textContainer {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   color: black;
   height: 100%;
 }
 
-.name {
-  padding-top: 30px;
+.catName {
   font-size: 30px;
   font-family: 'Nanum Myeongjo', serif;
   text-shadow: 6px 6px 15px #f7c39e;
+}
+
+.catBreed {
+  border-top: 1px solid rgba(200, 200, 200);
+  border-bottom: 1px solid rgba(200, 200, 200);
+  padding: 10px 30px 10px 30px;
+  font-size: 30px;
+  font-weight: 700;
+  font-family: 'Nanum Pen Script';
 }
 
 .description {

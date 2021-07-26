@@ -1,0 +1,10 @@
+.catContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  padding: 20px 10vw;
+  gap: 20px;
+}
+

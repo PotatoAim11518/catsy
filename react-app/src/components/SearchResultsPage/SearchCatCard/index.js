@@ -18,17 +18,11 @@ export default function SearchCatCard({ cat }) {
         style={{ backgroundImage: `url(${cat.image_url})` }}
       ></div>
       <div className={styles.textContainer}>
-        <h2 className={styles.name}>{cat.name}</h2>
-        {/* <p className={styles.description}>
-          {cat.description ? cat.description : "No description provided"}
-        </p> */}
-        <ul>
-          <li>Age: {cat?.age?.name}</li>
-          <li>Gender: {cat?.gender?.name}</li>
-          <li>Size: {cat?.size?.name}</li>
-          <li>Coat: {cat?.coat ? cat?.coat?.name : "Unavailable"}</li>
-          <li>Breed: {cat?.breed?.name}</li>
-        </ul>
+        <h2 className={styles.catName}>{cat.name}</h2>
+        <h3 className={styles.catBreed}>{cat?.breed?.name}</h3>
+        <p className={styles.catQuickInfo}>
+            {cat?.age.name} | {cat?.gender.name} | {cat?.size.name}
+          </p>
       </div>
     </div>
   );

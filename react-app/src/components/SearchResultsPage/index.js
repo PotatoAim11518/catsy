@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router";
 import { getCats } from "../../store/cats";
 import SearchCatCard from "./SearchCatCard";
+import styles from "./SearchResultsPage.module.css";
 
 const SearchResultsPage = () => {
   const { searchTerm } = useParams();
@@ -27,7 +28,7 @@ const SearchResultsPage = () => {
   return (
     <>
       <h1>Search Term: {searchTerm}</h1>
-      <div>
+      <div className={styles.catContainer}>
         {allResults?.map(cat => <SearchCatCard key={cat.id} cat={cat}/>)}
       </div>
     </>
