@@ -7,9 +7,9 @@
 }
 
 .logo-pic {
-  height: auto; 
-  width: auto; 
-  max-width: 135px; 
+  height: auto;
+  width: auto;
+  max-width: 135px;
   max-height: 150px;
 }
 .nav-container > *{
@@ -83,4 +83,3 @@
 .nav-rightside .closed-box-icon {
   border: none;
 }
-

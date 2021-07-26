@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+
+import Button from '../../Button';
 import { login } from '../../../store/session';
+import styles from '../ModalForms.module.css';
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -31,34 +34,40 @@ const LoginForm = () => {
   }
 
   return (
-    <form onSubmit={onLogin}>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
-      </div>
-      <div>
-        <label htmlFor='email'>Email</label>
-        <input
-          name='email'
-          type='text'
-          placeholder='Email'
-          value={email}
-          onChange={updateEmail}
-        />
-      </div>
-      <div>
-        <label htmlFor='password'>Password</label>
-        <input
-          name='password'
-          type='password'
-          placeholder='Password'
-          value={password}
-          onChange={updatePassword}
-        />
-        <button type='submit'>Login</button>
-      </div>
-    </form>
+    <div className={styles.formContainer}>
+      <form className={styles.form} onSubmit={onLogin}>
+        <div className={styles.inputRow}>
+          {/* <label htmlFor='email'>Email</label> */}
+          <input
+            className={styles.inputField}
+            name='email'
+            type='text'
+            placeholder='Email'
+            value={email}
+            onChange={updateEmail}
+          />
+        </div>
+        <div className={styles.inputRow}>
+          {/* <label htmlFor='password'>Password</label> */}
+          <input
+            className={styles.inputField}
+            name='password'
+            type='password'
+            placeholder='Password'
+            value={password}
+            onChange={updatePassword}
+          />
+          <div>
+            <button type='submit'>Login</button>
+          </div>
+        </div>
+        <div className={styles.errorsContainer}>
+          {errors.map((error, ind) => (
+            <div className={styles.error} key={ind}>{error}</div>
+          ))}
+        </div>
+      </form>
+    </div>
   );
 };
 
