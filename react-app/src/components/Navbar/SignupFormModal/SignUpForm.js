@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { signUp } from "../../../store/session";
+import Button from "../../Button";
 import styles from "../ModalForms.module.css";
+import LoginForm from "../LoginFormModal/LoginForm";
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -10,6 +12,8 @@ const SignUpForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
+  const [existingUser, setExistingUser] = useState(false);
+
   const user = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
 
@@ -21,8 +25,12 @@ const SignUpForm = () => {
         setErrors(data);
       }
     } else {
-      setErrors(['Passwords do not match.'])
+      setErrors(["Passwords do not match."]);
     }
+  };
+
+  const goLogIn = () => {
+    return setExistingUser(true);
   };
 
   const updateUsername = (e) => {
@@ -46,66 +54,85 @@ const SignUpForm = () => {
   }
 
   return (
-    <div className={styles.formContainer}>
-      <form className={styles.form} onSubmit={onSignUp}>
-        <div className={styles.inputRow}>
-          {/* <label>User Name</label> */}
-          <input
-            className={styles.inputField}
-            type="text"
-            name="username"
-            placeholder="Username"
-            onChange={updateUsername}
-            value={username}
-            required={true}
-          ></input>
-        </div>
-        <div className={styles.inputRow}>
-          {/* <label>Email</label> */}
-          <input
-            className={styles.inputField}
-            type="text"
-            name="email"
-            placeholder="Email"
-            onChange={updateEmail}
-            value={email}
-            required={true}
-            ></input>
-        </div>
-        <div className={styles.inputRow}>
-          {/* <label>Password</label> */}
-          <input
-            className={styles.inputField}
-            type="password"
-            name="password"
-            placeholder="Password"
-            onChange={updatePassword}
-            value={password}
-            required={true}
-          ></input>
-        </div>
-        <div className={styles.inputRow}>
-          {/* <label>Repeat Password</label> */}
-          <input
-            className={styles.inputField}
-            type="password"
-            name="repeat_password"
-            placeholder="Confirm Password"
-            onChange={updateRepeatPassword}
-            value={repeatPassword}
-            required={true}
-          ></input>
-        </div>
-        <button type="submit">Sign Up</button>
-        <div className={styles.errorsContainer}>
-          {errors.map((error, ind) => (
-            <div className={styles.error} key={ind}>
-              {error}
+    <>
+      {!existingUser && (
+        <div className={styles.formContainer}>
+          <form className={styles.form} onSubmit={onSignUp}>
+            <div className={styles.inputRow}>
+              {/* <label>User Name</label> */}
+              <input
+                className={styles.inputField}
+                type="text"
+                name="username"
+                placeholder="Username"
+                onChange={updateUsername}
+                value={username}
+                required={true}
+              ></input>
             </div>
-          ))}
+            <div className={styles.inputRow}>
+              {/* <label>Email</label> */}
+              <input
+                className={styles.inputField}
+                type="text"
+                name="email"
+                placeholder="Email"
+                onChange={updateEmail}
+                value={email}
+                required={true}
+              ></input>
+            </div>
+            <div className={styles.inputRow}>
+              {/* <label>Password</label> */}
+              <input
+                className={styles.inputField}
+                type="password"
+                name="password"
+                placeholder="Password"
+                onChange={updatePassword}
+                value={password}
+                required={true}
+              ></input>
+            </div>
+            <div className={styles.inputRow}>
+              {/* <label>Repeat Password</label> */}
+              <input
+                className={styles.inputField}
+                type="password"
+                name="repeat_password"
+                placeholder="Confirm Password"
+                onChange={updateRepeatPassword}
+                value={repeatPassword}
+                required={true}
+              ></input>
+            </div>
+            {/* <button type="submit">Sign Up</button> */}
+            <button type="submit">
+              <Button
+                text={"Submit"}
+                action={onSignUp}
+                color={"pink"}
+                width={200}
+              />
+            </button>
+            <Button
+              text={"Already a User"}
+              action={goLogIn}
+              color={"pink"}
+              width={200}
+            />
+            <div className={styles.errorsContainer}>
+              {errors.map((error, ind) => (
+                <div className={styles.error} key={ind}>
+                  {error}
+                </div>
+              ))}
+            </div>
+          </form>
         </div>
-      </form>
-    </div>
+      )}
+      {existingUser && <LoginForm />}
+    </>
   );
 };
 

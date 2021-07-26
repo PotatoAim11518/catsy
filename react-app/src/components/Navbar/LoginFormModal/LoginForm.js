@@ -57,10 +57,13 @@ const LoginForm = () => {
             value={password}
             onChange={updatePassword}
           />
-          <div>
-            <button type='submit'>Login</button>
-          </div>
         </div>
+          <div className={styles.buttonContainer}>
+            {/* <button type='submit'>Login</button> */}
+            <button type='submit'>
+              <Button text={"Log In"} action={onLogin} color={"pink"} width={100}/>
+            </button>
+          </div>
         <div className={styles.errorsContainer}>
           {errors.map((error, ind) => (
             <div className={styles.error} key={ind}>{error}</div>
