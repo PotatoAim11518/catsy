@@ -46,19 +46,16 @@ function App() {
         <Route path='/cats/:cat_id' exact={true}>
           <Cat />
         </Route>
-        <ProtectedRoute path='/cart' exact={true} >
+        <Route path='/cart' exact={true} >
           <Cart />
-        </ProtectedRoute>
-
+        </Route>
         <ProtectedRoute path='/adopted' exact={true} >
           <AdoptionPage />
         </ProtectedRoute>
         <Route path='/cats/comments' exact={true}>
           <CommentPage comments={comments} />
-
-       {/*<Route path='/cats/:id/comments' exact={true}>*/}
-
         </Route>
+        {/*<Route path='/cats/:id/comments' exact={true}>*/}
         {/* <ProtectedRoute path='/users' exact={true} >
           <UsersList />
         </ProtectedRoute>

@@ -5,6 +5,7 @@ import { useParams, useHistory } from "react-router-dom";
 import { getCats } from "../../store/cats";
 import { getItems, addItem } from "../../store/cartItem";
 import { getCart } from "../../store/cart";
+import { authenticate } from "../../store/session";
 import styles from "./cat.module.css";
 import CommentsForm from "../Comments/Comments_Form";
 import CommentPage from "../Comments/Comments_Page";
@@ -14,10 +15,13 @@ const Cat = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
+  const user = useSelector((state) => state.session.user);
   const cats = useSelector((state) => state.cats);
   const cart_items = useSelector((state) => Object.values(state.cart_items));
   const cat = cats[cat_id];
   const isInCart = cart_items.map((item) => item.cat_id).includes(cat?.id);
+
+  const user_id = user?.id
 
   const randomWelcome = (name) => {
     const greetings = [
@@ -42,17 +46,25 @@ const Cat = () => {
   const [inCart, setInCart] = useState(false);
 
   const handleAddToBox = () => {
-    setInCart(true);
-    dispatch(addItem(cat?.id));
-    history.push("/cart");
+    if (user_id) {
+      setInCart(true);
+      dispatch(addItem(cat?.id));
+      history.push("/cart");
+    } else {
+      window.alert("Please log in first!")
+    }
   };
 
   useEffect(() => {
     dispatch(getCats());
-    dispatch(getCart());
-    dispatch(getItems());
-    setInCart(isInCart);
-  }, [dispatch, isInCart]);
+    setInCart(false);
+    if (user_id) {
+      dispatch(authenticate())
+      dispatch(getCart());
+      dispatch(getItems());
+      setInCart(isInCart);
+    }
+  }, [dispatch, isInCart, user_id]);
 
   return (
     <>

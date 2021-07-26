@@ -16,7 +16,9 @@ export default function Cart() {
   const dispatch = useDispatch();
   const history = useHistory();
   const user = useSelector((state) => state.session.user);
+  const user_id = user?.id
   const cart_items = useSelector((state) => Object.values(state.cart_items));
+
 
   const handleEmptyCart = (e) => {
     dispatch(removeCart());
@@ -44,9 +46,11 @@ export default function Cart() {
   };
 
   useEffect(() => {
-    dispatch(getCart());
-    dispatch(getItems());
-  }, [dispatch]);
+    if (user_id) {
+      dispatch(getCart());
+      dispatch(getItems());
+    }
+  }, [dispatch, user_id]);
 
   return (
     <>
