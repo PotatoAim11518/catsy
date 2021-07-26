@@ -1,7 +1,7 @@
 // src/components/AdoptionPage/AdoptedList/AdoptedCatCard
 import React from "react";
 import { useHistory } from "react-router-dom";
-import styles from "./AdoptedCatCard.module.css";
+import styles from "./SearchCatCard.module.css";
 
 export default function SearchCatCard({ cat }) {
   const history = useHistory();
