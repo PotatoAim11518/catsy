@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './Button.module.css';
 
-export default function Button({text, action, color, width}) {
+export default function Button({text, action, color, width, fontSize}) {
 
   return (
     <div className={styles.buttonContainer}>
@@ -11,7 +11,7 @@ export default function Button({text, action, color, width}) {
         style={{
           'background-color': color,
           'width': width,
-          // 'font-size': fontSize
+          'font-size': fontSize
         }}
       ></div>
       <div className={styles.buttonText}>

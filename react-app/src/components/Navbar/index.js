@@ -41,9 +41,10 @@ const Navbar = () => {
     userRender = (
       <>
         <ProfileButton user={user} />
-        <button className="closed-box-icon">
+        {/* <button className="closed-box-icon">
           <i onClick={goToCart} class="fas fa-box-open"></i>
-        </button>
+        </button> */}
+        <Button text={<i class="fas fa-box-open"></i>} action={goToCart} color={"#f3aa77"} width={10}/>
       </>
     )
   } else {
@@ -51,9 +52,10 @@ const Navbar = () => {
       <>
         <LoginFormModal className="nav-button" />
         <SignupFormModal className="nav-button" />
-        <button className="closed-box-icon">
+        {/* <button className="closed-box-icon">
           <i onClick={goToCart} class="fas fa-box"></i>
-        </button>
+        </button> */}
+        <Button text={<i class="fas fa-box"></i>} action={goToCart} color={"#f3aa77"} width={10}/>
       </>
     )
   };

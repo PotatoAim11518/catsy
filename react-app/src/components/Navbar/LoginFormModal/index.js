@@ -8,7 +8,7 @@ const LoginFormModal = () => {
 
   return (
     <>
-      <Button text={"Sign in"} action={() => setShowModal(true)} color={"#f3aa77"} width={75}/>
+      <Button text={"Login"} action={() => setShowModal(true)} color={"#f3aa77"} width={75}/>
       {/* <button onClick={() => setShowModal(true)}>Sign in</button> */}
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
