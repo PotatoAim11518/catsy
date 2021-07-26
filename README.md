@@ -38,7 +38,7 @@ Catsy is an adoption website where users can adopt and list their own cats.
 ### What you'll need on your machine:
 
 * PostgreSQL
-* Pipenv with Python v3.8
+* Pipenv with Python v3.9.3
 * Node.js
 
 1. `git clone` this repo
