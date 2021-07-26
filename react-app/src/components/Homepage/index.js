@@ -2,8 +2,10 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import ExploreCats from './ExploreCats';
+
 import About from './About';
 import { getCats } from '../../store/cats';
+import Footer from '../Footer/FooterIndex';
 import styles from './HomePage.module.css'
 
 const Homepage = () => {
@@ -16,15 +18,11 @@ const Homepage = () => {
   },[dispatch])
 
   return (
-    <>
       <div className="styles.homepageContainer">
         <ExploreCats cats={cats} category_names={category_names}/>
         <About />
-        <div className="mailing-list">
-          <div>Footer Area</div>
-        </div>
+        <Footer />
       </div>
-    </>
   )
 }
 
