@@ -7,6 +7,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: loadIn 0.3s;
 }
 
 #modal-background {
@@ -20,5 +21,14 @@
 
 #modal-content {
   position: absolute;
-  background-color:white;
+  background-color: transparent;
+}
+
+@keyframes loadIn {
+  from {
+    opacity: 0.0;
+  }
+  to {
+    opacity: 1.0;
+  }
 }

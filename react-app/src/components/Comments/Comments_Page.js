@@ -16,7 +16,7 @@ const CommentPage = () => {
     const {cat_id} = useParams();
     useEffect(() => {
         dispatch(get_all_comments(cat_id))
-    }, [dispatch])
+    }, [dispatch, cat_id])
 
     if (!comments) {
         return null
@@ -26,7 +26,7 @@ const CommentPage = () => {
         <div>
             <CommentsForm />
             {
-                comments.map(comment => <Comment key={comment.id} props={comment} />)
+                comments.map(comment => <Comment key={comment.id} props={comment} />).reverse()
             }
         </div>
     )

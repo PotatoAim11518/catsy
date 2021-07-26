@@ -6,6 +6,8 @@ import * as sessionActions from "../../store/session";
 import * as userActions from "../../store/comments"
 import styles from "./comments.module.css";
 
+import Button from "../Button";
+
 
 export const CommentsForm = ({ catScratch }) => {
    const dispatch = useDispatch();
@@ -44,27 +46,30 @@ export const CommentsForm = ({ catScratch }) => {
    return (
       <div className={styles.All_Scratches}>
          <div className={styles.Scratches_Div}>
-            <h1 className={styles.Header}>Scratching Post</h1>
+            <h1 className={styles.Header}>Scratch a Post</h1>
             <form
                onSubmit={onSubmit}
                className={styles.Submit}>
                <div
                   className={styles.TextContainer}>
-               <textarea
-                  id="scratch"
-                  type="text"
-                  name="scratches"
-                  onChange={(e) => setComment(e.target.value)}
-                  value={comment}
-                  placeholder="<Purrrr> Scratches please! But not the belly if you like your fingers..."
-                  className={styles.TextArea}
-               ></textarea>
-               <div>
-                     <button
-                        className={styles.Submit_ScratchBtn} type="submit">Scratch the Kitty!</button>
-
+                  <textarea
+                     id="scratch"
+                     type="text"
+                     name="scratches"
+                     onChange={(e) => setComment(e.target.value)}
+                     value={comment}
+                     placeholder="<Purrrr> Scratches please! But not the belly if you like your fingers..."
+                     className={styles.TextArea}
+                  ></textarea>
+                  <div>
+                     {/* <button
+                        className={styles.Submit_ScratchBtn} type="submit">Scratch the Kitty!</button> */}
+                     {/* refactoring using custom Button component  */}
+                     <button type="submit">
+                        <Button text={"Scratch"} action={onSubmit} color={"pink"} width={150}/>
+                     </button>
+                  </div>
                </div>
-            </div>
             </form>
          </div>
       </div>

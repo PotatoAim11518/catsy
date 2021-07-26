@@ -1,0 +1,80 @@
+.formContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 40px;
+  border-radius: 15px;
+  background-color: lightslategray;
+  box-shadow: 0px 1px 18px rgba(40, 40, 40, 1);
+
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+}
+
+.errorsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+  height: auto;
+
+}
+
+.error {
+  color: pink;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.inputRow {
+}
+
+.inputField {
+  font-family: 'Nanum Pen Script', cursive;
+  font-size: 24px;
+  min-width: 300px;
+  max-width: 300px;
+  color: pink;
+  outline: none;
+  background-color: lightslategray;
+  padding: 10px;
+  border-bottom:1px solid white;
+  transition: border-bottom 0.3s;
+}
+.inputField:focus {
+  border-bottom: 1px solid pink;
+  transition: border-bottom 0.3s;
+
+}
+
+.inputField::placeholder {
+  color: rgb(200, 200, 200);
+  font-size: 24px;
+  font-family: 'Nanum Pen Script', cursive;
+}
+
+.inputField:-webkit-autofill,
+.inputField:-webkit-autofill:hover,
+.inputField:-webkit-autofill:focus,
+.inputField:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px lightslategray inset !important;
+}
+
+.inputField:-webkit-autofill {
+  -webkit-text-fill-color: white !important;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 10px 0;
+}
