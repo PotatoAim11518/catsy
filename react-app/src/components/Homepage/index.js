@@ -11,7 +11,7 @@ import styles from './HomePage.module.css'
 const Homepage = () => {
   const dispatch = useDispatch();
   const cats = useSelector((state) => Object.values(state.cats))
-  const category_names = useSelector((state) => Object.keys(state.categories))
+  const category_names = useSelector((state) => Object.keys(state.categories).sort())
 
   useEffect(() => {
     dispatch(getCats())
