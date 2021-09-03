@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 import SearchCatCard from "../SearchResultsPage/SearchCatCard";
-import styles from "../SearchResultsPage/SearchCatCard/SearchCatCard.module.css"
+import styles from "../Category/CategorySection.module.css";
 
 export default function CategorySection({ category, category_name }) {
   const cats = useSelector((state) => Object.values(state.cats));
@@ -12,12 +12,17 @@ export default function CategorySection({ category, category_name }) {
   );
 
   return (
-    <div>
-      <h1>{category_name}</h1>
-      {category_cats.map((cat)=>
-        <SearchCatCard key={cat?.id} cat={cat}/>
+    <div className={styles.sectionWrapper}>
+      {category_cats.length > 0 && (
+        <>
+          <h1 className={styles.sectionHeader}>{category_name}</h1>
+          <div className={styles.tileContainer}>
+            {category_cats.map((cat) => (
+              <SearchCatCard key={cat?.id} cat={cat} />
+            ))}
+          </div>
+        </>
       )}
     </div>
-  )
-
+  );
 }

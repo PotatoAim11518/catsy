@@ -6,6 +6,7 @@ import { getCats } from "../../store/cats";
 import { getAges, getSizes, getCoats, getBreeds, getGenders } from '../../store/categories';
 
 import CategorySection from "./CategorySection";
+import styles from "./CategorySection.module.css";
 
 export default function Category() {
   const { category } = useParams();
@@ -24,12 +25,11 @@ export default function Category() {
   },[dispatch])
 
   return (
-    <>
-      <h1>{category}</h1>
+    <div className={styles.pageContainer}>
       {category_names?.map((category_name) =>
         <CategorySection key={category_name} category={category} category_name={category_name}/>
       )}
-    </>
+    </div>
 
   )
 }
