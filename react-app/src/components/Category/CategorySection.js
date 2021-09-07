@@ -8,7 +8,7 @@ export default function CategorySection({ category, category_name }) {
   const cats = useSelector((state) => Object.values(state.cats));
   const category_key = category.slice(0, category.length - 1);
   const category_cats = cats.filter(
-    (cat) => category_name === cat[`${category_key}`]["name"]
+    (cat) => category_name === cat[`${category_key}`]?.name
   );
 
   return (

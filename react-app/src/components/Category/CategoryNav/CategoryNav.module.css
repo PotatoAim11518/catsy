@@ -1,14 +1,37 @@
 .navWrapper {
   position: fixed;
-  top: 10vh;
-  left: 2vw;
+  top: 140px;
+  left: 34px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  width: 200px;
-  height: 100vh;
-  background-color: slategray;
-  border-radius: 8px;
+  width: 12vw;
+  max-height: 80vh;
+  border-radius: 10px;
+  background-color: rgba(200, 200, 200, 0.25);
   box-shadow: 1px 1px 10px 2px rgba(80, 80, 80, 0.5);
+  font-family: 'Nanum Pen Script', cursive;
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 10px 20px;
+}
+
+.activeNav {
+  color: red;
+  background-color: pink;
+  border-radius: 1.5rem;
+  width: 100%;
+  text-align: center;
+  animation: fade 0.3s ease-in-out;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.0;
+  }
+  to {
+    opacity: 1.0;
+
+  }
 }

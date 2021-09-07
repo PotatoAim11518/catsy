@@ -16,11 +16,7 @@ export default function Category() {
   const categories = useSelector((state) => state.categories)
   const category_names = categories[category];
 
-  // const cats = useSelector((state) => Object.values(state.cats));
-  // const category_key = category.slice(0, category.length - 1);
-  // const category_cats = cats.filter(
-  //   (cat) => category_name === cat[`${category_key}`]["name"]
-  // );
+
 
   useEffect(()=> {
     dispatch(getCats())
