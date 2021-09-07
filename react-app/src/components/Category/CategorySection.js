@@ -12,7 +12,7 @@ export default function CategorySection({ category, category_name }) {
   );
 
   return (
-    <div className={styles.sectionWrapper}>
+    <div className={styles.sectionWrapper} id={category_name}>
       {category_cats.length > 0 && (
         <>
           <h1 className={styles.sectionHeader}>{category_name}</h1>

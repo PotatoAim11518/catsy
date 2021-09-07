@@ -6,6 +6,7 @@ import { getCats } from "../../store/cats";
 import { getAges, getSizes, getCoats, getBreeds, getGenders } from '../../store/categories';
 
 import CategorySection from "./CategorySection";
+import CategoryNav from "./CategoryNav";
 import styles from "./CategorySection.module.css";
 
 export default function Category() {
@@ -14,6 +15,12 @@ export default function Category() {
 
   const categories = useSelector((state) => state.categories)
   const category_names = categories[category];
+
+  // const cats = useSelector((state) => Object.values(state.cats));
+  // const category_key = category.slice(0, category.length - 1);
+  // const category_cats = cats.filter(
+  //   (cat) => category_name === cat[`${category_key}`]["name"]
+  // );
 
   useEffect(()=> {
     dispatch(getCats())
@@ -25,11 +32,13 @@ export default function Category() {
   },[dispatch])
 
   return (
-    <div className={styles.pageContainer}>
-      {category_names?.map((category_name) =>
-        <CategorySection key={category_name} category={category} category_name={category_name}/>
-      )}
-    </div>
-
+    <>
+      <CategoryNav category_names={category_names}/>
+      <div className={styles.pageContainer}>
+        {category_names?.map((category_name) =>
+          <CategorySection key={category_name} category={category} category_name={category_name}/>
+        )}
+      </div>
+    </>
   )
 }
