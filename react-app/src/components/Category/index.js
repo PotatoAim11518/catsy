@@ -14,12 +14,16 @@ export default function Category() {
   const dispatch = useDispatch();
 
   const categories = useSelector((state) => state.categories)
-  const category_names = categories[category];
-
+  const cats = useSelector((state) => Object.values(state.cats));
+  // const category_names = categories[category];
+  const category_singular = category.slice(0, category.length - 1);
+  const category_names_all = cats.map((cat) => cat[category_singular]?.name)
+  const category_names_set = new Set(category_names_all);
+  const category_names = Array.from(category_names_set);
 
 
   useEffect(()=> {
-    dispatch(getCats())
+    dispatch(getCats());
     dispatch(getAges());
     dispatch(getSizes());
     dispatch(getCoats());
