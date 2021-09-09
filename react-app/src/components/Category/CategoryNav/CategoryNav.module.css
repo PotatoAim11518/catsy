@@ -1,12 +1,11 @@
 .navWrapper {
   position: fixed;
-  top: 140px;
-  left: 34px;
+  top: 15.6rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  width: 12vw;
+  min-width: 12vw;
   max-height: 80vh;
   border-radius: 10px;
   background-color: rgba(200, 200, 200, 0.25);

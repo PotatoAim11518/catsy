@@ -1,19 +1,33 @@
 .pageContainer {
-  width: 100%;
+  width: 100vw;
   background-color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template:
+    "nav" "sections" auto / 1fr 4fr;
   margin-bottom: 6rem;
 }
 
-.sectionWrapper {
+.navAside {
+  grid-area: "nav";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.categorySections {
+  display: block;
+  grid-area: "sections";
+  width: 90%;
+}
+
+/* .sectionWrapper {
   width: 70%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-}
+} */
 
 .sectionHeader {
   text-align: left;

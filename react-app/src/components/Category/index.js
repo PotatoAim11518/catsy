@@ -32,13 +32,15 @@ export default function Category() {
   },[dispatch])
 
   return (
-    <>
-      <CategoryNav category_names={category_names}/>
-      <div className={styles.pageContainer}>
+    <div className={styles.pageContainer}>
+      <nav className={styles.navAside}>
+        <CategoryNav category_names={category_names}/>
+      </nav>
+      <div className={styles.categorySections}>
         {category_names?.map((category_name) =>
           <CategorySection key={category_name} category={category} category_name={category_name}/>
         )}
       </div>
-    </>
+    </div>
   )
 }
