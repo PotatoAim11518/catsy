@@ -1,0 +1,52 @@
+.pageContainer {
+  width: 100vw;
+  background-color: white;
+  display: grid;
+  grid-template:
+    "nav" "sections" auto / 1fr 4fr;
+  margin-bottom: 6rem;
+}
+
+.navAside {
+  grid-area: "nav";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.categorySections {
+  display: block;
+  grid-area: "sections";
+  width: 90%;
+}
+
+/* .sectionWrapper {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+} */
+
+.sectionHeader {
+  text-align: left;
+  width: 100%;
+  color: black;
+  text-shadow: -1px 2px 3px slategrey;
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 3rem;
+  border-bottom: 2px solid #f7c39e;
+  margin: 3rem 0 2rem 0;
+}
+
+.tileContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+  /* align-items: stretch; */
+  flex-grow: 1;
+  gap: 2rem;
+}

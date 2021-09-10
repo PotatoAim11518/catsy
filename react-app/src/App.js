@@ -13,6 +13,7 @@ import Homepage from './components/Homepage'
 import AdoptionPage from './components/AdoptionPage';
 import SearchResultsPage from './components/SearchResultsPage';
 import Footer from './components/Footer/FooterIndex';
+import Category from './components/Category';
 
 
 function App() {
@@ -48,6 +49,9 @@ function App() {
         </Route>
         <Route path='/cart' exact={true} >
           <Cart />
+        </Route>
+        <Route path='/category/:category'>
+          <Category/>
         </Route>
         <ProtectedRoute path='/adopted' exact={true} >
           <AdoptionPage />

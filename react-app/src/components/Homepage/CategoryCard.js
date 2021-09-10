@@ -5,7 +5,7 @@ const CategoryCard = ({ category, randomCatImage }) => {
   const history = useHistory();
 
   const handleCategorySearch = () => {
-    history.push(`/${category}`)
+    history.push(`/category/${category}`)
     return
   }
 
