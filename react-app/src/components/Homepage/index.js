@@ -18,7 +18,7 @@ const Homepage = () => {
   },[dispatch])
 
   return (
-      <div className="styles.homepageContainer">
+      <div className="homepageContainer">
         <ExploreCats cats={cats} category_names={category_names}/>
         <About />
         <Footer />
